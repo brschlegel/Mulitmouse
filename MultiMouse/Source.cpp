@@ -19,13 +19,9 @@ map<int, Mouse*> mice;
 void init(void)
 {
 	std::cout << ManyMouse_Init();
-	for (int i = 0; i < 7; i++)
-	{
-		std::cout << ManyMouse_DeviceName(i)<< std::endl;
-	}
 	// initialize the size of the window
-	width = 600;
-	height = 600;
+	width = 1600;
+	height = 800;
 	m = Mouse();
 	
 }
@@ -95,15 +91,33 @@ void update()
 			}
 			if (event.item == 0)
 			{
-				mice[event.device]->updateX((float)event.value/100);
+				mice[event.device]->updateX((float)event.value);
 			}
 			else 
 			{
-				mice[event.device]->updateY((float)event.value/100);
+				mice[event.device]->updateY((float)event.value);
 			}
 			break;
+		case MANYMOUSE_EVENT_BUTTON:
+			if (mice.find(event.device) == mice.end())
+			{
+				mice[event.device] = new Mouse();
+			}
+
+			if (event.item == 0)
+			{
+				mice[event.device]->leftButtonPressed = event.value;
+			}
+			else
+			{
+				mice[event.device]->rightButtonPressed = event.value;
+			}
 		}
+
+
 	}
+
+	
 	display();
 }
 

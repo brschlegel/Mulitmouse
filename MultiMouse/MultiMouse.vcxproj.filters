@@ -18,33 +18,33 @@
     <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Desktop\manymouse-master\manymouse.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Desktop\manymouse-master\linux_evdev.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Desktop\manymouse-master\macosx_hidmanager.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Desktop\manymouse-master\macosx_hidutilities.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Desktop\manymouse-master\windows_wminput.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Desktop\manymouse-master\x11_xinput2.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Mouse.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ManyMouse\linux_evdev.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ManyMouse\macosx_hidmanager.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ManyMouse\macosx_hidutilities.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ManyMouse\manymouse.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ManyMouse\windows_wminput.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ManyMouse\x11_xinput2.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\Desktop\manymouse-master\manymouse.h">
+    <ClInclude Include="Mouse.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Mouse.h">
+    <ClInclude Include="ManyMouse\manymouse.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

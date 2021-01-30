@@ -88,7 +88,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\Ben\Documents\MultiMouse\MultiMouse;C:\Users\Ben\Documents\MultiMouse\MultiMouse\Debug;C:\Users\Ben\Documents\MyLib\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Ben\Documents\MultiMouse\MultiMouse;C:\Users\Ben\Documents\MultiMouse\MultiMouse\Debug;C:\Users\Ben\Documents\MyLib\include;C:\Users\Ben\Documents\MultiMouse\MultiMouse\ManyMouse</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -142,17 +142,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\Desktop\manymouse-master\linux_evdev.c" />
-    <ClCompile Include="..\..\..\Desktop\manymouse-master\macosx_hidmanager.c" />
-    <ClCompile Include="..\..\..\Desktop\manymouse-master\macosx_hidutilities.c" />
-    <ClCompile Include="..\..\..\Desktop\manymouse-master\manymouse.c" />
-    <ClCompile Include="..\..\..\Desktop\manymouse-master\windows_wminput.c" />
-    <ClCompile Include="..\..\..\Desktop\manymouse-master\x11_xinput2.c" />
+    <ClCompile Include="ManyMouse\linux_evdev.c" />
+    <ClCompile Include="ManyMouse\macosx_hidmanager.c" />
+    <ClCompile Include="ManyMouse\macosx_hidutilities.c" />
+    <ClCompile Include="ManyMouse\manymouse.c" />
+    <ClCompile Include="ManyMouse\windows_wminput.c" />
+    <ClCompile Include="ManyMouse\x11_xinput2.c" />
     <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\Desktop\manymouse-master\manymouse.h" />
+    <ClInclude Include="ManyMouse\manymouse.h" />
     <ClInclude Include="Mouse.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

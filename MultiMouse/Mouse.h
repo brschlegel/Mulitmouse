@@ -4,10 +4,12 @@ class Mouse
 {
 public:
 	Mouse();
-	float x, y;
+	float x, y, sensitivityCoeff;
 	bool leftButtonPressed, rightButtonPressed;
 	void draw();
 	void updateX(float num);
 	void updateY(float num);
+private:
+	float prevX, prevY;
 };
 
