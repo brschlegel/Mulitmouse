@@ -5,17 +5,6 @@ VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MultiMouse", "MultiMouse\MultiMouse.vcxproj", "{0C9AC173-7445-4D1C-8D3F-E2BE2E9C151C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E857DE0E-5D88-48FE-B305-5938B028A463}"
-	ProjectSection(SolutionItems) = preProject
-		MultiMouse\ManyMouse\linux_evdev.c = MultiMouse\ManyMouse\linux_evdev.c
-		MultiMouse\ManyMouse\macosx_hidmanager.c = MultiMouse\ManyMouse\macosx_hidmanager.c
-		MultiMouse\ManyMouse\macosx_hidutilities.c = MultiMouse\ManyMouse\macosx_hidutilities.c
-		MultiMouse\ManyMouse\manymouse.c = MultiMouse\ManyMouse\manymouse.c
-		MultiMouse\ManyMouse\manymouse.h = MultiMouse\ManyMouse\manymouse.h
-		MultiMouse\ManyMouse\windows_wminput.c = MultiMouse\ManyMouse\windows_wminput.c
-		MultiMouse\ManyMouse\x11_xinput2.c = MultiMouse\ManyMouse\x11_xinput2.c
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64

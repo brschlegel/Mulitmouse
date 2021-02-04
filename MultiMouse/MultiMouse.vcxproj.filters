@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\ManyMouse">
+      <UniqueIdentifier>{f19f08aa-75b4-474f-984e-93780febf5af}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -21,22 +24,43 @@
     <ClCompile Include="Mouse.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ManyMouse\linux_evdev.c">
+    <ClCompile Include="GameObject.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PolygonObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PolygonPhysicsObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Box.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ManyMouse\linux_evdev.c">
+      <Filter>Source Files\ManyMouse</Filter>
     </ClCompile>
     <ClCompile Include="ManyMouse\macosx_hidmanager.c">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\ManyMouse</Filter>
     </ClCompile>
     <ClCompile Include="ManyMouse\macosx_hidutilities.c">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\ManyMouse</Filter>
     </ClCompile>
     <ClCompile Include="ManyMouse\manymouse.c">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\ManyMouse</Filter>
     </ClCompile>
     <ClCompile Include="ManyMouse\windows_wminput.c">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\ManyMouse</Filter>
     </ClCompile>
     <ClCompile Include="ManyMouse\x11_xinput2.c">
+      <Filter>Source Files\ManyMouse</Filter>
+    </ClCompile>
+    <ClCompile Include="Color.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Barrier.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsWorld.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -45,6 +69,27 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ManyMouse\manymouse.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PolygonObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PolygonPhysicsObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Box.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Color.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Barrier.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsWorld.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

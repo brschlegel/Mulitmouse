@@ -9,12 +9,21 @@
 #include "manymouse.h"
 #include "Mouse.h"
 #include <map>
+#include <PolygonPhysicsObject.h>
+#include <vector>
+#include "Box.h"
+#include "Color.h"
+#include "Barrier.h"
+#include "PhysicsWorld.h"
 
 using namespace std;
 // the window's width and height
 int width, height;
 Mouse m;
 map<int, Mouse*> mice;
+PhysicsWorld world = PhysicsWorld(b2Vec2(0, -10));
+
+
 
 void init(void)
 {
@@ -24,11 +33,15 @@ void init(void)
 	height = 800;
 	m = Mouse();
 	
+	world.AddRectBarrier(0, -5, 10, 1);
+	world.AddBox(0, 4, 1, Color::getRed(), .5f,.5f);
+	
 }
 
 // called when the GL context need to be rendered
 void display(void)
 {
+
 	// clear the screen to white, which is the background color
 	glClearColor(1.0, 1.0, 1.0, 0.0);
 
@@ -44,8 +57,9 @@ void display(void)
 	// Specify a color for the following object(s) that will be drawn 
 	glColor3f(1.0, 0.0, 0.0); // The color is RGB, each color channel is defined in [0, 1].
 
-	
+	world.draw();
 
+	//draw mice
 	for (map<int, Mouse*>::iterator itr = mice.begin(); itr != mice.end(); ++itr)
 	{
 		itr->second->draw();
@@ -65,12 +79,12 @@ void reshape(int w, int h)
 	//do an orthographic parallel projection, limited by screen/window size
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	gluOrtho2D(-5.0, 5.0, -5.0, 5.0); // Define the size of the canvas left =-5, right =-5, bottom =-5, top=5,
+	gluOrtho2D(-5.0 * (float(width) / float(height)), 5.0 * (float(width) / float(height)), -5.0, 5.0); // Define the size of the canvas left =-5, right =-5, bottom =-5, top=5,
 									  // so the orgin is at the center of the canvas.  
 
 	/* tell OpenGL to use the whole window for drawing */
 	glViewport(0, 0, (GLsizei)width, (GLsizei)height);
-
+	
 	glutPostRedisplay();
 }
 
@@ -107,6 +121,7 @@ void update()
 			if (event.item == 0)
 			{
 				mice[event.device]->leftButtonPressed = event.value;
+				cout << mice[event.device]->y << endl;
 			}
 			else
 			{
@@ -117,6 +132,8 @@ void update()
 
 	}
 
+	
+	world.Update();
 	
 	display();
 }
@@ -143,6 +160,7 @@ int main(int argc, char* argv[])
 	// create the window with a title
 	glutCreateWindow("First OpenGL Program");
 	glutSetCursor(GLUT_CURSOR_NONE);
+	glutFullScreen();
 	/* --- register callbacks with GLUT --- */
 
 	//register function to handle window resizes
@@ -152,6 +170,7 @@ int main(int argc, char* argv[])
 	glutDisplayFunc(display);
 
 	glutIdleFunc(update);
+
 
 	//start the glut main loop
 	glutMainLoop();

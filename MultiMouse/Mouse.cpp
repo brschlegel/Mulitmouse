@@ -1,10 +1,8 @@
 #include "Mouse.h"
 #include <iostream>
 
-Mouse::Mouse()
+Mouse::Mouse() : GameObject(0, 0)
 {
-	x = 0;
-	y = 0;
 	sensitivityCoeff = 100;
 	leftButtonPressed = false;
 	rightButtonPressed = false;

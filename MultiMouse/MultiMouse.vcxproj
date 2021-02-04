@@ -72,6 +72,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(VC_SourcePath)class;</IncludePath>
+    <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(VC_SourcePath)class</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -94,7 +96,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>C:\Users\Ben\Documents\MyLib\lib\x32</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glew32.lib;freeglut.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew32.lib;freeglut.lib;box2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -142,6 +144,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Barrier.cpp" />
+    <ClCompile Include="Box.cpp" />
+    <ClCompile Include="Color.cpp" />
+    <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="ManyMouse\linux_evdev.c" />
     <ClCompile Include="ManyMouse\macosx_hidmanager.c" />
     <ClCompile Include="ManyMouse\macosx_hidutilities.c" />
@@ -149,11 +155,21 @@
     <ClCompile Include="ManyMouse\windows_wminput.c" />
     <ClCompile Include="ManyMouse\x11_xinput2.c" />
     <ClCompile Include="Mouse.cpp" />
+    <ClCompile Include="PhysicsWorld.cpp" />
+    <ClCompile Include="PolygonObject.cpp" />
+    <ClCompile Include="PolygonPhysicsObject.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Barrier.h" />
+    <ClInclude Include="Box.h" />
+    <ClInclude Include="Color.h" />
+    <ClInclude Include="GameObject.h" />
     <ClInclude Include="ManyMouse\manymouse.h" />
     <ClInclude Include="Mouse.h" />
+    <ClInclude Include="PhysicsWorld.h" />
+    <ClInclude Include="PolygonObject.h" />
+    <ClInclude Include="PolygonPhysicsObject.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

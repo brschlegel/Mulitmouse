@@ -1,10 +1,11 @@
 #pragma once
 #include <GL/freeglut.h> //include glut for Windows
-class Mouse
+#include "GameObject.h"
+class Mouse : public GameObject
 {
 public:
 	Mouse();
-	float x, y, sensitivityCoeff;
+	float sensitivityCoeff;
 	bool leftButtonPressed, rightButtonPressed;
 	void draw();
 	void updateX(float num);
