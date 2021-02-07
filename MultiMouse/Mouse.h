@@ -1,16 +1,19 @@
 #pragma once
 #include <GL/freeglut.h> //include glut for Windows
-#include "GameObject.h"
-class Mouse : public GameObject
+#include "PolygonObject.h"
+#include "PolygonPhysicsObject.h"
+#include <iostream>
+class Mouse : public PolygonObject
 {
 public:
 	Mouse();
 	float sensitivityCoeff;
 	bool leftButtonPressed, rightButtonPressed;
-	void draw();
 	void updateX(float num);
 	void updateY(float num);
+	void update();
+	PolygonPhysicsObject* physicsSelect;
+	void releasePhysicsSelect();
 private:
-	float prevX, prevY;
 };
 

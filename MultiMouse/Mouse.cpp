@@ -1,31 +1,47 @@
 #include "Mouse.h"
+#include "PolygonObject.h"
 #include <iostream>
 
-Mouse::Mouse() : GameObject(0, 0)
+Mouse::Mouse() : PolygonObject(0, 0,Color::getBlue(),0)
 {
 	sensitivityCoeff = 100;
 	leftButtonPressed = false;
+	physicsSelect = NULL;
 	rightButtonPressed = false;
+	setShapeAsBox(.25f, .25f);
 }
 
-void Mouse::draw()
-{
-	glColor3f(0.0, 1.0, 1.0);
-	// We draw a point at the origin of the drawing canvas; thus, its coordinates should be (0, 0).
-	glPointSize(30.0f); // define the size of the point - the diameter of rasterized points. the default value is 1.
-	glBegin(GL_POINTS);
-	glVertex2f(x, y);
-	glEnd();
-}
+
 
 void Mouse::updateX(float num)
 {
-
-	x += num/sensitivityCoeff;
-	
+	x += (num/sensitivityCoeff);
 }
 
 void Mouse::updateY(float num)
 {
 	y -= num/sensitivityCoeff;
+}
+
+void Mouse::update()
+{
+	if (physicsSelect != NULL)
+	{
+		//physicsSelect->body->SetTransform(b2Vec2(x, y), 0);
+		b2Vec2 selectPos = physicsSelect->body->GetPosition();
+		b2Vec2 desiredVel = b2Vec2(x - selectPos.x, y - selectPos.y);
+		desiredVel *= 40.0f;
+		physicsSelect->body->SetLinearVelocity(desiredVel);
+	}
+}
+
+
+void Mouse::releasePhysicsSelect()
+{
+	physicsSelect->body->SetType(b2_dynamicBody);
+	
+	//physicsSelect->body->ApplyForceToCenter(101 * velocity, true);
+
+	physicsSelect = NULL;
+	
 }

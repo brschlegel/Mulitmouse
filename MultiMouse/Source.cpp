@@ -23,6 +23,9 @@ Mouse m;
 map<int, Mouse*> mice;
 PhysicsWorld world = PhysicsWorld(b2Vec2(0, -10));
 
+// tracking the game time - millisecond 
+unsigned int curTime = 0;
+unsigned int preTime = 0;
 
 
 void init(void)
@@ -90,6 +93,8 @@ void reshape(int w, int h)
 
 void update()
 {
+	curTime = glutGet(GLUT_ELAPSED_TIME); // returns the number of milliseconds since glutInit() was called.
+	float deltaTime = (float)(curTime - preTime) / 1000.0f; // frame-different time in seconds
 	ManyMouseEvent event;
 	while (ManyMouse_PollEvent(&event) != 0)
 	{
@@ -121,21 +126,57 @@ void update()
 			if (event.item == 0)
 			{
 				mice[event.device]->leftButtonPressed = event.value;
-				cout << mice[event.device]->y << endl;
+				//mice[event.device]->physicsSelect = NULL;
+				if (!event.value && mice[event.device]->physicsSelect != NULL)
+				{
+					mice[event.device]->releasePhysicsSelect();
+				}
 			}
 			else
 			{
 				mice[event.device]->rightButtonPressed = event.value;
+				world.AddBox(0, 4, 1, Color::getRed(), .5f, .5f);
 			}
 		}
 
 
 	}
 
+	//collisions
+	for (int j = 0; j < world.bodies.size(); j++)
+	{
+		for (map<int, Mouse*>::iterator itr = mice.begin(); itr != mice.end(); ++itr)
+		{
+			b2AABB a;
+			b2Transform t;
+			t.Set(b2Vec2(itr->second->x, itr->second->y), 0);
+			itr->second->shape.ComputeAABB(&a,t,0);
+			b2AABB b;
+			b2Transform bt = world.bodies[j]->body->GetTransform();
+			
+			world.bodies[j]->shape.ComputeAABB(&b, bt, 0);
+			if (b2TestOverlap(a, b))
+			{
+				if (itr->second->leftButtonPressed && itr->second->physicsSelect == NULL)
+				{
+					world.bodies[j]->body->SetType(b2_kinematicBody);
+					world.bodies[j]->body->SetLinearVelocity(b2Vec2_zero);
+					itr->second->physicsSelect = world.bodies[j];
+					
+				}
+			}
+		}
+	}
+	//draw mice
+	for (map<int, Mouse*>::iterator itr = mice.begin(); itr != mice.end(); ++itr)
+	{
+		itr->second->update();
+	}
 	
 	world.Update();
 	
 	display();
+	preTime = curTime; // make the curTime become the preTime for the next frame
 }
 
 
