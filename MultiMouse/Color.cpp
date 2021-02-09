@@ -2,10 +2,17 @@
 
 Color::Color(float r, float g, float b)
 {
-	
 	this->r = convertIfLarge(r);
 	this->g = convertIfLarge(g);
 	this->b = convertIfLarge(b);
+}
+
+//gives a test pink as a default
+Color::Color()
+{
+	this->r = convertIfLarge(255.0f);
+	this->g = convertIfLarge(0.0f);
+	this->b = convertIfLarge(179.0f);
 }
 
 //Converts the value to between 0 and 1 if its in rgb
@@ -21,15 +28,15 @@ float Color::convertIfLarge(float num)
 
 Color Color::getRed()
 {
-	return Color(1,0,0);
+	return Color(255, 49, 31);
 }
 
 Color Color::getGreen()
 {
-	return Color(0,1,0);
+	return Color(58, 204, 45);
 }
 
 Color Color::getBlue()
 {
-	return Color(0,0,1);
+	return Color(31, 147, 255);
 }

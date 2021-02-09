@@ -6,7 +6,7 @@
 class Mouse : public PolygonObject
 {
 public:
-	Mouse();
+	Mouse(Color color);
 	float sensitivityCoeff;
 	bool leftButtonPressed, rightButtonPressed;
 	void updateX(float num);

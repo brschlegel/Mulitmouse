@@ -2,7 +2,7 @@
 #include "PolygonObject.h"
 #include <iostream>
 
-Mouse::Mouse() : PolygonObject(0, 0,Color::getBlue(),0)
+Mouse::Mouse(Color color) : PolygonObject(0, 0,color,0)
 {
 	sensitivityCoeff = 100;
 	leftButtonPressed = false;

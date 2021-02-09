@@ -1,4 +1,18 @@
-﻿  Mouse.cpp
+﻿  Barrier.cpp
+  Box.cpp
+  Color.cpp
+  GameObject.cpp
+  Mouse.cpp
+  MouseManager.cpp
+  PhysicsWorld.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\PhysicsWorld.cpp(35,23): warning C4018: '<': signed/unsigned mismatch
+  PolygonObject.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\PolygonObject.cpp(16,20): warning C4018: '<': signed/unsigned mismatch
+  PolygonPhysicsObject.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\PolygonPhysicsObject.cpp(29,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\PolygonPhysicsObject.cpp(37,20): warning C4018: '<': signed/unsigned mismatch
+  Source.cpp
+  Generating Code...
 box2d.lib(b2ChainShape.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'box2d.lib(b2ChainShape.obj)' or at 'C:\Users\Ben\Documents\MultiMouse\Debug\Box2D.pdb'; linking object as if no debug info
 box2d.lib(b2EdgeShape.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'box2d.lib(b2EdgeShape.obj)' or at 'C:\Users\Ben\Documents\MultiMouse\Debug\Box2D.pdb'; linking object as if no debug info
 box2d.lib(b2PolygonShape.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'box2d.lib(b2PolygonShape.obj)' or at 'C:\Users\Ben\Documents\MultiMouse\Debug\Box2D.pdb'; linking object as if no debug info

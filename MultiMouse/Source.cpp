@@ -15,12 +15,12 @@
 #include "Color.h"
 #include "Barrier.h"
 #include "PhysicsWorld.h"
+#include "MouseManager.h"
 
 using namespace std;
 // the window's width and height
 int width, height;
-Mouse m;
-map<int, Mouse*> mice;
+MouseManager mouseManager;
 PhysicsWorld world = PhysicsWorld(b2Vec2(0, -10));
 
 // tracking the game time - millisecond 
@@ -30,12 +30,11 @@ unsigned int preTime = 0;
 
 void init(void)
 {
-	std::cout << ManyMouse_Init();
+
 	// initialize the size of the window
 	width = 1600;
 	height = 800;
-	m = Mouse();
-	
+	mouseManager = MouseManager();
 	world.AddRectBarrier(0, -5, 10, 1);
 	world.AddBox(0, 4, 1, Color::getRed(), .5f,.5f);
 	
@@ -61,12 +60,8 @@ void display(void)
 	glColor3f(1.0, 0.0, 0.0); // The color is RGB, each color channel is defined in [0, 1].
 
 	world.draw();
-
-	//draw mice
-	for (map<int, Mouse*>::iterator itr = mice.begin(); itr != mice.end(); ++itr)
-	{
-		itr->second->draw();
-	}
+	mouseManager.draw();
+	
 
 	glutSwapBuffers(); // This example uses double framebuffers. This instructs the app that the current frame is finished and ready to display.
 					   // The app then knows to swap it with the other buffer which was just displayed so that the display function can begin working on that buffer
@@ -95,83 +90,35 @@ void update()
 {
 	curTime = glutGet(GLUT_ELAPSED_TIME); // returns the number of milliseconds since glutInit() was called.
 	float deltaTime = (float)(curTime - preTime) / 1000.0f; // frame-different time in seconds
-	ManyMouseEvent event;
-	while (ManyMouse_PollEvent(&event) != 0)
-	{
-		switch (event.type)
-		{
 
-		case MANYMOUSE_EVENT_RELMOTION:
-			//std::cout << "rel motion" << std::endl;
-			//std::cout << "device: " << event.device << " item: " << event.item << " value: " << event.value << std::endl;
-			if (mice.find(event.device) == mice.end())
-			{
-				mice[event.device] = new Mouse();
-			}
-			if (event.item == 0)
-			{
-				mice[event.device]->updateX((float)event.value);
-			}
-			else 
-			{
-				mice[event.device]->updateY((float)event.value);
-			}
-			break;
-		case MANYMOUSE_EVENT_BUTTON:
-			if (mice.find(event.device) == mice.end())
-			{
-				mice[event.device] = new Mouse();
-			}
-
-			if (event.item == 0)
-			{
-				mice[event.device]->leftButtonPressed = event.value;
-				//mice[event.device]->physicsSelect = NULL;
-				if (!event.value && mice[event.device]->physicsSelect != NULL)
-				{
-					mice[event.device]->releasePhysicsSelect();
-				}
-			}
-			else
-			{
-				mice[event.device]->rightButtonPressed = event.value;
-				world.AddBox(0, 4, 1, Color::getRed(), .5f, .5f);
-			}
-		}
-
-
-	}
+	mouseManager.update();
 
 	//collisions
-	for (int j = 0; j < world.bodies.size(); j++)
+	for (unsigned int j = 0; j < world.bodies.size(); j++)
 	{
-		for (map<int, Mouse*>::iterator itr = mice.begin(); itr != mice.end(); ++itr)
+		for (unsigned int i = 0; i < mouseManager.mice.size(); i++)
 		{
 			b2AABB a;
 			b2Transform t;
-			t.Set(b2Vec2(itr->second->x, itr->second->y), 0);
-			itr->second->shape.ComputeAABB(&a,t,0);
+			t.Set(b2Vec2(mouseManager.mice[i]->x, mouseManager.mice[i]->y), 0);
+			mouseManager.mice[i]->shape.ComputeAABB(&a,t,0);
 			b2AABB b;
 			b2Transform bt = world.bodies[j]->body->GetTransform();
 			
 			world.bodies[j]->shape.ComputeAABB(&b, bt, 0);
 			if (b2TestOverlap(a, b))
 			{
-				if (itr->second->leftButtonPressed && itr->second->physicsSelect == NULL)
+				if (mouseManager.mice[i]->leftButtonPressed && mouseManager.mice[i]->physicsSelect == NULL)
 				{
 					world.bodies[j]->body->SetType(b2_kinematicBody);
 					world.bodies[j]->body->SetLinearVelocity(b2Vec2_zero);
-					itr->second->physicsSelect = world.bodies[j];
+					mouseManager.mice[i]->physicsSelect = world.bodies[j];
 					
 				}
 			}
 		}
 	}
-	//draw mice
-	for (map<int, Mouse*>::iterator itr = mice.begin(); itr != mice.end(); ++itr)
-	{
-		itr->second->update();
-	}
+	
 	
 	world.Update();
 	
