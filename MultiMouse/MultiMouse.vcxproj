@@ -146,8 +146,10 @@
   <ItemGroup>
     <ClCompile Include="Barrier.cpp" />
     <ClCompile Include="Box.cpp" />
+    <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="Goal.cpp" />
     <ClCompile Include="ManyMouse\linux_evdev.c" />
     <ClCompile Include="ManyMouse\macosx_hidmanager.c" />
     <ClCompile Include="ManyMouse\macosx_hidutilities.c" />
@@ -160,18 +162,23 @@
     <ClCompile Include="PolygonObject.cpp" />
     <ClCompile Include="PolygonPhysicsObject.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Trigger.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Barrier.h" />
     <ClInclude Include="Box.h" />
+    <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Goal.h" />
     <ClInclude Include="ManyMouse\manymouse.h" />
     <ClInclude Include="Mouse.h" />
     <ClInclude Include="MouseManager.h" />
+    <ClInclude Include="Physics.h" />
     <ClInclude Include="PhysicsWorld.h" />
     <ClInclude Include="PolygonObject.h" />
     <ClInclude Include="PolygonPhysicsObject.h" />
+    <ClInclude Include="Trigger.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

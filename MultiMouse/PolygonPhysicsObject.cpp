@@ -3,7 +3,7 @@
 PolygonPhysicsObject::PolygonPhysicsObject(float x, float y,  float mass, Color color,float angle) : PolygonObject(x,y,color, angle)
 {
 	
-	
+	selected = false;
 	def.position.Set(x, y);
 	def.angle = angle * b2_pi;
 	this->mass = mass;
@@ -32,8 +32,10 @@ void PolygonPhysicsObject::draw()
 	}
 	glEnd();
 	//adding a bit of padding due to polygon skinning in box 2d
+	if (selected)
+		glColor3f(0, 0, 0);
 	glLineWidth(2);
-	glBegin(GL_LINES);
+	glBegin(GL_LINE_LOOP);
 	for (int i = 0; i < vertices.size(); i++)
 	{
 		glVertex2f(vertices[i].x, vertices[i].y);

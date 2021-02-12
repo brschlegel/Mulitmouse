@@ -33,9 +33,6 @@ void MouseManager::update()
 		{
 
 		case MANYMOUSE_EVENT_RELMOTION:
-				
-			
-		
 			if (event.item == 0)
 			{
 				miceDeviceMap[event.device]->updateX((float)event.value);

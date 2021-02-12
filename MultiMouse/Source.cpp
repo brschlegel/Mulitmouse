@@ -4,28 +4,25 @@
 #include <GL/freeglut.h> //include glut for Windows
 #endif
 
-#include <Windows.h>
+
 #include <iostream>
-#include "manymouse.h"
-#include "Mouse.h"
 #include <map>
-#include <PolygonPhysicsObject.h>
 #include <vector>
-#include "Box.h"
 #include "Color.h"
-#include "Barrier.h"
-#include "PhysicsWorld.h"
 #include "MouseManager.h"
+#include "Physics.h"
+#include "Goal.h"
+#include "CollisionManager.h"
+#include <memory>
 
 using namespace std;
 // the window's width and height
 int width, height;
 MouseManager mouseManager;
 PhysicsWorld world = PhysicsWorld(b2Vec2(0, -10));
-
-// tracking the game time - millisecond 
-unsigned int curTime = 0;
-unsigned int preTime = 0;
+CollisionManager collisionManager = CollisionManager(&world, &mouseManager);
+Goal g = Goal(-2, 2, Color::getGreen(), 1, 1);
+bool warpPointer = true;
 
 
 void init(void)
@@ -35,9 +32,14 @@ void init(void)
 	width = 1600;
 	height = 800;
 	mouseManager = MouseManager();
-	world.AddRectBarrier(0, -5, 10, 1);
-	world.AddBox(0, 4, 1, Color::getRed(), .5f,.5f);
+	world.AddRectBarrier(0, -5, 20, 1);
+	world.AddRectBarrier(0, 5, 20, 1);
+	world.AddRectBarrier(-9, 0, 1, 10);
+	world.AddRectBarrier(9, 0, 1, 10);
 	
+	world.AddBox(0, 4, 1, Color::getRed(), .5f,.5f);
+	collisionManager.buildGoal(-2, 2, 1, 1, Color::getGreen());
+
 }
 
 // called when the GL context need to be rendered
@@ -61,7 +63,7 @@ void display(void)
 
 	world.draw();
 	mouseManager.draw();
-	
+	collisionManager.draw();
 
 	glutSwapBuffers(); // This example uses double framebuffers. This instructs the app that the current frame is finished and ready to display.
 					   // The app then knows to swap it with the other buffer which was just displayed so that the display function can begin working on that buffer
@@ -86,44 +88,36 @@ void reshape(int w, int h)
 	glutPostRedisplay();
 }
 
+void keyboard(unsigned char key, int x, int y)
+{
+	if (key == 27) {
+		exit(0);
+	}
+
+	if (key == 'b') {
+		world.AddBox(0, 4, 1, Color::getRed(), .5f, .5f);
+	}
+
+	if (key == 'w') {
+		warpPointer = !warpPointer;
+	}
+	glutPostRedisplay();
+}
+
+
 void update()
 {
-	curTime = glutGet(GLUT_ELAPSED_TIME); // returns the number of milliseconds since glutInit() was called.
-	float deltaTime = (float)(curTime - preTime) / 1000.0f; // frame-different time in seconds
-
 	mouseManager.update();
-
-	//collisions
-	for (unsigned int j = 0; j < world.bodies.size(); j++)
-	{
-		for (unsigned int i = 0; i < mouseManager.mice.size(); i++)
-		{
-			b2AABB a;
-			b2Transform t;
-			t.Set(b2Vec2(mouseManager.mice[i]->x, mouseManager.mice[i]->y), 0);
-			mouseManager.mice[i]->shape.ComputeAABB(&a,t,0);
-			b2AABB b;
-			b2Transform bt = world.bodies[j]->body->GetTransform();
-			
-			world.bodies[j]->shape.ComputeAABB(&b, bt, 0);
-			if (b2TestOverlap(a, b))
-			{
-				if (mouseManager.mice[i]->leftButtonPressed && mouseManager.mice[i]->physicsSelect == NULL)
-				{
-					world.bodies[j]->body->SetType(b2_kinematicBody);
-					world.bodies[j]->body->SetLinearVelocity(b2Vec2_zero);
-					mouseManager.mice[i]->physicsSelect = world.bodies[j];
-					
-				}
-			}
-		}
+	//keep the mouse from going off screen
+	if (warpPointer) {
+		glutWarpPointer(width / 2, height / 2);
 	}
-	
-	
+	//collisions
+
 	world.Update();
-	
+	collisionManager.update();
 	display();
-	preTime = curTime; // make the curTime become the preTime for the next frame
+	
 }
 
 
@@ -156,7 +150,7 @@ int main(int argc, char* argv[])
 
 	//register function that draws in the window
 	glutDisplayFunc(display);
-
+	glutKeyboardFunc(keyboard);
 	glutIdleFunc(update);
 
 

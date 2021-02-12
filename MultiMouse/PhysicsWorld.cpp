@@ -37,3 +37,20 @@ void PhysicsWorld::draw()
         bodies[i]->draw();
     }
 }
+
+void PhysicsWorld::deleteObject(int index)
+{
+    PolygonPhysicsObject* object = bodies[index];
+    bodies.erase(bodies.begin() + index);
+    world->DestroyBody(object->body);
+    delete (object);
+}
+
+void PhysicsWorld::deleteObject(PolygonPhysicsObject* object)
+{
+    bodies.erase(std::find(bodies.begin(), bodies.end(), object));
+    world->DestroyBody(object->body);
+    delete(object);
+}
+
+

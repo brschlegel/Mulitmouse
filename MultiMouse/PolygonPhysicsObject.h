@@ -9,6 +9,7 @@ public:
     float mass;
     b2BodyDef def;
     void draw();
+    bool selected;
     void setShapeAsBox(float width, float height);
 ;};
 

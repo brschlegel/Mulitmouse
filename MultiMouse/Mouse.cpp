@@ -39,9 +39,7 @@ void Mouse::update()
 void Mouse::releasePhysicsSelect()
 {
 	physicsSelect->body->SetType(b2_dynamicBody);
-	
-	//physicsSelect->body->ApplyForceToCenter(101 * velocity, true);
-
+	physicsSelect->selected = false;
 	physicsSelect = NULL;
 	
 }
