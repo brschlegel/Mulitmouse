@@ -1,16 +1,2 @@
-﻿  Barrier.cpp
-  Box.cpp
-  CollisionManager.cpp
-C:\Users\Ben\Documents\MultiMouse\MultiMouse\CollisionManager.cpp(59,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Ben\Documents\MultiMouse\MultiMouse\CollisionManager.cpp(88,20): warning C4018: '<': signed/unsigned mismatch
-  Goal.cpp
-  Mouse.cpp
-  MouseManager.cpp
-  PhysicsWorld.cpp
-C:\Users\Ben\Documents\MultiMouse\MultiMouse\PhysicsWorld.cpp(35,23): warning C4018: '<': signed/unsigned mismatch
-  PolygonPhysicsObject.cpp
-C:\Users\Ben\Documents\MultiMouse\MultiMouse\PolygonPhysicsObject.cpp(29,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Ben\Documents\MultiMouse\MultiMouse\PolygonPhysicsObject.cpp(39,20): warning C4018: '<': signed/unsigned mismatch
-  Source.cpp
-  Generating Code...
+﻿  Source.cpp
   MultiMouse.vcxproj -> C:\Users\Ben\Documents\MultiMouse\Debug\MultiMouse.exe

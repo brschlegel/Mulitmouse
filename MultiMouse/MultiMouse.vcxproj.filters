@@ -19,6 +19,12 @@
     <Filter Include="Header Files\Physics">
       <UniqueIdentifier>{858d1b95-94bd-4376-9c69-f6016dce4c04}</UniqueIdentifier>
     </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{edf5c7a7-d63a-4710-8030-29d9b092ded6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UI">
+      <UniqueIdentifier>{133f2f44-1dae-4e99-9fcc-854f8e52611e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -78,6 +84,12 @@
     <ClCompile Include="CollisionManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="UIManager.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Text.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Mouse.h">
@@ -120,6 +132,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CollisionManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UIManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Text.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MyLib\oglft-0.9\liboglft\OGLFT.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,8 +1,4 @@
-#ifdef __APPLE__
-#include <GLUT/glut.h> // include glut for Mac
-#else
-#include <GL/freeglut.h> //include glut for Windows
-#endif
+
 
 
 #include <iostream>
@@ -13,33 +9,53 @@
 #include "Physics.h"
 #include "Goal.h"
 #include "CollisionManager.h"
-#include <memory>
+#include "UIManager.h"
+
+
+#define SFML_STATIC
+
+#include <SFML/Window.hpp>
+
+#include <SFML/Graphics.hpp>
+#include <SFML/OpenGL.hpp>
+
 
 using namespace std;
-// the window's width and height
+
 int width, height;
 MouseManager mouseManager;
 PhysicsWorld world = PhysicsWorld(b2Vec2(0, -10));
 CollisionManager collisionManager = CollisionManager(&world, &mouseManager);
+UIManager uiManager = UIManager();
 Goal g = Goal(-2, 2, Color::getGreen(), 1, 1);
 bool warpPointer = true;
+
+
+// the window's width and height
+
+
+
+
 
 
 void init(void)
 {
 
 	// initialize the size of the window
-	width = 1600;
-	height = 800;
+	
+
 	mouseManager = MouseManager();
 	world.AddRectBarrier(0, -5, 20, 1);
-	world.AddRectBarrier(0, 5, 20, 1);
+	world.AddRectBarrier(1, 5, 20, 1);
 	world.AddRectBarrier(-9, 0, 1, 10);
 	world.AddRectBarrier(9, 0, 1, 10);
+	world.AddRectBarrier(0, 0, 1, 1);
 	
 	world.AddBox(0, 4, 1, Color::getRed(), .5f,.5f);
 	collisionManager.buildGoal(-2, 2, 1, 1, Color::getGreen());
 
+
+	
 }
 
 // called when the GL context need to be rendered
@@ -60,13 +76,18 @@ void display(void)
 
 	// Specify a color for the following object(s) that will be drawn 
 	glColor3f(1.0, 0.0, 0.0); // The color is RGB, each color channel is defined in [0, 1].
-
+	glPushMatrix();
 	world.draw();
 	mouseManager.draw();
 	collisionManager.draw();
+	glColor3f(1.0, 0.0, 0.0); // The color is RGB, each color channel is defined in [0, 1].
+	
+	
+	glPopMatrix();
 
-	glutSwapBuffers(); // This example uses double framebuffers. This instructs the app that the current frame is finished and ready to display.
-					   // The app then knows to swap it with the other buffer which was just displayed so that the display function can begin working on that buffer
+	//glutSwapBuffers(); // This example uses double framebuffers. This instructs the app that the current frame is finished and ready to display.
+
+	
 }
 
 // called when window is first created or when window is resized
@@ -82,36 +103,18 @@ void reshape(int w, int h)
 	gluOrtho2D(-5.0 * (float(width) / float(height)), 5.0 * (float(width) / float(height)), -5.0, 5.0); // Define the size of the canvas left =-5, right =-5, bottom =-5, top=5,
 									  // so the orgin is at the center of the canvas.  
 
-	/* tell OpenGL to use the whole window for drawing */
+	
 	glViewport(0, 0, (GLsizei)width, (GLsizei)height);
 	
-	glutPostRedisplay();
 }
 
-void keyboard(unsigned char key, int x, int y)
-{
-	if (key == 27) {
-		exit(0);
-	}
-
-	if (key == 'b') {
-		world.AddBox(0, 4, 1, Color::getRed(), .5f, .5f);
-	}
-
-	if (key == 'w') {
-		warpPointer = !warpPointer;
-	}
-	glutPostRedisplay();
-}
 
 
 void update()
 {
 	mouseManager.update();
 	//keep the mouse from going off screen
-	if (warpPointer) {
-		glutWarpPointer(width / 2, height / 2);
-	}
+	
 	//collisions
 
 	world.Update();
@@ -120,42 +123,84 @@ void update()
 	
 }
 
-
-
-int main(int argc, char* argv[])
+int main()
 {
-	// before create a glut window,
-	// initialize stuff not opengl/glut dependent
+
+	// create the window
+	//sf::Window window(sf::VideoMode::getFullscreenModes()[0], "OpenGL", sf::Style::Fullscreen, sf::ContextSettings(24));
+	sf::Window window(sf::VideoMode::getFullscreenModes()[0], "OpenGL", sf::Style::Fullscreen, sf::ContextSettings(24));
+
+	window.setVerticalSyncEnabled(true);
+	window.setMouseCursorVisible(false);
+
+	width = window.getSize().x;
+	height = window.getSize().y;
+
+	// activate the window
+	window.setActive(true);
+
 	init();
 
-	//initialize GLUT, let it extract command-line GLUT options that you may provide
-	//NOTE that the '&' before argc
-	glutInit(&argc, argv);
+	reshape(width, height);
+
+	// run the main loop
+	bool running =true;
+	while (running)
+	{
+		//keyboard functions
 	
-	// specify as double bufferred can make the display faster
-	// Color is speicfied to RGBA, four color channels with Red, Green, Blue and Alpha(depth)
-	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA);
 
-	//set the initial window size */
-	glutInitWindowSize((int)width, (int)height);
+	
+		// handle events
+		sf::Event event;
+		while (window.pollEvent(event))
+		{
 
-	// create the window with a title
-	glutCreateWindow("First OpenGL Program");
-	glutSetCursor(GLUT_CURSOR_NONE);
-	glutFullScreen();
-	/* --- register callbacks with GLUT --- */
+			switch (event.type)
+			{
+			case sf::Event::Closed:
+				running = false;
+				break;
+			case sf::Event::KeyPressed:
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
 
-	//register function to handle window resizes
-	glutReshapeFunc(reshape);
+					running = false;
+				}
 
-	//register function that draws in the window
-	glutDisplayFunc(display);
-	glutKeyboardFunc(keyboard);
-	glutIdleFunc(update);
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
+					world.AddBox(0, 4, 1, Color::getRed(), .5f, .5f);
+				}
 
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
+					warpPointer = !warpPointer;
+				}
+				break;
+			case sf::Event::Resized:
+				// adjust the viewport when the window is resized
+				glViewport(0, 0, event.size.width, event.size.height);
+				reshape(event.size.width, event.size.height);
+			}
+			
+		
+		}
+		update();
+		if (warpPointer)
+		{
+			sf::Mouse::setPosition(sf::Vector2i(width / 2, height / 2));
+		}
+		// clear the buffers
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	//start the glut main loop
-	glutMainLoop();
+		// draw...
+		display();
+		// end the current frame (internally swaps the front and back buffers)
+		window.display();
+	}
+
+	// release resources...
 
 	return 0;
 }
+
+
+

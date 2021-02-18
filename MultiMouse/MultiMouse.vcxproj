@@ -72,7 +72,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(VC_SourcePath)class;</IncludePath>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(VC_SourcePath)class;C:\Users\Ben\Downloads\ft2104\freetype-2.10.4\include</IncludePath>
     <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(VC_SourcePath)class</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -90,13 +90,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\Ben\Documents\MultiMouse\MultiMouse;C:\Users\Ben\Documents\MultiMouse\MultiMouse\Debug;C:\Users\Ben\Documents\MyLib\include;C:\Users\Ben\Documents\MultiMouse\MultiMouse\ManyMouse</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Ben\Documents\MultiMouse\MultiMouse;C:\Users\Ben\Documents\MultiMouse\MultiMouse\Debug;C:\Users\Ben\Documents\MyLib\include;C:\Users\Ben\Documents\MultiMouse\MultiMouse\ManyMouse;C:\Users\Ben\Documents\MyLib\SFML-2.5.1\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\Ben\Documents\MyLib\lib\x32</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glew32.lib;freeglut.lib;box2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\Ben\Documents\MyLib\SFML-2.5.1\lib;C:\Users\Ben\Documents\MyLib\lib\x32</AdditionalLibraryDirectories>
+      <AdditionalDependencies>box2d.lib;freetype.lib;sfml-graphics-s-d.lib;sfml-window-s-d.lib;sfml-system-s-d.lib;opengl32.lib;winmm.lib;gdi32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -162,9 +162,12 @@
     <ClCompile Include="PolygonObject.cpp" />
     <ClCompile Include="PolygonPhysicsObject.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Text.cpp" />
     <ClCompile Include="Trigger.cpp" />
+    <ClCompile Include="UIManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\MyLib\oglft-0.9\liboglft\OGLFT.h" />
     <ClInclude Include="Barrier.h" />
     <ClInclude Include="Box.h" />
     <ClInclude Include="CollisionManager.h" />
@@ -178,7 +181,9 @@
     <ClInclude Include="PhysicsWorld.h" />
     <ClInclude Include="PolygonObject.h" />
     <ClInclude Include="PolygonPhysicsObject.h" />
+    <ClInclude Include="Text.h" />
     <ClInclude Include="Trigger.h" />
+    <ClInclude Include="UIManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
