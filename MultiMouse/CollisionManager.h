@@ -14,6 +14,7 @@ public:
 	MouseManager* mouseManager;
 	std::vector<Trigger*> triggers;
 	CollisionManager(PhysicsWorld* world, MouseManager* mouseManager);
+	CollisionManager();
 	Goal* buildGoal(float x, float y, Color color);
 	Goal* buildGoal(float x, float y, float width, float height, Color color);
 	void update();

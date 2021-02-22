@@ -150,6 +150,9 @@
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Goal.cpp" />
+    <ClCompile Include="Label.cpp" />
+    <ClCompile Include="Level.cpp" />
+    <ClCompile Include="LevelManager.cpp" />
     <ClCompile Include="ManyMouse\linux_evdev.c" />
     <ClCompile Include="ManyMouse\macosx_hidmanager.c" />
     <ClCompile Include="ManyMouse\macosx_hidutilities.c" />
@@ -162,7 +165,7 @@
     <ClCompile Include="PolygonObject.cpp" />
     <ClCompile Include="PolygonPhysicsObject.cpp" />
     <ClCompile Include="Source.cpp" />
-    <ClCompile Include="Text.cpp" />
+    <ClCompile Include="Timer.cpp" />
     <ClCompile Include="Trigger.cpp" />
     <ClCompile Include="UIManager.cpp" />
   </ItemGroup>
@@ -174,6 +177,9 @@
     <ClInclude Include="Color.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Goal.h" />
+    <ClInclude Include="Label.h" />
+    <ClInclude Include="Level.h" />
+    <ClInclude Include="LevelManager.h" />
     <ClInclude Include="ManyMouse\manymouse.h" />
     <ClInclude Include="Mouse.h" />
     <ClInclude Include="MouseManager.h" />
@@ -181,7 +187,7 @@
     <ClInclude Include="PhysicsWorld.h" />
     <ClInclude Include="PolygonObject.h" />
     <ClInclude Include="PolygonPhysicsObject.h" />
-    <ClInclude Include="Text.h" />
+    <ClInclude Include="Timer.h" />
     <ClInclude Include="Trigger.h" />
     <ClInclude Include="UIManager.h" />
   </ItemGroup>

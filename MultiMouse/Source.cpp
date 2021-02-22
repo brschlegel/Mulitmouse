@@ -10,7 +10,8 @@
 #include "Goal.h"
 #include "CollisionManager.h"
 #include "UIManager.h"
-
+#include "Level.h"
+#include "LevelManager.h"
 
 #define SFML_STATIC
 
@@ -24,13 +25,14 @@ using namespace std;
 
 int width, height;
 MouseManager mouseManager;
-PhysicsWorld world = PhysicsWorld(b2Vec2(0, -10));
+PhysicsWorld world = PhysicsWorld();
 CollisionManager collisionManager = CollisionManager(&world, &mouseManager);
+LevelManager levelManager = LevelManager(&mouseManager);
 UIManager uiManager = UIManager();
 Goal g = Goal(-2, 2, Color::getGreen(), 1, 1);
 bool warpPointer = true;
 
-
+Level* currentLevel = levelManager.levels[LevelName::DebugLevel];
 // the window's width and height
 
 
@@ -45,21 +47,22 @@ void init(void)
 	
 
 	mouseManager = MouseManager();
-	world.AddRectBarrier(0, -5, 20, 1);
-	world.AddRectBarrier(1, 5, 20, 1);
-	world.AddRectBarrier(-9, 0, 1, 10);
-	world.AddRectBarrier(9, 0, 1, 10);
-	world.AddRectBarrier(0, 0, 1, 1);
 	
-	world.AddBox(0, 4, 1, Color::getRed(), .5f,.5f);
-	collisionManager.buildGoal(-2, 2, 1, 1, Color::getGreen());
-
+	currentLevel->world.AddRectBarrier(0, -5, 20, 1);
+	currentLevel->world.AddRectBarrier(1, 5, 20, 1);
+	currentLevel->world.AddRectBarrier(-9, 0, 1, 10);
+	currentLevel->world.AddRectBarrier(9, 0, 1, 10);
+	currentLevel->world.AddRectBarrier(0, 0, 1, 1);
+				
+	currentLevel->world.AddBox(0, 4, 1, Color::getRed(), .5f,.5f);
+	currentLevel->collisions.buildGoal(-2, 2, 1, 1, Color::getGreen());
+	
 
 	
 }
 
 // called when the GL context need to be rendered
-void display(void)
+void display(sf::RenderWindow* window)
 {
 
 	// clear the screen to white, which is the background color
@@ -77,10 +80,10 @@ void display(void)
 	// Specify a color for the following object(s) that will be drawn 
 	glColor3f(1.0, 0.0, 0.0); // The color is RGB, each color channel is defined in [0, 1].
 	glPushMatrix();
-	world.draw();
+	
 	mouseManager.draw();
-	collisionManager.draw();
-	glColor3f(1.0, 0.0, 0.0); // The color is RGB, each color channel is defined in [0, 1].
+	currentLevel->draw(window);
+
 	
 	
 	glPopMatrix();
@@ -116,11 +119,9 @@ void update()
 	//keep the mouse from going off screen
 	
 	//collisions
-
-	world.Update();
-	collisionManager.update();
-	display();
-	
+	//world.Update();
+	//collisionManager.update();
+	currentLevel->update();
 }
 
 int main()
@@ -128,7 +129,7 @@ int main()
 
 	// create the window
 	//sf::Window window(sf::VideoMode::getFullscreenModes()[0], "OpenGL", sf::Style::Fullscreen, sf::ContextSettings(24));
-	sf::Window window(sf::VideoMode::getFullscreenModes()[0], "OpenGL", sf::Style::Fullscreen, sf::ContextSettings(24));
+	sf::RenderWindow window(sf::VideoMode::getFullscreenModes()[0], "OpenGL", sf::Style::Fullscreen, sf::ContextSettings(24));
 
 	window.setVerticalSyncEnabled(true);
 	window.setMouseCursorVisible(false);
@@ -168,7 +169,7 @@ int main()
 				}
 
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
-					world.AddBox(0, 4, 1, Color::getRed(), .5f, .5f);
+					currentLevel->world.AddBox(0, 4, 1, Color::getRed(), .5f, .5f);
 				}
 
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
@@ -192,7 +193,10 @@ int main()
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		// draw...
-		display();
+
+		display(&window);
+
+
 		// end the current frame (internally swaps the front and back buffers)
 		window.display();
 	}

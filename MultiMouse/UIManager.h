@@ -1,12 +1,15 @@
 #pragma once
-#include <ft2build.h>
-#include FT_FREETYPE_H  
+
+#define SFML_STATIC
 #include <iostream>
-#include <glm/common.hpp>
+#include "SFML/Graphics.hpp"
+#include "SFML/Window.hpp"
+#include "SFML/OpenGL.hpp"
+#include "Label.h"
 #include <map>
-#include <GL/freeglut.h> //include glut for Windows
-#include <gl/glext.h>
-#include <GL/GL.h>
+#include "Timer.h"
+#include <vector>
+
 
 
  
@@ -15,7 +18,10 @@
 class UIManager
 {
 public:
+	std::map<sf::String, sf::Font> fonts;
 	UIManager();
+	void draw(sf::RenderWindow* window);
+	std::vector<Label*> labels;
 
 };
 

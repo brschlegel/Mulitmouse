@@ -7,6 +7,13 @@ CollisionManager::CollisionManager(PhysicsWorld* world, MouseManager* mouseManag
 	drawDebugFlag = true;
 }
 
+CollisionManager::CollisionManager()
+{
+	world = nullptr;
+	mouseManager = nullptr;
+	drawDebugFlag = false;
+}
+
 Goal* CollisionManager::buildGoal(float x, float y, Color color)
 {
 	Goal* g = new Goal(x, y, color);

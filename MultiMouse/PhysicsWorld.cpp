@@ -11,6 +11,11 @@ PhysicsWorld::PhysicsWorld(b2Vec2 gravity)
 
 }
 
+PhysicsWorld::PhysicsWorld()
+{
+    world = new b2World(b2Vec2(0, -9.8));
+}
+
 Box* PhysicsWorld::AddBox(float x, float y, float mass, Color color, float height, float width, float friction, float density, float angle)
 {
     Box* box = new Box(x, y, mass, color, height, width, friction, density, angle);
