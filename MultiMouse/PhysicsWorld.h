@@ -8,8 +8,8 @@ public:
 	void Update();
 	PhysicsWorld(b2Vec2 gravity);
 	PhysicsWorld();
-	Box* AddBox(float x, float y, float mass, Color color, float height, float width, float friction = .3, float density = 1, float angle = 0);
-	Barrier* AddRectBarrier(float x, float y, float width, float height, float angle = 0);
+	Box* AddBox(float x, float y, float mass, Color color, float height, float width, float friction = .3, float density = 1, float angle = 0, std::string name = "unnamed");
+	Barrier* AddRectBarrier(float x, float y, float width, float height, float angle = 0, std::string name = "unnamed");
 	void draw();
 	b2Vec2 gravity;
 	b2World* world;

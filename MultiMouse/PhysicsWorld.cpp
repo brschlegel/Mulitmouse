@@ -16,18 +16,18 @@ PhysicsWorld::PhysicsWorld()
     world = new b2World(b2Vec2(0, -9.8));
 }
 
-Box* PhysicsWorld::AddBox(float x, float y, float mass, Color color, float height, float width, float friction, float density, float angle)
+Box* PhysicsWorld::AddBox(float x, float y, float mass, Color color, float height, float width, float friction, float density, float angle, std::string name)
 {
-    Box* box = new Box(x, y, mass, color, height, width, friction, density, angle);
+    Box* box = new Box(x, y, mass, color, height, width, friction, density, angle, name);
     box->body = world->CreateBody(&box->def);
     box->body->CreateFixture(&box->fixtureDef);
     bodies.push_back(box);
     return box;
 }
 
-Barrier* PhysicsWorld::AddRectBarrier(float x, float y, float width, float height, float angle)
+Barrier* PhysicsWorld::AddRectBarrier(float x, float y, float width, float height, float angle, std::string name)
 {
-    Barrier* barrier = new Barrier(x, y, angle);
+    Barrier* barrier = new Barrier(x, y, angle, name);
     barrier->setShapeAsBox(width, height);
     barrier->body = world->CreateBody(&barrier->def);
     barrier->body->CreateFixture(&barrier->shape, 0);
@@ -46,6 +46,10 @@ void PhysicsWorld::draw()
 void PhysicsWorld::deleteObject(int index)
 {
     PolygonPhysicsObject* object = bodies[index];
+    if (object->selected != nullptr)
+    {
+        object->selected->releasePhysicsSelect();
+    }
     bodies.erase(bodies.begin() + index);
     world->DestroyBody(object->body);
     delete (object);

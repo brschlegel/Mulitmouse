@@ -14,16 +14,16 @@ CollisionManager::CollisionManager()
 	drawDebugFlag = false;
 }
 
-Goal* CollisionManager::buildGoal(float x, float y, Color color)
+Goal* CollisionManager::buildGoal(float x, float y, Color color, std::string name)
 {
-	Goal* g = new Goal(x, y, color);
+	Goal* g = new Goal(x, y, color, name);
 	triggers.push_back(g);
 	return g;
 }
 
-Goal* CollisionManager::buildGoal(float x, float y, float width, float height, Color color)
+Goal* CollisionManager::buildGoal(float x, float y, float width, float height, Color color, std::string name)
 {
-	Goal* g = new Goal(x, y, color,width,height);
+	Goal* g = new Goal(x, y, color,width,height, name);
 	triggers.push_back(g);
 	return g;
 }
@@ -53,7 +53,7 @@ void CollisionManager::update()
 				{	
 					world->bodies[j]->body->SetType(b2_kinematicBody);
 					world->bodies[j]->body->SetLinearVelocity(b2Vec2_zero);
-					world->bodies[j]->selected = true;
+					world->bodies[j]->selected = mouseManager->mice[i];
 					mouseManager->mice[i]->physicsSelect = world->bodies[j];
 				}
 			}

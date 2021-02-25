@@ -8,7 +8,7 @@ class PolygonObject :
 {
 public:
     std::vector<b2Vec2> vertices;
-    PolygonObject(float x, float y, Color color, float angle);
+    PolygonObject(float x, float y,Color color, float angle, std::string name = "unnamed");
     b2PolygonShape shape;
     virtual void draw();
     void setVertices(std::vector<b2Vec2> verts);

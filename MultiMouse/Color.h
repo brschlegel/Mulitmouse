@@ -4,9 +4,9 @@
 class Color
 {
 public:
-	float r, g, b;
+	float r, g, b, a;
 
-	Color(float r, float g, float b);
+	Color(float r, float g, float b, float a = 1);
 	Color();
 	static Color getRed();
 	static Color getGreen();

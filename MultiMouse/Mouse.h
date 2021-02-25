@@ -1,8 +1,8 @@
 #pragma once
-#include <GL/freeglut.h> //include glut for Windows
 #include "PolygonObject.h"
 #include "PolygonPhysicsObject.h"
 #include <iostream>
+class PolygonPhysicsObject;
 class Mouse : public PolygonObject
 {
 public:

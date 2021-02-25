@@ -1,6 +1,6 @@
 #include "Label.h"
 
-Label::Label(sf::String string, int x, int y, int size, Color textColor, sf::Font font, Color backgroundColor)
+Label::Label(sf::String string, int x, int y, int size, Color textColor, sf::Font font, Color backgroundColor, std::string name) : GameObject(x, y, name)
 {
 	text = new sf::Text();
 	this->font = font;
@@ -20,4 +20,9 @@ void Label::draw(sf::RenderWindow* window)
 	sf::RectangleShape background(sf::Vector2f(text->getLocalBounds().width, text->getLocalBounds().height));
 	background.setFillColor(sf::Color::Black);
 
+}
+
+//This is to appease the gameobject abstract draw. Messy ik
+void Label::draw()
+{
 }

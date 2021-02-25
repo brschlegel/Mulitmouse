@@ -1,12 +1,12 @@
 #include "Trigger.h"
 
-Trigger::Trigger(float x, float y, Color color, bool mouseTrigger, bool physicsTrigger) : PolygonObject(x, y, color, 0)
+Trigger::Trigger(float x, float y, Color color, bool mouseTrigger, bool physicsTrigger, std::string name) : PolygonObject(x, y, color, 0, name)
 {
 	this->mouseTrigger = mouseTrigger;
 	this->physicsTrigger = physicsTrigger;
 }
 
-Trigger::Trigger(float x, float y, float width, float height, Color color, bool mouseTrigger, bool physicsTrigger) :PolygonObject(x, y, color, 0)
+Trigger::Trigger(float x, float y, float width, float height, Color color, bool mouseTrigger, bool physicsTrigger, std::string name) :PolygonObject(x, y, color, 0, name)
 {
 	this->mouseTrigger = mouseTrigger;
 	this->physicsTrigger = physicsTrigger;

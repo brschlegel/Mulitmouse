@@ -15,8 +15,8 @@ public:
 	std::vector<Trigger*> triggers;
 	CollisionManager(PhysicsWorld* world, MouseManager* mouseManager);
 	CollisionManager();
-	Goal* buildGoal(float x, float y, Color color);
-	Goal* buildGoal(float x, float y, float width, float height, Color color);
+	Goal* buildGoal(float x, float y, Color color, std::string name = "unnamed");
+	Goal* buildGoal(float x, float y, float width, float height, Color color, std::string name = "unnamed");
 	void update();
 	void draw();
 	bool drawDebugFlag;

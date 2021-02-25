@@ -10,7 +10,7 @@
 #include "Goal.h"
 #include "CollisionManager.h"
 #include "UIManager.h"
-#include "Level.h"
+#include "Scene.h"
 #include "LevelManager.h"
 
 #define SFML_STATIC
@@ -19,6 +19,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <SFML/OpenGL.hpp>
+#include "Source.h"
 
 
 using namespace std;
@@ -32,7 +33,7 @@ UIManager uiManager = UIManager();
 Goal g = Goal(-2, 2, Color::getGreen(), 1, 1);
 bool warpPointer = true;
 
-Level* currentLevel = levelManager.levels[LevelName::DebugLevel];
+Scene* currentLevel = levelManager.levels[LevelName::DebugLevel];
 // the window's width and height
 
 

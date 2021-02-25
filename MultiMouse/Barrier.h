@@ -4,6 +4,6 @@ class Barrier :
     public PolygonPhysicsObject
 {
 public:
-    Barrier(float x, float y,float angle = 0);
+    Barrier(float x, float y,float angle = 0, std::string name = "unnamed");
 };
 

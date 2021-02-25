@@ -1,9 +1,9 @@
 #include "PolygonPhysicsObject.h"
 
-PolygonPhysicsObject::PolygonPhysicsObject(float x, float y,  float mass, Color color,float angle) : PolygonObject(x,y,color, angle)
+PolygonPhysicsObject::PolygonPhysicsObject(float x, float y,  float mass, Color color,float angle, std::string name) : PolygonObject(x,y,color, angle, name)
 {
 	
-	selected = false;
+	selected = nullptr;
 	def.position.Set(x, y);
 	def.angle = angle * b2_pi;
 	this->mass = mass;
@@ -22,7 +22,7 @@ void PolygonPhysicsObject::draw()
 {
 	glPushMatrix();
 	
-	glColor3f(color.r, color.g, color.b);
+	glColor4f(color.r, color.g, color.b, color.a);
 	glTranslatef(body->GetPosition().x, body->GetPosition().y, 0);
 	glRotatef(angle * 180.0f / b2_pi, 0, 0, 1);
 	glBegin(GL_POLYGON);
@@ -32,8 +32,8 @@ void PolygonPhysicsObject::draw()
 	}
 	glEnd();
 	//adding a bit of padding due to polygon skinning in box 2d
-	if (selected)
-		glColor3f(0, 0, 0);
+	if (selected != nullptr)
+		glColor4f(0, 0, 0, 0);
 	glLineWidth(2);
 	glBegin(GL_LINE_LOOP);
 	for (int i = 0; i < vertices.size(); i++)

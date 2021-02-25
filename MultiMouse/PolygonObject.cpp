@@ -1,15 +1,16 @@
 #include "PolygonObject.h"
 #include <iostream>
-PolygonObject::PolygonObject(float x, float y, Color color ,float angle = 0) : GameObject(x,y)
+PolygonObject::PolygonObject(float x, float y, Color color ,float angle = 0, std::string name) : GameObject(x,y, name)
 {	
 	this->angle = angle;
 	this->color = color;
 }
 
+
 void PolygonObject::draw()
 {
 	glPushMatrix();
-	glColor3f(color.r, color.g, color.b);
+	glColor4f(color.r, color.g, color.b, color.a);
 	glTranslatef(x, y, 0);
 	glRotatef(angle * 180.0f/b2_pi, 0, 0, 1);
 	glBegin(GL_POLYGON);

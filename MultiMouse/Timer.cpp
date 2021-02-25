@@ -1,6 +1,6 @@
 #include "Timer.h"
 
-Timer::Timer(float maxTime, int x, int y, int size, Color textColor, sf::Font font, Color backgroundColor) : Label("Timer", x,y, size,textColor,font,backgroundColor)
+Timer::Timer(float maxTime, int x, int y, int size, Color textColor, sf::Font font, Color backgroundColor, std::string name) : Label("Timer", x,y, size,textColor,font,backgroundColor, name)
 {
 	this->maxTime = sf::seconds(maxTime);
 
@@ -15,3 +15,10 @@ void Timer::draw(sf::RenderWindow* window)
 	text->setString(std::to_string(round(currentTime.asSeconds())).substr(0,2));
 	Label::draw(window);
 }
+
+float Timer::getNumSeconds()
+{
+	return currentTime.asSeconds();
+}
+
+
