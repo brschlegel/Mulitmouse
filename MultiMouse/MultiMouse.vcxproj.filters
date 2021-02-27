@@ -126,6 +126,15 @@
     <ClCompile Include="PolygonObject.cpp">
       <Filter>Source Files\Collisions</Filter>
     </ClCompile>
+    <ClCompile Include="FuncTimer.cpp">
+      <Filter>Source Files\General</Filter>
+    </ClCompile>
+    <ClCompile Include="Level.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugLevel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Barrier.h">
@@ -187,6 +196,18 @@
     </ClInclude>
     <ClInclude Include="PolygonObject.h">
       <Filter>Header Files\Collisions</Filter>
+    </ClInclude>
+    <ClInclude Include="FuncTimer.h">
+      <Filter>Header Files\General</Filter>
+    </ClInclude>
+    <ClInclude Include="Level.h">
+      <Filter>Header Files\Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugLevel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyboardFunctions.h">
+      <Filter>Source Files\Levels</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

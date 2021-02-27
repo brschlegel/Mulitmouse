@@ -28,12 +28,12 @@ int width, height;
 MouseManager mouseManager;
 PhysicsWorld world = PhysicsWorld();
 CollisionManager collisionManager = CollisionManager(&world, &mouseManager);
-LevelManager levelManager = LevelManager(&mouseManager);
+LevelManager* levelManager;
 UIManager uiManager = UIManager();
 Goal g = Goal(-2, 2, Color::getGreen(), 1, 1);
 bool warpPointer = true;
 
-Scene* currentLevel = levelManager.levels[LevelName::DebugLevel];
+Level* currentLevel;
 // the window's width and height
 
 
@@ -48,15 +48,9 @@ void init(void)
 	
 
 	mouseManager = MouseManager();
-	
-	currentLevel->world.AddRectBarrier(0, -5, 20, 1);
-	currentLevel->world.AddRectBarrier(1, 5, 20, 1);
-	currentLevel->world.AddRectBarrier(-9, 0, 1, 10);
-	currentLevel->world.AddRectBarrier(9, 0, 1, 10);
-	currentLevel->world.AddRectBarrier(0, 0, 1, 1);
-				
-	currentLevel->world.AddBox(0, 4, 1, Color::getRed(), .5f,.5f);
-	currentLevel->collisions.buildGoal(-2, 2, 1, 1, Color::getGreen());
+	levelManager = new LevelManager(&mouseManager);
+	currentLevel = levelManager->debugLevel;
+
 	
 
 	
@@ -168,11 +162,7 @@ int main()
 
 					running = false;
 				}
-
-				if (sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
-					currentLevel->world.AddBox(0, 4, 1, Color::getRed(), .5f, .5f);
-				}
-
+				currentLevel->currentScene->keyboardFunc(currentLevel->currentScene);
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
 					warpPointer = !warpPointer;
 				}
