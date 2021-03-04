@@ -5,24 +5,35 @@ void FuncTimer::start()
 	clock = new sf::Clock();
 }
 
-void FuncTimer::update()
+void FuncTimer::update(Scene* scene)
 {
-	if (clock->getElapsedTime().asSeconds() > numSeconds)
+	if (numRepetitions < numRepeat)
 	{
-		func();
-		if (doesRepeat)
-			clock->restart();
+		float numSecond = clock->getElapsedTime().asSeconds();
+		float expression = ((m * (numRepetitions + 1)) + b);
+		if (clock->getElapsedTime().asSeconds() > (m * (numRepetitions + 1) + b))
+		{
+			func(scene);
+			numRepetitions = numRepetitions + 1;
+		}
 	}
 }
 
-FuncTimer::FuncTimer(float numSeconds, bool doesRepeat, std::string name)
+FuncTimer::FuncTimer(float m, float b, int numRepeat, std::string name)
 {
-	this->numSeconds = numSeconds;
-	this->doesRepeat = doesRepeat;
+	this->m = m;
+	this->b = b;
+	this->numRepeat = numRepeat;
 	this->name = name;
+	
 }
 
-void FuncTimer::SetFuncPointer(void(*funcPointer)())
+void FuncTimer::SetFuncPointer(void(*funcPointer)(Scene* scene))
 {
 	func = funcPointer;
+}
+
+void FuncTimer::callFunc(Scene* scene)
+{
+	func(scene);
 }

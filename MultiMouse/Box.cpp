@@ -7,4 +7,6 @@ Box::Box(float x, float y, float mass, Color color, float height, float width,fl
 	fixtureDef.shape = &shape;
 	fixtureDef.density = density;
 	fixtureDef.friction = friction;
+	this->height = height;
+	this->width = width;
 }

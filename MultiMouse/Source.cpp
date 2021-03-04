@@ -43,17 +43,10 @@ Level* currentLevel;
 
 void init(void)
 {
-
 	// initialize the size of the window
-	
-
 	mouseManager = MouseManager();
 	levelManager = new LevelManager(&mouseManager);
-	currentLevel = levelManager->debugLevel;
-
-	
-
-	
+	currentLevel = levelManager->levels[LevelName::Pong];	
 }
 
 // called when the GL context need to be rendered
@@ -76,8 +69,9 @@ void display(sf::RenderWindow* window)
 	glColor3f(1.0, 0.0, 0.0); // The color is RGB, each color channel is defined in [0, 1].
 	glPushMatrix();
 	
-	mouseManager.draw();
+
 	currentLevel->draw(window);
+	mouseManager.draw();
 
 	
 	
@@ -162,7 +156,7 @@ int main()
 
 					running = false;
 				}
-				currentLevel->currentScene->keyboardFunc(currentLevel->currentScene);
+				currentLevel->currentScene->keyboardFunc(currentLevel->currentScene);	
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
 					warpPointer = !warpPointer;
 				}

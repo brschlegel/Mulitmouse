@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 
-enum class Tag{Ball};
+enum class Tag{Ball, Pong, Unscorable};
 
 class GameObject
 {

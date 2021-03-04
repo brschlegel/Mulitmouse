@@ -1,4 +1,6 @@
-﻿  Source.cpp
+﻿  PongLevel.cpp
 C:\Users\Ben\Documents\MultiMouse\MultiMouse\Scene.h(11,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 C:\Users\Ben\Documents\MultiMouse\MultiMouse\FuncTimer.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\KinematicCollisionFunctions.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\PongLevel.cpp(10,64): warning C4305: 'argument': truncation from 'double' to 'float'
   MultiMouse.vcxproj -> C:\Users\Ben\Documents\MultiMouse\Debug\MultiMouse.exe

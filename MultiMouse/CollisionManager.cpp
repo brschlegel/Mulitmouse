@@ -5,6 +5,7 @@ CollisionManager::CollisionManager(PhysicsWorld* world, MouseManager* mouseManag
 	this->world = world;
 	this->mouseManager = mouseManager;
 	drawDebugFlag = true;
+	
 }
 
 CollisionManager::CollisionManager()
@@ -36,6 +37,8 @@ void CollisionManager::update()
 
 		b2AABB b;
 		b2Transform bt = world->bodies[j]->body->GetTransform();
+		world->bodies[j]->shape.ComputeAABB(&b, bt, 0);
+
 		//mice
 		for (unsigned int i = 0; i < mouseManager->mice.size(); i++)
 		{
@@ -43,13 +46,11 @@ void CollisionManager::update()
 			b2Transform t;
 			t.Set(b2Vec2(mouseManager->mice[i]->x, mouseManager->mice[i]->y), 0);
 			mouseManager->mice[i]->shape.ComputeAABB(&a, t, 0);
-
-
-			world->bodies[j]->shape.ComputeAABB(&b, bt, 0);
+			
 			if (b2TestOverlap(a, b))
 			{
 				//if left clicking on a physics object
-				if (mouseManager->mice[i]->leftButtonPressed && world->bodies[j]->body->GetType() == b2_dynamicBody && mouseManager->mice[i]->physicsSelect == NULL)
+				if (mouseManager->mice[i]->leftButtonPressed && world->bodies[j]->body->GetType() == b2_dynamicBody && mouseManager->mice[i]->physicsSelect == NULL && world->bodies[j]->selectable)
 				{	
 					world->bodies[j]->body->SetType(b2_kinematicBody);
 					world->bodies[j]->body->SetLinearVelocity(b2Vec2_zero);
@@ -71,7 +72,7 @@ void CollisionManager::update()
 			if (triggers[i]->physicsTrigger  && world->bodies[j]->body->GetType() != b2_staticBody )
 			{
 				//Goals
-				if (triggers[i]->triggerId == 1)
+				if (triggers[i]->triggerId == 1 && !world->bodies[j]->hasTag(Tag::Unscorable))
 				{
 					triggerTransform.Set(b2Vec2(triggers[i]->x, triggers[i]->y), 0);
 					triggers[i]->shape.ComputeAABB(&triggerAABB, triggerTransform, 0);
@@ -99,4 +100,14 @@ void CollisionManager::draw()
 		}
 	}
 
+}
+
+Trigger* CollisionManager::getTriggerByName(std::string name)
+{
+	for (Trigger* trigger : triggers)
+	{
+		if (trigger->name == name)
+			return trigger;
+	}
+	return nullptr;
 }

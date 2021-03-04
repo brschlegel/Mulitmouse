@@ -3,19 +3,24 @@
 #define SFML_STATIC
 #include "SFML/Graphics.hpp"
 #include "SFML/Window.hpp"
+#include "Scene.h"
+class Scene;
 class FuncTimer
 {
 public:
 	void start();
-	void update();
-	FuncTimer(float numSeconds, bool doesRepeat, std::string name = "unnamed");
-	void SetFuncPointer(void (*funcPointer)());
+	void update(Scene* scene);
+	FuncTimer(float m, float b, int numRepeat = 1, std::string name = "unnamed");
+	void SetFuncPointer(void (*funcPointer)(Scene* scene));
+	void callFunc(Scene* scene);
 	std::string name;
-private:
-	void (*func)();
-	bool doesRepeat;
-	float numSeconds;
-	bool started = false;
 	sf::Clock* clock;
+private:
+	void (*func)(Scene* scene);
+	int numRepeat, numRepetitions;
+
+	bool started = false;
+	
+	float m, b;
 };
 

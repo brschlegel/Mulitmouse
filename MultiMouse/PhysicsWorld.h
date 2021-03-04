@@ -16,5 +16,7 @@ public:
 	std::vector<PolygonPhysicsObject*> bodies;
 	void deleteObject(int index);
 	void deleteObject(PolygonPhysicsObject* object);
+	PolygonPhysicsObject* getBodyByName(std::string name);
+	std::vector<PolygonPhysicsObject*> getBodyByTag(Tag tag);
 };
 

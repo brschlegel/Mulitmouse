@@ -10,6 +10,7 @@
 #include "SFML/OpenGL.hpp"
 #include "Level.h";
 
+class FuncTimer;
 class Scene
 {
 public:
@@ -21,6 +22,15 @@ public:
 	void update();
 	void (*keyboardFunc)(Scene* scene);
 	std::string name;
+	std::vector<FuncTimer*> funcTimers;
+	FuncTimer* getTimerByName(std::string name);
+	PolygonPhysicsObject* getBodyByName(std::string name);
+	Label* getLabelByName(std::string name);
+	Trigger* getTriggerByName(std::string name);
+	std::vector<PolygonPhysicsObject*> getBodyByTag(Tag tag);
+	virtual void init();
+	float width, height;
+
 
 };
 

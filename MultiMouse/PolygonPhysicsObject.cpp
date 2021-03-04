@@ -15,7 +15,7 @@ PolygonPhysicsObject::PolygonPhysicsObject(float x, float y,  float mass, Color 
 	{
 		def.type = b2_dynamicBody;
 	}
-
+	selectable = true;
 }
 
 void PolygonPhysicsObject::draw()

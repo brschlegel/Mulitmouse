@@ -20,6 +20,8 @@ public:
 	void update();
 	void draw();
 	bool drawDebugFlag;
+	Trigger* getTriggerByName(std::string name);
+
 
 };
 

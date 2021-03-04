@@ -7,9 +7,8 @@
 #include "Color.h"
 #include "GameObject.h"
 
-class Label : GameObject
+class Label : public GameObject
 {
-
 public:
 	sf::Text* text;
 	sf::Font font;

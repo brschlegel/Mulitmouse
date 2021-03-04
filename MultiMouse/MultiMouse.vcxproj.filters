@@ -52,6 +52,12 @@
     <Filter Include="Header Files\Mice">
       <UniqueIdentifier>{93597707-0def-4f31-bd6b-8d884e7986f9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Levels\LevelClasses">
+      <UniqueIdentifier>{51e0a4e3-b8e9-4feb-a1fb-2bf36307998f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Levels\LevelClasses">
+      <UniqueIdentifier>{9e71ee5a-a167-4cc3-bb69-1f9d3e83ab49}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -129,11 +135,26 @@
     <ClCompile Include="FuncTimer.cpp">
       <Filter>Source Files\General</Filter>
     </ClCompile>
+    <ClCompile Include="DebugLevel.cpp">
+      <Filter>Source Files\Levels\LevelClasses</Filter>
+    </ClCompile>
     <ClCompile Include="Level.cpp">
+      <Filter>Source Files\Levels</Filter>
+    </ClCompile>
+    <ClCompile Include="JugglingLevel.cpp">
+      <Filter>Source Files\Levels\LevelClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyboardFunction.cpp">
+      <Filter>Source Files\Levels</Filter>
+    </ClCompile>
+    <ClCompile Include="FuncTimerFunctions.cpp">
+      <Filter>Source Files\Levels</Filter>
+    </ClCompile>
+    <ClCompile Include="PongLevel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DebugLevel.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="KinematicCollisionFunctions.cpp">
+      <Filter>Source Files\Collisions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -204,10 +225,22 @@
       <Filter>Header Files\Levels</Filter>
     </ClInclude>
     <ClInclude Include="DebugLevel.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Levels\LevelClasses</Filter>
     </ClInclude>
     <ClInclude Include="KeyboardFunctions.h">
-      <Filter>Source Files\Levels</Filter>
+      <Filter>Header Files\Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="JugglingLevel.h">
+      <Filter>Header Files\Levels\LevelClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="FuncTimerFunctions.h">
+      <Filter>Header Files\Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="PongLevel.h">
+      <Filter>Header Files\Levels\LevelClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="KinematicCollisionFunctions.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

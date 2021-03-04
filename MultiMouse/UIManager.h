@@ -22,6 +22,7 @@ public:
 	UIManager();
 	void draw(sf::RenderWindow* window);
 	std::vector<Label*> labels;
+	Label* getLabelByName(std::string name);
 
 };
 
