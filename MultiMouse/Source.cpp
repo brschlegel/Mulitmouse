@@ -46,7 +46,7 @@ void init(void)
 	// initialize the size of the window
 	mouseManager = MouseManager();
 	levelManager = new LevelManager(&mouseManager);
-	currentLevel = levelManager->levels[LevelName::Pong];	
+	currentLevel = levelManager->levels[LevelName::DebugLevel];	
 }
 
 // called when the GL context need to be rendered

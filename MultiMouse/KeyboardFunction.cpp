@@ -9,5 +9,5 @@ void DebugLevelKeyboard(Scene* scene)
 
 void DoNothing(Scene* scene)
 {
-	cout << "doNtohig";
+
 }

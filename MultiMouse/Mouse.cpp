@@ -43,3 +43,37 @@ void Mouse::releasePhysicsSelect()
 	physicsSelect = NULL;
 	
 }
+
+void Mouse::draw()
+{
+
+	glPushMatrix();
+	glColor4f(color.r, color.g, color.b, color.a);
+	glTranslatef(x, y, 0);
+	glRotatef(angle * 180.0f / b2_pi, 0, 0, 1);
+	glBegin(GL_POLYGON);
+
+	std::vector<b2Vec2> drawVerts;
+	drawVerts.push_back(b2Vec2(-.1f, .1f));
+	drawVerts.push_back(b2Vec2(-.09f, -.06f));
+	//drawVerts.push_back(b2Vec2(-.07f, -.04f));
+	//drawVerts.push_back(b2Vec2(0,0));
+	//drawVerts.push_back(b2Vec2(.03f, -.03f));
+	drawVerts.push_back(b2Vec2(.06f, .03f));
+
+	for (int i = 0; i < drawVerts.size(); i++)
+	{
+		glVertex2f(drawVerts[i].x, drawVerts[i].y);
+	}
+	glEnd();
+	glColor3f(0, 0, 0);
+	glLineWidth(2);
+	glBegin(GL_LINE_LOOP);
+	for (int i = 0; i < drawVerts.size(); i++)
+	{
+		glVertex2f(drawVerts[i].x, drawVerts[i].y);
+	}
+	glEnd();
+
+	glPopMatrix();
+}

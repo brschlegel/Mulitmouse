@@ -14,6 +14,7 @@ public:
 	void update();
 	PolygonPhysicsObject* physicsSelect;
 	void releasePhysicsSelect();
+	void draw();
 private:
 };
 
