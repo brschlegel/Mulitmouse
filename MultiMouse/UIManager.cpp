@@ -32,3 +32,11 @@ Label* UIManager::getLabelByName(std::string name)
 	}
 	return nullptr;
 }
+
+void UIManager::unload()
+{
+	for (int i = 0; i < labels.size(); i++)
+	{
+		delete labels[i];
+	}
+}

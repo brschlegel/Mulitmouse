@@ -5,6 +5,7 @@
 
 //IDs
 //Goal : 1
+//MouseCage: 2
 
 class Trigger :
     public PolygonObject

@@ -9,12 +9,6 @@
 #include <map>
 #include "Timer.h"
 #include <vector>
-
-
-
- 
-
-
 class UIManager
 {
 public:
@@ -23,6 +17,7 @@ public:
 	void draw(sf::RenderWindow* window);
 	std::vector<Label*> labels;
 	Label* getLabelByName(std::string name);
+	void unload();
 
 };
 

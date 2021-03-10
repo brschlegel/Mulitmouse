@@ -6,6 +6,7 @@ Scene::Scene(MouseManager* mouseManager, b2Vec2 gravity, std::string name)
 	collisions =  CollisionManager(&world, mouseManager);
 	ui =  UIManager();
 	this->name = name;
+	keyboardFunc = DoNothing;
 }
 
 void Scene::draw(sf::RenderWindow* window)
@@ -64,6 +65,25 @@ void Scene::init()
 	for (FuncTimer* t : funcTimers)
 	{
 		t->clock->restart();
+	}
+}
+
+void Scene::frameScene()
+{
+	world.AddRectBarrier(0, -5, 20, 1);
+	world.AddRectBarrier(1, 5, 20, 1);
+	world.AddRectBarrier(-9, 0, 1, 10);
+	world.AddRectBarrier(9, 0, 1, 10);
+}
+
+void Scene::unload()
+{
+	world.unload();
+	collisions.unload();
+	ui.unload();
+	for (int i = 0; i < funcTimers.size(); i++)
+	{
+		delete funcTimers[i];
 	}
 }
 

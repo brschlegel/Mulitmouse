@@ -22,6 +22,8 @@ public:
 	Level(MouseManager* mouseManager);
 	virtual void draw(sf::RenderWindow* window);
 	virtual void update();
+	virtual void init();
+	virtual void unload();
 protected:
 	b2Vec2 standardGravity;
 

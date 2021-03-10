@@ -15,11 +15,14 @@ Mouse::Mouse(Color color) : PolygonObject(0, 0,color,0)
 
 void Mouse::updateX(float num)
 {
+	prevX = x;
 	x += (num/sensitivityCoeff);
+
 }
 
 void Mouse::updateY(float num)
 {
+	prevY = y;
 	y -= num/sensitivityCoeff;
 }
 

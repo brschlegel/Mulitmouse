@@ -45,6 +45,16 @@ void PhysicsWorld::draw()
     }
 }
 
+void PhysicsWorld::unload()
+{
+    for (int i = 0; i < bodies.size(); i++)
+    {
+        delete bodies[i];
+    }
+    world->~b2World();
+    
+}
+
 void PhysicsWorld::deleteObject(int index)
 {
     PolygonPhysicsObject* object = bodies[index];

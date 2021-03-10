@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -149,6 +149,7 @@
     <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="DebugLevel.cpp" />
+    <ClCompile Include="DodgebalLevel.cpp" />
     <ClCompile Include="FuncTimer.cpp" />
     <ClCompile Include="FuncTimerFunctions.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -158,6 +159,7 @@
     <ClCompile Include="KinematicCollisionFunctions.cpp" />
     <ClCompile Include="Label.cpp" />
     <ClCompile Include="Level.cpp" />
+    <ClCompile Include="MouseCage.cpp" />
     <ClCompile Include="PongLevel.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="LevelManager.cpp" />
@@ -182,6 +184,7 @@
     <ClInclude Include="Box.h" />
     <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="Color.h" />
+    <ClInclude Include="DodgebalLevel.h" />
     <ClInclude Include="KinematicCollisionFunctions.h" />
     <ClInclude Include="DebugLevel.h" />
     <ClInclude Include="FuncTimer.h" />
@@ -192,6 +195,7 @@
     <ClInclude Include="KeyboardFunctions.h" />
     <ClInclude Include="Label.h" />
     <ClInclude Include="Level.h" />
+    <ClInclude Include="MouseCage.h" />
     <ClInclude Include="PongLevel.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="LevelManager.h" />

@@ -30,6 +30,9 @@ public:
 	std::vector<PolygonPhysicsObject*> getBodyByTag(Tag tag);
 	virtual void init();
 	float width, height;
+	void frameScene();
+	void unload();
+
 
 
 };

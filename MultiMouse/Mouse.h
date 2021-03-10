@@ -15,6 +15,7 @@ public:
 	PolygonPhysicsObject* physicsSelect;
 	void releasePhysicsSelect();
 	void draw();
+	float prevX, prevY;
 private:
 };
 

@@ -33,7 +33,7 @@ UIManager uiManager = UIManager();
 Goal g = Goal(-2, 2, Color::getGreen(), 1, 1);
 bool warpPointer = true;
 
-Level* currentLevel;
+
 // the window's width and height
 
 
@@ -46,7 +46,7 @@ void init(void)
 	// initialize the size of the window
 	mouseManager = MouseManager();
 	levelManager = new LevelManager(&mouseManager);
-	currentLevel = levelManager->levels[LevelName::DebugLevel];	
+
 }
 
 // called when the GL context need to be rendered
@@ -64,13 +64,14 @@ void display(sf::RenderWindow* window)
 	// (we'll learn matrix-based transformation in later classes.) 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	// Specify a color for the following object(s) that will be drawn 
 	glColor3f(1.0, 0.0, 0.0); // The color is RGB, each color channel is defined in [0, 1].
 	glPushMatrix();
 	
 
-	currentLevel->draw(window);
+	levelManager->currentLevel->draw(window);
 	mouseManager.draw();
 
 	
@@ -110,7 +111,7 @@ void update()
 	//collisions
 	//world.Update();
 	//collisionManager.update();
-	currentLevel->update();
+	levelManager->currentLevel->update();
 }
 
 int main()
@@ -156,9 +157,14 @@ int main()
 
 					running = false;
 				}
-				currentLevel->currentScene->keyboardFunc(currentLevel->currentScene);	
+				levelManager->currentLevel->currentScene->keyboardFunc(levelManager->currentLevel->currentScene);	
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
 					warpPointer = !warpPointer;
+				}
+
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+				{
+					levelManager->changeLevel(LevelName::Dodgeball);
 				}
 				break;
 			case sf::Event::Resized:

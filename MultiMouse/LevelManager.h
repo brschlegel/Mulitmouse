@@ -5,12 +5,15 @@
 #include "DebugLevel.h"
 #include "JugglingLevel.h"
 #include "PongLevel.h"
-enum class LevelName{DebugLevel, Juggling, Pong};
+#include "DodgebalLevel.h"
+enum class LevelName{DebugLevel, Juggling, Pong, Dodgeball};
 class LevelManager
 {
 public:
-	map<LevelName, Level*> levels;
+	Level* currentLevel;
+	MouseManager* mouseManager;
 	LevelManager(MouseManager* mouseManager);
+	void changeLevel(LevelName newScene);
 private:
 	
 };

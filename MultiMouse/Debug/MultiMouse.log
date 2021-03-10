@@ -1,4 +1,5 @@
-﻿  Mouse.cpp
-C:\Users\Ben\Documents\MultiMouse\MultiMouse\Mouse.cpp(64,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Ben\Documents\MultiMouse\MultiMouse\Mouse.cpp(72,20): warning C4018: '<': signed/unsigned mismatch
+﻿  PhysicsWorld.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\PhysicsWorld.cpp(16,39): warning C4305: 'argument': truncation from 'double' to 'float32'
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\PhysicsWorld.cpp(42,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\PhysicsWorld.cpp(50,23): warning C4018: '<': signed/unsigned mismatch
   MultiMouse.vcxproj -> C:\Users\Ben\Documents\MultiMouse\Debug\MultiMouse.exe

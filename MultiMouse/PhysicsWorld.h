@@ -13,6 +13,7 @@ public:
 	void draw();
 	b2Vec2 gravity;
 	b2World* world;
+	void unload();
 	std::vector<PolygonPhysicsObject*> bodies;
 	void deleteObject(int index);
 	void deleteObject(PolygonPhysicsObject* object);
