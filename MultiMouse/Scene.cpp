@@ -1,11 +1,12 @@
 #include "Scene.h"
 
-Scene::Scene(MouseManager* mouseManager, b2Vec2 gravity, std::string name)
+Scene::Scene(b2Vec2 gravity, std::string name)
 {
 	world =  PhysicsWorld(gravity);
-	collisions =  CollisionManager(&world, mouseManager);
+	collisions =  CollisionManager(&world);
 	ui =  UIManager();
 	this->name = name;
+	//Default keyboard func
 	keyboardFunc = DoNothing;
 }
 

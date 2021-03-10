@@ -5,6 +5,7 @@
 #include <vector>
 
 using namespace std;
+class MouseManager;
 class MouseManager
 {
 public:
@@ -13,10 +14,13 @@ public:
 	map<Color, Mouse*> miceByColor;
 	vector<Mouse*> mice;
 	Mouse* buildMouse(int deviceNum);
-	MouseManager();
+	
 	void update();
 	void draw();
+	static MouseManager* instance;
+	static MouseManager* getInstance();
 private:
 	Color potentialMiceColors[10];
+	MouseManager();
 };
 

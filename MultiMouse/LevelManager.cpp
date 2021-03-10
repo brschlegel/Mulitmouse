@@ -1,10 +1,9 @@
 #include "LevelManager.h"
 
 
-LevelManager::LevelManager(MouseManager* mouseManager)
+LevelManager::LevelManager()
 {
-	this->mouseManager = mouseManager;
-	currentLevel = new DebugLevel(mouseManager);
+	currentLevel = new DebugLevel();
 }
 
 void LevelManager::changeLevel(LevelName newScene)
@@ -13,16 +12,16 @@ void LevelManager::changeLevel(LevelName newScene)
 	switch (newScene)
 	{
 	case LevelName::Juggling:
-		currentLevel = new JugglingLevel(mouseManager);
+		currentLevel = new JugglingLevel();
 		break;
 	case LevelName::DebugLevel:
-		currentLevel = new DebugLevel(mouseManager);
+		currentLevel = new DebugLevel();
 		break;
 	case LevelName::Pong:
-		currentLevel = new PongLevel(mouseManager);
+		currentLevel = new PongLevel();
 		break;
 	case LevelName::Dodgeball:
-		currentLevel = new DodgeballLevel(mouseManager);
+		currentLevel = new DodgeballLevel();
 		break;
 	}
 	currentLevel->init();

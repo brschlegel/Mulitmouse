@@ -1,8 +1,8 @@
 #include "PongLevel.h"
 
-PongLevel::PongLevel(MouseManager* mouseManager) : Level(mouseManager)
+PongLevel::PongLevel()
 {
-	Scene* main = new Scene(mouseManager, standardGravity, "main");
+	Scene* main = new Scene(standardGravity, "main");
 
 	main->world.world->SetContactListener(&listener);
 	for (int i = 0; i < 3; i++)
@@ -30,7 +30,7 @@ PongLevel::PongLevel(MouseManager* mouseManager) : Level(mouseManager)
 	scenes["main"] = main;
 	currentScene = main;
 
-	Scene* gameOver = new Scene(mouseManager, standardGravity, "gameOver");
+	Scene* gameOver = new Scene(standardGravity, "gameOver");
 	gameOver->ui.labels.push_back(new Label(sf::String("Haha u lost"), 800, 450, 40, Color(0, 0, 0, 1), gameOver->ui.fonts["MainFont"], Color::getBlue()));
 	gameOver->keyboardFunc = DoNothing;
 	scenes["gameOver"] = gameOver;

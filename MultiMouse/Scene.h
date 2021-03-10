@@ -17,7 +17,7 @@ public:
 	PhysicsWorld world;
 	CollisionManager collisions;
 	UIManager ui;
-	Scene(MouseManager* mouseManager, b2Vec2 gravity, std::string name);
+	Scene(b2Vec2 gravity, std::string name);
 	void draw(sf::RenderWindow* window);
 	void update();
 	void (*keyboardFunc)(Scene* scene);

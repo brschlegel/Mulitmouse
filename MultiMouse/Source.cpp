@@ -25,9 +25,8 @@
 using namespace std;
 
 int width, height;
-MouseManager mouseManager;
 PhysicsWorld world = PhysicsWorld();
-CollisionManager collisionManager = CollisionManager(&world, &mouseManager);
+CollisionManager collisionManager = CollisionManager(&world);
 LevelManager* levelManager;
 UIManager uiManager = UIManager();
 Goal g = Goal(-2, 2, Color::getGreen(), 1, 1);
@@ -43,9 +42,9 @@ bool warpPointer = true;
 
 void init(void)
 {
+	MouseManager::getInstance();
 	// initialize the size of the window
-	mouseManager = MouseManager();
-	levelManager = new LevelManager(&mouseManager);
+	levelManager = new LevelManager();
 
 }
 
@@ -72,7 +71,7 @@ void display(sf::RenderWindow* window)
 	
 
 	levelManager->currentLevel->draw(window);
-	mouseManager.draw();
+	MouseManager::instance->draw();
 
 	
 	
@@ -105,7 +104,7 @@ void reshape(int w, int h)
 
 void update()
 {
-	mouseManager.update();
+	MouseManager::getInstance()->update();
 	//keep the mouse from going off screen
 	
 	//collisions

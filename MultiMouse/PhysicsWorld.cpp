@@ -8,7 +8,6 @@ void PhysicsWorld::Update()
 PhysicsWorld::PhysicsWorld(b2Vec2 gravity)
 {
     world = new b2World(gravity);
-    std::cout << "bruh";
 }
 
 PhysicsWorld::PhysicsWorld()

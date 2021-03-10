@@ -4,7 +4,7 @@ class DodgeballLevel :
     public Level
 {
 public:
-    DodgeballLevel(MouseManager* mouseManager);
+    DodgeballLevel();
     void update();
     void init();
     Goal* runner;

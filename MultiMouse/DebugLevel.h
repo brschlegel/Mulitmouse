@@ -4,7 +4,7 @@ class DebugLevel :
     public Level
 {
 public:
-    DebugLevel(MouseManager* mouseManager);
+    DebugLevel();
     void draw(sf::RenderWindow* window);
     void update();
 };

@@ -1,8 +1,8 @@
 #include "DodgebalLevel.h"
 
-DodgeballLevel::DodgeballLevel(MouseManager* mouseManager) : Level(mouseManager)
+DodgeballLevel::DodgeballLevel()
 {
-	Scene* main = new Scene(mouseManager, standardGravity, "main");
+	Scene* main = new Scene(standardGravity, "main");
 	leftCage = main->collisions.buildCage(0, 0, 5, 5, Color::getGreen());
 	main->frameScene();
 
@@ -17,6 +17,6 @@ void DodgeballLevel::update()
 
 void DodgeballLevel::init()
 {
-	leftCage->AddMouse(mouseManager->mice[0]);
+	leftCage->AddMouse(MouseManager::getInstance()->mice[0]);
 	leftCage->init();
 }

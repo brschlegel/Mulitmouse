@@ -33,7 +33,7 @@ class PongLevel :
     public Level
 {
 public:
-    PongLevel(MouseManager* mouseManager);
+    PongLevel();
     void update();
     PongListener listener;
     Goal* left;

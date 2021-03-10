@@ -11,8 +11,7 @@ class LevelManager
 {
 public:
 	Level* currentLevel;
-	MouseManager* mouseManager;
-	LevelManager(MouseManager* mouseManager);
+	LevelManager();
 	void changeLevel(LevelName newScene);
 private:
 	

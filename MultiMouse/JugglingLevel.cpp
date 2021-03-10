@@ -1,8 +1,8 @@
 #include "JugglingLevel.h"
 
-JugglingLevel::JugglingLevel(MouseManager* mouseManager) : Level(mouseManager)
+JugglingLevel::JugglingLevel() 
 {
-	Scene* main = new Scene(mouseManager, standardGravity, "main");
+	Scene* main = new Scene( standardGravity, "main");
 	//main->world.AddBox(0, 2, 1, Color::getRed(), .5, .5);
 	bottomGoal = main->collisions.buildGoal(0, -2.5,100,1, Color::getBlue(), "Bottom");
 	main->keyboardFunc = DoNothing;
@@ -18,7 +18,7 @@ JugglingLevel::JugglingLevel(MouseManager* mouseManager) : Level(mouseManager)
 	scenes["main"] = main;
 	
 
-	Scene* gameOver = new Scene(mouseManager, standardGravity, "gameOver");
+	Scene* gameOver = new Scene(standardGravity, "gameOver");
 	gameOver->ui.labels.push_back(new Label(sf::String("Haha u lost"), 800, 450,40, Color(0, 0, 0, 1), gameOver->ui.fonts["MainFont"], Color::getBlue()));
 	gameOver->keyboardFunc = DoNothing;
 	scenes["gameOver"] = gameOver;

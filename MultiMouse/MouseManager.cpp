@@ -1,6 +1,8 @@
 #include "MouseManager.h"
 #include "manymouse.h"
 
+MouseManager* MouseManager::instance;
+
 Mouse* MouseManager::buildMouse(int deviceNum)
 {
 	Color color = potentialMiceColors[mice.size()];
@@ -17,6 +19,15 @@ MouseManager::MouseManager()
 	potentialMiceColors[0] = Color::getRed();
 	potentialMiceColors[1] = Color::getBlue();
 	potentialMiceColors[2] = Color::getGreen();
+}
+
+MouseManager* MouseManager::getInstance()
+{
+	if (!instance)
+	{
+		instance = new MouseManager();
+	}
+	return instance;
 }
 
 void MouseManager::update()

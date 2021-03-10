@@ -1,9 +1,9 @@
 #include "CollisionManager.h"
 
-CollisionManager::CollisionManager(PhysicsWorld* world, MouseManager* mouseManager)
+CollisionManager::CollisionManager(PhysicsWorld* world)
 {
 	this->world = world;
-	this->mouseManager = mouseManager;
+	this->mouseManager = MouseManager::getInstance();
 	drawDebugFlag = true;
 	
 }

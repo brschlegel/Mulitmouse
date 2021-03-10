@@ -18,8 +18,8 @@ class Level
 public:
 	std::map<std::string, Scene*> scenes;
 	Scene* currentScene;
-	MouseManager* mouseManager;
-	Level(MouseManager* mouseManager);
+
+	Level();
 	virtual void draw(sf::RenderWindow* window);
 	virtual void update();
 	virtual void init();

@@ -1,8 +1,7 @@
 #include "Level.h"
 
-Level::Level(MouseManager* mouseManager)
+Level::Level()
 {
-	this->mouseManager = mouseManager;
 	standardGravity = b2Vec2(0, -9.8f);
 }
 

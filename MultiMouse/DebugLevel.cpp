@@ -1,8 +1,8 @@
 #include "DebugLevel.h"
 #include "KeyboardFunctions.h"
-DebugLevel::DebugLevel(MouseManager* mouseManager) : Level(mouseManager)
+DebugLevel::DebugLevel()
 {
-	scenes["main"]= new  Scene(mouseManager, standardGravity, "Main");
+	scenes["main"]= new  Scene(standardGravity, "Main");
 
     scenes["main"]->world.AddRectBarrier(0, -5, 20, 1);
 	scenes["main"]->world.AddRectBarrier(1, 5, 20, 1);

@@ -14,7 +14,7 @@ public:
 	PhysicsWorld* world;
 	MouseManager* mouseManager;
 	std::vector<Trigger*> triggers;
-	CollisionManager(PhysicsWorld* world, MouseManager* mouseManager);
+	CollisionManager(PhysicsWorld* world);
 	CollisionManager();
 	Goal* buildGoal(float x, float y, Color color, std::string name = "unnamed");
 	Goal* buildGoal(float x, float y, float width, float height, Color color, std::string name = "unnamed");

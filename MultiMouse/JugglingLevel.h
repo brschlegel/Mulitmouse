@@ -4,7 +4,7 @@ class JugglingLevel :
     public Level
 {
 public:
-    JugglingLevel(MouseManager* mouseManager);
+    JugglingLevel();
     void update();
 private:
     Goal* bottomGoal;
