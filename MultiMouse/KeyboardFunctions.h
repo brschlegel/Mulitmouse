@@ -7,3 +7,4 @@ void DebugLevelKeyboard(Scene* scene);
 
 void DoNothing(Scene* scene);
 
+void DodgeBallRunner(Scene* scene);

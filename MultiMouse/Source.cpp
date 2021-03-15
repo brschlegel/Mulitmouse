@@ -156,7 +156,7 @@ int main()
 
 					running = false;
 				}
-				levelManager->currentLevel->currentScene->keyboardFunc(levelManager->currentLevel->currentScene);	
+				
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
 					warpPointer = !warpPointer;
 				}
@@ -174,6 +174,7 @@ int main()
 			
 		
 		}
+		levelManager->currentLevel->currentScene->keyboardFunc(levelManager->currentLevel->currentScene);
 		update();
 		if (warpPointer)
 		{

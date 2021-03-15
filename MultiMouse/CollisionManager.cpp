@@ -126,8 +126,8 @@ void CollisionManager::update()
 
 			b2AABB triggerAABB;
 			b2Transform triggerTransform;
-			triggerTransform.Set(b2Vec2(triggers[i]->x, triggers[i]->y), 0);
-			triggers[i]->shape.ComputeAABB(&triggerAABB, triggerTransform, 0);
+			triggerTransform.Set(b2Vec2(triggers[j]->x, triggers[j]->y), 0);
+			triggers[j]->shape.ComputeAABB(&triggerAABB, triggerTransform, 0);
 		}
 
 	}
@@ -153,13 +153,16 @@ void CollisionManager::update()
 				{
 					b2RayCastInput input;
 					input.p1 = b2Vec2(mouse->x, mouse->y);
-					input.p2 = b2Vec2(triggers[i]->x, triggers[i]->y);
-					input.maxFraction = .5f;
-
+					input.p2 = b2Vec2(2 * triggers[i]->x, 2 * triggers[i]->y);
+					input.maxFraction = 12;
+					cout << "input-p1 x: " <<input.p1.x << " y: " << input.p1.y<<  endl;
+					//cout << "p2 x: " << triggers[i]->x << " y: " << triggers[i]->y << endl;
 					b2RayCastOutput output;
 					bool hit = triggers[i]->shape.RayCast(&output, input, triggerTransform, 0);
+					//cout << hit << endl;
 					if (hit)
 					{
+						
 						b2Vec2 hitPoint = input.p1 + output.fraction * (input.p2 - input.p1);
 						mouse->x = hitPoint.x;
 						mouse->y = hitPoint.y;

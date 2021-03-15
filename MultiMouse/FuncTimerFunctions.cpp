@@ -27,7 +27,12 @@ void MovePongBall(Scene* scene)
 		b->body->SetType(b2_dynamicBody);
 		float x = (float)((rand() % 100) - 50) / 20;
 		float y = (float)((rand() % 100) - 50) / 20;
-		std::cout << "x: " << x << " y: " << y << std::endl;
 		b->body->SetLinearVelocity(b2Vec2(x,y));
 	}
+}
+
+void SpawnDodgeBox(Scene* scene)
+{
+	scene->world.AddBox(-6, 3, 1, Color::getRed(), .5, .5);
+	scene->world.AddBox(6, 3, 1, Color::getBlue(), .5, .5);
 }

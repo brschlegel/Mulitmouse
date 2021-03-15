@@ -153,14 +153,14 @@
     <ClCompile Include="KinematicCollisionFunctions.cpp">
       <Filter>Source Files\Collisions</Filter>
     </ClCompile>
-    <ClCompile Include="MouseCage.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="PongLevel.cpp">
       <Filter>Source Files\Levels\LevelClasses</Filter>
     </ClCompile>
+    <ClCompile Include="MouseCage.cpp">
+      <Filter>Source Files\Collisions</Filter>
+    </ClCompile>
     <ClCompile Include="DodgebalLevel.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Levels\LevelClasses</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -246,13 +246,13 @@
       <Filter>Header Files\Levels\LevelClasses</Filter>
     </ClInclude>
     <ClInclude Include="KinematicCollisionFunctions.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Collisions</Filter>
     </ClInclude>
     <ClInclude Include="MouseCage.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Collisions</Filter>
     </ClInclude>
     <ClInclude Include="DodgebalLevel.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Levels\LevelClasses</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
