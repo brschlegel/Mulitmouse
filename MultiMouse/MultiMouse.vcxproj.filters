@@ -162,6 +162,12 @@
     <ClCompile Include="DodgebalLevel.cpp">
       <Filter>Source Files\Levels\LevelClasses</Filter>
     </ClCompile>
+    <ClCompile Include="LevelButton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelSelect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Barrier.h">
@@ -253,6 +259,12 @@
     </ClInclude>
     <ClInclude Include="DodgebalLevel.h">
       <Filter>Header Files\Levels\LevelClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelButton.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelSelect.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

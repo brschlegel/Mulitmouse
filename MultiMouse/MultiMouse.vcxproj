@@ -159,6 +159,8 @@
     <ClCompile Include="KinematicCollisionFunctions.cpp" />
     <ClCompile Include="Label.cpp" />
     <ClCompile Include="Level.cpp" />
+    <ClCompile Include="LevelButton.cpp" />
+    <ClCompile Include="LevelSelect.cpp" />
     <ClCompile Include="MouseCage.cpp" />
     <ClCompile Include="PongLevel.cpp" />
     <ClCompile Include="Scene.cpp" />
@@ -195,6 +197,8 @@
     <ClInclude Include="KeyboardFunctions.h" />
     <ClInclude Include="Label.h" />
     <ClInclude Include="Level.h" />
+    <ClInclude Include="LevelButton.h" />
+    <ClInclude Include="LevelSelect.h" />
     <ClInclude Include="MouseCage.h" />
     <ClInclude Include="PongLevel.h" />
     <ClInclude Include="Scene.h" />

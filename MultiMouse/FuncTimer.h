@@ -1,8 +1,5 @@
 #pragma once
 #include <string>;
-#define SFML_STATIC
-#include "SFML/Graphics.hpp"
-#include "SFML/Window.hpp"
 #include "Scene.h"
 class Scene;
 class FuncTimer

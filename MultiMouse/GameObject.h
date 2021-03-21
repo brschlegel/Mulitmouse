@@ -1,10 +1,10 @@
 #pragma once
 #include <Box2D/Box2D.h>
-#include <GL/freeglut.h>
 #include "Color.h"
 #include <string>
 #include <vector>
 
+enum class LevelName { DebugLevel, Juggling, Pong, Dodgeball, LevelSelect };
 enum class Tag{Ball, Pong, Unscorable};
 
 class GameObject

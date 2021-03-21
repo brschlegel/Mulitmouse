@@ -27,3 +27,10 @@ void Level::unload()
 		delete itr->second;
 	}
 }
+
+int Level::checkLevelUpdate()
+{
+	if (scenes["main"]->collisions.switchLevelFlag != -1)
+		return scenes["main"]->collisions.switchLevelFlag;
+	return -1;
+}

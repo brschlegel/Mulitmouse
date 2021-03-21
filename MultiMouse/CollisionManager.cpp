@@ -5,6 +5,7 @@ CollisionManager::CollisionManager(PhysicsWorld* world)
 	this->world = world;
 	this->mouseManager = MouseManager::getInstance();
 	drawDebugFlag = true;
+	switchLevelFlag = -1;
 	
 }
 
@@ -43,6 +44,13 @@ MouseCage* CollisionManager::buildCage(float x, float y, float width, float heig
 	MouseCage* cage = new MouseCage(x, y, width, height, color, name);
 	triggers.push_back(cage);
 	return cage;
+}
+
+LevelButton* CollisionManager::buildLevelButton(float x, float y, float width, float height, Color color, LevelName level, std::string name)
+{
+	LevelButton* lb = new LevelButton(x, y, width, height, color, level, name);
+	triggers.push_back(lb);
+	return lb;
 }
 
 void CollisionManager::unload()
@@ -123,11 +131,30 @@ void CollisionManager::update()
 
 		for (unsigned int j = 0; j < triggers.size(); j++)
 		{
+			if (triggers[j]->mouseTrigger)
+			{
 
-			b2AABB triggerAABB;
-			b2Transform triggerTransform;
-			triggerTransform.Set(b2Vec2(triggers[j]->x, triggers[j]->y), 0);
-			triggers[j]->shape.ComputeAABB(&triggerAABB, triggerTransform, 0);
+				b2AABB triggerAABB;
+				b2Transform triggerTransform;
+				triggerTransform.Set(b2Vec2(triggers[j]->x, triggers[j]->y), 0);
+				triggers[j]->shape.ComputeAABB(&triggerAABB, triggerTransform, 0);
+				if (b2TestOverlap(a, triggerAABB))
+				{
+					switch (triggers[j]->triggerId)
+					{
+					case 3: 
+						if (mouseManager->mice[i]->leftButtonPressed)
+						{
+							
+							LevelButton* lb = dynamic_cast<LevelButton*>(triggers[j]);
+							LevelName levelName = lb->level;
+							switchLevelFlag = (int)levelName;
+							cout << switchLevelFlag;
+						}
+						break;
+					}
+				}
+			}
 		}
 
 	}

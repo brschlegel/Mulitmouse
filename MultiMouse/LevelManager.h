@@ -1,19 +1,23 @@
 #pragma once
-#include "Scene.h"
+#include "Level.h"
 #include <map>
 #include "FuncTimer.h"
 #include "DebugLevel.h"
 #include "JugglingLevel.h"
 #include "PongLevel.h"
 #include "DodgebalLevel.h"
-enum class LevelName{DebugLevel, Juggling, Pong, Dodgeball};
+#include "LevelSelect.h"
+class LevelManager;
 class LevelManager
 {
 public:
 	Level* currentLevel;
-	LevelManager();
+
 	void changeLevel(LevelName newScene);
+	void checkChangeLevel();
+	static LevelManager* instance;
+	static LevelManager* getInstance();
 private:
-	
+	LevelManager();
 };
 

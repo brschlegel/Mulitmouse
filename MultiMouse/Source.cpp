@@ -10,7 +10,6 @@
 #include "Goal.h"
 #include "CollisionManager.h"
 #include "UIManager.h"
-#include "Scene.h"
 #include "LevelManager.h"
 
 #define SFML_STATIC
@@ -44,7 +43,7 @@ void init(void)
 {
 	MouseManager::getInstance();
 	// initialize the size of the window
-	levelManager = new LevelManager();
+	levelManager = LevelManager::getInstance();
 
 }
 
@@ -94,7 +93,7 @@ void reshape(int w, int h)
 	glLoadIdentity();
 	gluOrtho2D(-5.0 * (float(width) / float(height)), 5.0 * (float(width) / float(height)), -5.0, 5.0); // Define the size of the canvas left =-5, right =-5, bottom =-5, top=5,
 									  // so the orgin is at the center of the canvas.  
-
+	cout << "reahaps: " << "w: " << -5.0 * (float(width) / float(height));
 	
 	glViewport(0, 0, (GLsizei)width, (GLsizei)height);
 	
@@ -111,6 +110,7 @@ void update()
 	//world.Update();
 	//collisionManager.update();
 	levelManager->currentLevel->update();
+	levelManager->checkChangeLevel();
 }
 
 int main()

@@ -8,9 +8,8 @@
 #include "SFML/Window.hpp"
 #include "SFML/OpenGL.hpp"
 #include "FuncTimer.h"
-#include "KeyboardFunctions.h"
-#include "FuncTimerFunctions.h"
-#include "KinematicCollisionFunctions.h"
+
+
 #include <cmath>
 class Scene;
 class Level
@@ -24,6 +23,7 @@ public:
 	virtual void update();
 	virtual void init();
 	virtual void unload();
+	virtual int checkLevelUpdate();
 protected:
 	b2Vec2 standardGravity;
 

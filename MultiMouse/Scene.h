@@ -2,14 +2,18 @@
 #include "PhysicsWorld.h"
 #include "CollisionManager.h"
 #include "UIManager.h"
+#include "FuncTimer.h"
+#include "KeyboardFunctions.h"
+#include "FuncTimerFunctions.h"
 #include <string>
 #define SFML_STATIC
 #include <iostream>
 #include "SFML/Graphics.hpp"
 #include "SFML/Window.hpp"
 #include "SFML/OpenGL.hpp"
-#include "Level.h";
 
+
+class CollisionManager;
 class FuncTimer;
 class Scene
 {
