@@ -17,6 +17,10 @@ public:
 	
 	void update();
 	void draw();
+	void setAllMiceActive(bool cond = true);
+	void unfreezeAllMice();
+	int getNumOfActiveMice();
+	vector<Mouse*> getActiveMice();
 	static MouseManager* instance;
 	static MouseManager* getInstance();
 private:

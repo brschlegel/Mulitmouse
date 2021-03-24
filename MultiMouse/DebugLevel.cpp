@@ -2,6 +2,7 @@
 #include "KeyboardFunctions.h"
 DebugLevel::DebugLevel()
 {
+	mouseNum = 1;
 	scenes["main"]= new  Scene(standardGravity, "Main");
 
     scenes["main"]->world.AddRectBarrier(0, -5, 20, 1);

@@ -2,6 +2,7 @@
 
 PongLevel::PongLevel()
 {
+	mouseNum = 2;
 	Scene* main = new Scene(standardGravity, "main");
 
 	main->world.world->SetContactListener(&listener);

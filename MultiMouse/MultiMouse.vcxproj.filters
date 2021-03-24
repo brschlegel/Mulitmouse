@@ -163,9 +163,15 @@
       <Filter>Source Files\Levels\LevelClasses</Filter>
     </ClCompile>
     <ClCompile Include="LevelButton.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Levels</Filter>
     </ClCompile>
     <ClCompile Include="LevelSelect.cpp">
+      <Filter>Source Files\Levels\LevelClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="MouseAssignmentButton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerSelect.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -260,10 +266,16 @@
     <ClInclude Include="DodgebalLevel.h">
       <Filter>Header Files\Levels\LevelClasses</Filter>
     </ClInclude>
+    <ClInclude Include="LevelSelect.h">
+      <Filter>Header Files\Levels\LevelClasses</Filter>
+    </ClInclude>
     <ClInclude Include="LevelButton.h">
+      <Filter>Header Files\Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="MouseAssignmentButton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="LevelSelect.h">
+    <ClInclude Include="PlayerSelect.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

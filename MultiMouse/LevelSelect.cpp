@@ -3,17 +3,18 @@
 LevelSelect::LevelSelect()
 {
 	Scene* main = new Scene(standardGravity, "main");
-	LevelButton* dodgeball = main->collisions.buildLevelButton(-1, -1, 1.5f, .5f, Color::getRed(), LevelName::Dodgeball);
-	main->collisions.buildLevelButton(2, 1, 1, .5f, Color::getBlue(), LevelName::DebugLevel);
-	for (int i = 0; i < dodgeball->vertices.size(); i++)
-	{
-		cout << "original: " << "x: " << dodgeball->vertices[i].x << "y: " << dodgeball->vertices[i].y << endl;
-		sf::Vector2<int> vec = main->ui.convertWorldToUI(dodgeball->vertices[i].x * 2, dodgeball->vertices[i].y * 2);
-		cout << "new: " << "x: " << vec.x << "y: " << vec.y << endl;
-		cout << "-=============-" << endl;
-		
-	}
+	LevelButton* dodgeball = main->collisions.buildLevelButton(-1.5f, 2, 1.5f, .5f, Color::getRed(), LevelName::Dodgeball);
+	activationConditions[dodgeball] = -2;
 	main->ui.buildLabelInTrigger("Dodgeball", dodgeball);
+
+	LevelButton* debug = main->collisions.buildLevelButton(-3, 2, 1.5f, .5f, Color::getBlue(), LevelName::DebugLevel);
+	activationConditions[debug] = 1;
+	main->ui.buildLabelInTrigger("Playbox", debug);
+
+	LevelButton* juggling = main->collisions.buildLevelButton(0, 2, 1.5f, .5f, Color::getGreen(), LevelName::Juggling);
+	activationConditions[juggling] = 2;
+	main->ui.buildLabelInTrigger("Juggling", juggling);
+	
 
 
 	main->frameScene();
@@ -24,4 +25,33 @@ LevelSelect::LevelSelect()
 void LevelSelect::update()
 {
 	currentScene->update();
+	checkActive();
+}
+
+void LevelSelect::checkActive()
+{
+	for (auto itr = activationConditions.begin(); itr != activationConditions.end(); itr++)
+	{
+		if (MouseManager::getInstance()->mice.size() > 0)
+		{
+			if (itr->second > 0)
+			{
+				if (MouseManager::getInstance()->mice.size() >= itr->second)
+				{
+					itr->first->active = true;
+				}
+			}
+			else if (itr->second < 0)
+			{
+				if (MouseManager::getInstance()->mice.size() % -itr->second == 0)
+				{
+					itr->first->active = true;
+				}
+			}
+			else
+			{
+				itr->first->active = true;
+			}
+		}
+	}
 }

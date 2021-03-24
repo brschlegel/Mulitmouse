@@ -6,6 +6,7 @@ class LevelButton :
 {
 public:
     LevelName level;
+    bool active;
     LevelButton(float x, float y, float width, float height, Color color,LevelName level, std::string name = "unnamed");
     void onClick();
     void onStay();

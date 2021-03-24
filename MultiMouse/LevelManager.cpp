@@ -6,10 +6,11 @@ LevelManager::LevelManager()
 	currentLevel = new LevelSelect();
 }
 
-void LevelManager::changeLevel(LevelName newScene)
+void LevelManager::changeLevel(LevelName newLevel)
 {
 	currentLevel->unload();
-	switch (newScene)
+	MouseManager::getInstance()->unfreezeAllMice();
+	switch (newLevel)
 	{
 	case LevelName::Juggling:
 		currentLevel = new JugglingLevel();
@@ -24,9 +25,20 @@ void LevelManager::changeLevel(LevelName newScene)
 		currentLevel = new DodgeballLevel();
 		break;
 	case LevelName::LevelSelect:
+		MouseManager::getInstance()->setAllMiceActive();
 		currentLevel = new LevelSelect();
 		break;
 	}
+	if (currentLevel->mouseNum > 0)
+	{
+		if (MouseManager::getInstance()->getNumOfActiveMice() > currentLevel->mouseNum)
+		{
+			currentLevel = new PlayerSelect(currentLevel->mouseNum, newLevel);
+		}
+	}
+
+
+
 	currentLevel->init();
 }
 

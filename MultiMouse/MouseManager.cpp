@@ -87,3 +87,42 @@ void MouseManager::draw()
 		mice[i]->draw();
 	}
 }
+
+void MouseManager::setAllMiceActive(bool cond)
+{
+	for (int i = 0; i < mice.size();i++)
+	{
+		mice[i]->active = cond;
+		mice[i]->frozen = false;
+	}
+}
+
+void MouseManager::unfreezeAllMice()
+{
+	for (int i = 0; i < mice.size(); i++)
+	{
+		mice[i]->frozen = false;
+	}
+}
+
+int MouseManager::getNumOfActiveMice()
+{
+	int count = 0;
+	for (int i = 0; i < mice.size(); i++)
+	{
+		if (mice[i]->active)
+			count++;
+	}
+	return count;
+}
+
+vector<Mouse*> MouseManager::getActiveMice()
+{
+	vector<Mouse*> activeMice;
+	for (int i = 0; i < mice.size(); i++)
+	{
+		if (mice[i]->active)
+			activeMice.push_back(mice[i]);
+	}
+	return activeMice;
+}

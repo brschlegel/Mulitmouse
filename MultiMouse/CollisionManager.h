@@ -5,6 +5,7 @@
 #include "Goal.h"
 #include "MouseCage.h"
 #include "LevelButton.h"
+#include "MouseAssignmentButton.h"
 
 
 class LevelManager;
@@ -22,6 +23,7 @@ public:
 	MouseCage* buildCage(float x, float y, Color color, std::string name = "unnamed");
 	MouseCage* buildCage(float x, float y, float width, float height, Color color, std::string name = "unnamed");
 	LevelButton* buildLevelButton(float x, float y, float width, float height, Color color, LevelName level, std::string name = "unnamed");
+	MouseAssignmentButton* buildMouseAssignmentButton(float x, float y, float width, float height, Color color, int occupancy, std::string name = "unnamed");
 	void unload();
 
 	void update();

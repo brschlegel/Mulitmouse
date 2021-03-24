@@ -16,6 +16,8 @@ public:
 	void releasePhysicsSelect();
 	void draw();
 	float prevX, prevY;
+	bool active;
+	bool frozen;
 private:
 };
 

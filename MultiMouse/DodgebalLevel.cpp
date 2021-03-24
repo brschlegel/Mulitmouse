@@ -2,6 +2,7 @@
 
 DodgeballLevel::DodgeballLevel()
 {
+	mouseNum = -2;
 	Scene* main = new Scene(standardGravity, "main");
 	leftCage = main->collisions.buildCage(-3.5, 0, 4, 9, Color::getGreen());
 	rightCage = main->collisions.buildCage(3.5, 0, 4, 9, Color::getBlue());

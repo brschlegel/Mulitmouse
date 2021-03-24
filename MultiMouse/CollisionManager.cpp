@@ -53,6 +53,13 @@ LevelButton* CollisionManager::buildLevelButton(float x, float y, float width, f
 	return lb;
 }
 
+MouseAssignmentButton* CollisionManager::buildMouseAssignmentButton(float x, float y, float width, float height, Color color, int occupancy, std::string name)
+{
+	MouseAssignmentButton* msb = new MouseAssignmentButton(x,y,width,height, color, occupancy);
+	triggers.push_back(msb);
+	return msb;
+}
+
 void CollisionManager::unload()
 {
 	for (int i = 0; i < triggers.size(); i++)
@@ -65,6 +72,7 @@ void CollisionManager::unload()
 void CollisionManager::update()
 {
 	//bodies check
+	vector<Mouse*> mice = mouseManager->getActiveMice();
 	for (unsigned int j = 0; j < world->bodies.size(); j++)
 	{
 
@@ -73,22 +81,22 @@ void CollisionManager::update()
 		world->bodies[j]->shape.ComputeAABB(&b, bt, 0);
 
 		//mice
-		for (unsigned int i = 0; i < mouseManager->mice.size(); i++)
+		for (unsigned int i = 0; i <mice.size(); i++)
 		{
 			b2AABB a;
 			b2Transform t;
-			t.Set(b2Vec2(mouseManager->mice[i]->x, mouseManager->mice[i]->y), 0);
-			mouseManager->mice[i]->shape.ComputeAABB(&a, t, 0);
+			t.Set(b2Vec2(mice[i]->x, mice[i]->y), 0);
+			mice[i]->shape.ComputeAABB(&a, t, 0);
 			
 			if (b2TestOverlap(a, b))
 			{
 				//if left clicking on a physics object
-				if (mouseManager->mice[i]->leftButtonPressed && world->bodies[j]->body->GetType() == b2_dynamicBody && mouseManager->mice[i]->physicsSelect == NULL && world->bodies[j]->selectable)
+				if (mice[i]->leftButtonPressed && world->bodies[j]->body->GetType() == b2_dynamicBody && mice[i]->physicsSelect == NULL && world->bodies[j]->selectable)
 				{	
 					world->bodies[j]->body->SetType(b2_kinematicBody);
 					world->bodies[j]->body->SetLinearVelocity(b2Vec2_zero);
-					world->bodies[j]->selected = mouseManager->mice[i];
-					mouseManager->mice[i]->physicsSelect = world->bodies[j];
+					world->bodies[j]->selected = mice[i];
+					mice[i]->physicsSelect = world->bodies[j];
 				}
 			}
 		}
@@ -122,18 +130,18 @@ void CollisionManager::update()
 	}
 
 	//Mice with triggers
-	for (unsigned int i = 0; i < mouseManager->mice.size(); i++)
+	for (unsigned int i = 0; i < mice.size(); i++)
 	{
 		b2AABB a;
 		b2Transform t;
-		t.Set(b2Vec2(mouseManager->mice[i]->x, mouseManager->mice[i]->y), 0);
-		mouseManager->mice[i]->shape.ComputeAABB(&a, t, 0);
+		t.Set(b2Vec2(mice[i]->x, mice[i]->y), 0);
+		mice[i]->shape.ComputeAABB(&a, t, 0);
 
 		for (unsigned int j = 0; j < triggers.size(); j++)
 		{
 			if (triggers[j]->mouseTrigger)
 			{
-
+			
 				b2AABB triggerAABB;
 				b2Transform triggerTransform;
 				triggerTransform.Set(b2Vec2(triggers[j]->x, triggers[j]->y), 0);
@@ -142,14 +150,36 @@ void CollisionManager::update()
 				{
 					switch (triggers[j]->triggerId)
 					{
+						//levelbuttons
 					case 3: 
-						if (mouseManager->mice[i]->leftButtonPressed)
+						if (mice[i]->leftButtonPressed )
 						{
-							
 							LevelButton* lb = dynamic_cast<LevelButton*>(triggers[j]);
-							LevelName levelName = lb->level;
-							switchLevelFlag = (int)levelName;
-							cout << switchLevelFlag;
+							if (lb->active)
+							{
+								LevelName levelName = lb->level;
+								switchLevelFlag = (int)levelName;
+							}
+						}
+						break;
+						//mouseassignmentbuttons
+					case 4:
+						if (mice[i]->leftButtonPressed && !mice[i]->frozen)
+						{
+							MouseAssignmentButton* msb = static_cast<MouseAssignmentButton*>(triggers[j]);
+							if (msb->mice.size() < msb->occupancy)
+							{
+								
+								MouseManager::getInstance()->mice[i]->frozen = true;
+								msb->mice.push_back(mice[i]);
+							}
+						}
+						if (mice[i]->rightButtonPressed && mice[i]->frozen)
+						{
+							MouseAssignmentButton* msb = dynamic_cast<MouseAssignmentButton*>(triggers[j]);
+							mice[i]->frozen = false;
+							//   bodies.erase(std::find(bodies.begin(), bodies.end(), object));
+							msb->mice.erase(std::find(msb->mice.begin(), msb->mice.end(), mice[i]));
 						}
 						break;
 					}

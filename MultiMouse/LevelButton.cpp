@@ -4,6 +4,7 @@ LevelButton::LevelButton(float x, float y, float width, float height, Color colo
 {
 	this->level = level;
 	this->triggerId = 3;
+	active = false;
 }
 
 void LevelButton::onClick()
@@ -18,7 +19,10 @@ void LevelButton::onStay()
 void LevelButton::draw()
 {
 	glPushMatrix();
-	glColor4f(color.r, color.g, color.b, color.a);
+	if (active)
+		glColor4f(color.r, color.g, color.b, color.a);
+	else
+		glColor4f(.5, .5, .5, .8);
 	glTranslatef(x, y, 0);
 	glRotatef(angle * 180.0f / b2_pi, 0, 0, 1);
 	glBegin(GL_POLYGON);

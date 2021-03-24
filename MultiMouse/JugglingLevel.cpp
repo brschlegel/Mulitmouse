@@ -2,6 +2,7 @@
 
 JugglingLevel::JugglingLevel() 
 {
+	mouseNum = 2;
 	Scene* main = new Scene( standardGravity, "main");
 	//main->world.AddBox(0, 2, 1, Color::getRed(), .5, .5);
 	bottomGoal = main->collisions.buildGoal(0, -2.5,100,1, Color::getBlue(), "Bottom");

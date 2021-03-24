@@ -161,7 +161,9 @@
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="LevelButton.cpp" />
     <ClCompile Include="LevelSelect.cpp" />
+    <ClCompile Include="MouseAssignmentButton.cpp" />
     <ClCompile Include="MouseCage.cpp" />
+    <ClCompile Include="PlayerSelect.cpp" />
     <ClCompile Include="PongLevel.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="LevelManager.cpp" />
@@ -199,7 +201,9 @@
     <ClInclude Include="Level.h" />
     <ClInclude Include="LevelButton.h" />
     <ClInclude Include="LevelSelect.h" />
+    <ClInclude Include="MouseAssignmentButton.h" />
     <ClInclude Include="MouseCage.h" />
+    <ClInclude Include="PlayerSelect.h" />
     <ClInclude Include="PongLevel.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="LevelManager.h" />

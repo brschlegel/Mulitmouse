@@ -1,5 +1,6 @@
 #pragma once
 #include "Level.h"
+#include <map>
 
 class LevelSelect :
     public Level
@@ -7,5 +8,7 @@ class LevelSelect :
 public:
     LevelSelect();
     void update();
+    void checkActive();
+    map<LevelButton*, int> activationConditions;
 };
 

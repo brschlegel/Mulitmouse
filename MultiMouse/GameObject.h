@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-enum class LevelName { DebugLevel, Juggling, Pong, Dodgeball, LevelSelect };
+enum class LevelName { DebugLevel, Juggling, Pong, Dodgeball, LevelSelect, PlayerSelect };
 enum class Tag{Ball, Pong, Unscorable};
 
 class GameObject

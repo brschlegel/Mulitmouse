@@ -24,6 +24,7 @@ public:
 	virtual void init();
 	virtual void unload();
 	virtual int checkLevelUpdate();
+	int mouseNum;
 protected:
 	b2Vec2 standardGravity;
 

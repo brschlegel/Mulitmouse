@@ -9,12 +9,16 @@ Mouse::Mouse(Color color) : PolygonObject(0, 0,color,0)
 	physicsSelect = NULL;
 	rightButtonPressed = false;
 	setShapeAsBox(.25f, .25f);
+	active = true;
+	frozen = false;
 }
 
 
 
 void Mouse::updateX(float num)
 {
+	if (frozen)
+		return;
 	prevX = x;
 	x += (num/sensitivityCoeff);
 
@@ -22,6 +26,8 @@ void Mouse::updateX(float num)
 
 void Mouse::updateY(float num)
 {
+	if (frozen)
+		return;
 	prevY = y;
 	y -= num/sensitivityCoeff;
 }
@@ -51,7 +57,10 @@ void Mouse::draw()
 {
 
 	glPushMatrix();
-	glColor4f(color.r, color.g, color.b, color.a);
+	if (active)
+		glColor4f(color.r, color.g, color.b, color.a);
+	else
+		glColor4f(color.r, color.g, color.b, .5f);
 	glTranslatef(x, y, 0);
 	glRotatef(angle * 180.0f / b2_pi, 0, 0, 1);
 	glBegin(GL_POLYGON);
@@ -69,7 +78,10 @@ void Mouse::draw()
 		glVertex2f(drawVerts[i].x, drawVerts[i].y);
 	}
 	glEnd();
-	glColor3f(0, 0, 0);
+	if (active)
+		glColor3f(0, 0, 0);
+	else
+		glColor4f(0, 0, 0, .5f);
 	glLineWidth(2);
 	glBegin(GL_LINE_LOOP);
 	for (int i = 0; i < drawVerts.size(); i++)
