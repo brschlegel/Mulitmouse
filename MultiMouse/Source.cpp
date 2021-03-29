@@ -11,6 +11,8 @@
 #include "CollisionManager.h"
 #include "UIManager.h"
 #include "LevelManager.h"
+#include <ctime>
+#include <cstdlib>
 
 #define SFML_STATIC
 
@@ -41,16 +43,18 @@ bool warpPointer = true;
 
 void init(void)
 {
+
 	MouseManager::getInstance();
 	// initialize the size of the window
 	levelManager = LevelManager::getInstance();
+	UIData::getInstance();
 
 }
 
 // called when the GL context need to be rendered
 void display(sf::RenderWindow* window)
 {
-
+	
 	// clear the screen to white, which is the background color
 	glClearColor(1.0, 1.0, 1.0, 0.0);
 
@@ -114,6 +118,9 @@ void update()
 int main()
 {
 
+
+
+	srand((unsigned)time(NULL));
 	// create the window
 	//sf::Window window(sf::VideoMode::getFullscreenModes()[0], "OpenGL", sf::Style::Fullscreen, sf::ContextSettings(24));
 	sf::RenderWindow window(sf::VideoMode::getFullscreenModes()[0], "OpenGL", sf::Style::Fullscreen, sf::ContextSettings(24));
@@ -153,15 +160,20 @@ int main()
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
 
 					running = false;
+
 				}
 				
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
-					warpPointer = !warpPointer;
+					//warpPointer = !warpPointer;
 				}
 
-				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Home))
 				{
-					levelManager->changeLevel(LevelName::Dodgeball);
+					sf::Texture t;
+					t.create(1920,1080);
+					t.update(window);
+					sf::Image i = t.copyToImage();
+					i.saveToFile("images/bruh.png");
 				}
 				break;
 			case sf::Event::Resized:

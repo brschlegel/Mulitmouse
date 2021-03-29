@@ -13,6 +13,16 @@ void Level::draw(sf::RenderWindow* window)
 void Level::update()
 {
 	currentScene->update();
+	if (scenes.find("instructions") != scenes.end() && currentScene == scenes["instructions"] && scenes["instructions"]->readyUpButton->checkFull())
+	{
+		MouseManager::getInstance()->unfreezeAllMice();
+		currentScene = scenes["main"];
+		for (int i = 0; i < scenes["main"]->funcTimers.size(); i++)
+		{
+			scenes["main"]->funcTimers[i]->start();
+
+		}
+	}
 }
 
 void Level::init()
@@ -30,7 +40,7 @@ void Level::unload()
 
 int Level::checkLevelUpdate()
 {
-	if (scenes["main"]->collisions.switchLevelFlag != -1)
-		return scenes["main"]->collisions.switchLevelFlag;
+	if (currentScene->collisions.switchLevelFlag != -1)
+		return currentScene->collisions.switchLevelFlag;
 	return -1;
 }

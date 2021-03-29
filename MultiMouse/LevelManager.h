@@ -9,6 +9,7 @@
 #include "DodgebalLevel.h"
 #include "LevelSelect.h"
 #include "PlayerSelect.h"
+#include "TeamSelect.h"
 
 class LevelManager;
 class LevelManager

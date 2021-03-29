@@ -11,6 +11,7 @@ Mouse::Mouse(Color color) : PolygonObject(0, 0,color,0)
 	setShapeAsBox(.25f, .25f);
 	active = true;
 	frozen = false;
+	teamColor = Color(0, 0, 0);
 }
 
 
@@ -66,22 +67,25 @@ void Mouse::draw()
 	glBegin(GL_POLYGON);
 
 	std::vector<b2Vec2> drawVerts;
-	drawVerts.push_back(b2Vec2(-.1f, .1f));
-	drawVerts.push_back(b2Vec2(-.09f, -.06f));
+	float multi = 1.25f;
+	drawVerts.push_back(multi * b2Vec2(-.1f, .1f));
+	drawVerts.push_back(multi * b2Vec2(-.09f, -.06f));
 	//drawVerts.push_back(b2Vec2(-.07f, -.04f));
 	//drawVerts.push_back(b2Vec2(0,0));
 	//drawVerts.push_back(b2Vec2(.03f, -.03f));
-	drawVerts.push_back(b2Vec2(.06f, .03f));
+	drawVerts.push_back(multi * b2Vec2(.06f, .03f));
 
 	for (int i = 0; i < drawVerts.size(); i++)
 	{
 		glVertex2f(drawVerts[i].x, drawVerts[i].y);
 	}
 	glEnd();
+	float xOffset = 0; 
+	float yOffset = 0;
 	if (active)
-		glColor3f(0, 0, 0);
+		glColor3f(teamColor.r, teamColor.b, teamColor.g);
 	else
-		glColor4f(0, 0, 0, .5f);
+		glColor4f(teamColor.r, teamColor.b, teamColor.g, .5f);
 	glLineWidth(2);
 	glBegin(GL_LINE_LOOP);
 	for (int i = 0; i < drawVerts.size(); i++)
@@ -89,6 +93,8 @@ void Mouse::draw()
 		glVertex2f(drawVerts[i].x, drawVerts[i].y);
 	}
 	glEnd();
+
+	
 
 	glPopMatrix();
 }

@@ -42,3 +42,27 @@ Color Color::getBlue()
 {
 	return Color(31, 147, 255);
 }
+
+std::vector<Color> Color::getListOfColors()
+{
+	std::vector<Color> colors;
+	colors.push_back(getRed());
+	colors.push_back(getBlue());
+	colors.push_back(getGreen());
+	colors.push_back(Color(224, 66, 245));
+	colors.push_back(Color(66, 242, 245));
+	colors.push_back(Color(245, 66, 114));
+	colors.push_back(Color(245, 188, 66));
+	colors.push_back(Color(173, 245, 66));
+	colors.push_back(Color(93, 66, 245));
+	colors.push_back(Color(236, 245, 66));
+	colors.push_back(Color(245, 105, 66));
+
+	for (int i = 0; i < 20; i++)
+	{
+		colors.push_back(Color(1, 1, 1));
+	}
+
+	return colors;
+
+}

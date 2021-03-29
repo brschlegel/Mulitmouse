@@ -4,7 +4,14 @@ PlayerSelect::PlayerSelect(int numButtons, LevelName chainedLevel)
 {
 	this->chainedLevel = chainedLevel;
 	Scene* main = new Scene(standardGravity, "main");
-	buttons.push_back(main->collisions.buildMouseAssignmentButton(1, 1, .5f, .5f, Color::getGreen(), 1));
+	float increment = 8.0f / numButtons;
+	for (int i = 0; i < numButtons; i++)
+	{
+		float random = ((float)rand()) / (float)RAND_MAX;
+		float x = random * increment + (increment * i) - 4;
+		float y = random * 4 - 2;
+		buttons.push_back(main->collisions.buildMouseAssignmentButton(x, y, .5f, .5f, Color::getBlue(), 1));
+	}
 
 	scenes["main"] = main;
 	currentScene = scenes["main"];
@@ -34,5 +41,5 @@ int PlayerSelect::checkLevelUpdate()
 			buttons[i]->mice[j]->active = true;
 		}
 	}
-	return (int)chainedLevel;
+ 	return (int)chainedLevel;
 }

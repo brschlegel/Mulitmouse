@@ -169,9 +169,15 @@
       <Filter>Source Files\Levels\LevelClasses</Filter>
     </ClCompile>
     <ClCompile Include="MouseAssignmentButton.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Collisions</Filter>
     </ClCompile>
     <ClCompile Include="PlayerSelect.cpp">
+      <Filter>Source Files\Levels\LevelClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="UIData.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TeamSelect.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -276,6 +282,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PlayerSelect.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UIData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TeamSelect.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

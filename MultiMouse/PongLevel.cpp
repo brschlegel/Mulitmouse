@@ -5,6 +5,10 @@ PongLevel::PongLevel()
 	mouseNum = 2;
 	Scene* main = new Scene(standardGravity, "main");
 
+	Scene* instructions = new Scene(standardGravity, "instructions");
+	instructions->buildInstructionScene("Pong", "Ah the classic game Pong. Except you have to actively hold the paddles, and you can move them wherever you want. And there are multiple balls. And the physics are wackier. Whatever, just don't lose", "Pong");
+	scenes["instructions"] = instructions;
+
 	main->world.world->SetContactListener(&listener);
 	for (int i = 0; i < 3; i++)
 	{
@@ -29,27 +33,27 @@ PongLevel::PongLevel()
 
 	main->keyboardFunc = DoNothing;
 	scenes["main"] = main;
-	currentScene = main;
+	currentScene = instructions;
 
 	Scene* gameOver = new Scene(standardGravity, "gameOver");
-	gameOver->ui.labels.push_back(new Label(sf::String("Haha u lost"), 800, 450, 40, Color(0, 0, 0, 1), gameOver->ui.fonts["MainFont"], Color::getBlue()));
-	gameOver->keyboardFunc = DoNothing;
+	gameOver->buildGameOverScene("haha u lost");
 	scenes["gameOver"] = gameOver;
 }
 
 void PongLevel::update()
 {
-	currentScene->update();
+	Level::update();
 	if (right->score > 0 || left->score > 0)
 	{
 		if (currentScene == scenes["main"])
 		{
 			sf::String loser;
 			if (right->score > 0)
-				loser = "Right";
+				loser = "right";
 			else
 				loser = "left";
-			scenes["gameOver"]->ui.labels.push_back(new Label(sf::String("Your " + loser + " side is weak!"), 760, 650, 40, Color(0, 0, 0, 1), scenes["gameOver"]->ui.fonts["MainFont"], Color::getBlue()));
+			scenes["gameOver"]->ui.labels.erase(scenes["gameOver"]->ui.labels.begin());
+			scenes["gameOver"]->ui.buildLabel("The player on the " + loser + " is weaker!", 0, 0, 30);
 		}
 		currentScene = scenes["gameOver"];
 	}

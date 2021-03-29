@@ -4,4 +4,8 @@
     <LocalDebuggerEnvironment>PATH=%PATH%;C:\Users\Ben\Documents\MyLib\dll\x32</LocalDebuggerEnvironment>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Exe|Win32'">
+    <LocalDebuggerEnvironment>PATH=%PATH%;C:\Users\Ben\Documents\MyLib\dll\x32</LocalDebuggerEnvironment>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
 </Project>

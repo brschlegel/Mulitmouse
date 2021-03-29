@@ -21,7 +21,7 @@ void setBallDynamic(Scene* scene)
 
 void MovePongBall(Scene* scene)
 {
-	srand((unsigned)time(0));
+
 	for (PolygonPhysicsObject* b : scene->getBodyByTag(Tag::Pong))
 	{
 		b->body->SetType(b2_dynamicBody);

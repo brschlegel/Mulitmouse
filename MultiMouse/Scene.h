@@ -36,7 +36,9 @@ public:
 	float width, height;
 	void frameScene();
 	void unload();
-
+	MouseAssignmentButton* readyUpButton;
+	void buildInstructionScene(std::string levelName, std::string instructionText, std::string imageName);
+	void buildGameOverScene(std::string losingMessage);
 
 
 };

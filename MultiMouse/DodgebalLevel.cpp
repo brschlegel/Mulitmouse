@@ -3,6 +3,11 @@
 DodgeballLevel::DodgeballLevel()
 {
 	mouseNum = -2;
+
+	Scene* instructions = new Scene(standardGravity, "instructions");
+	instructions->buildInstructionScene("DodgeBall", "In Dodgeball there is a red team and a blue team. Both teams cannot leave their designated areas, and are trying to hit the middle keyboard player with the supplied boxes. The keyboard player moves with WASD.","Dodgeball");
+	scenes["instructions"] = instructions;
+
 	Scene* main = new Scene(standardGravity, "main");
 	leftCage = main->collisions.buildCage(-3.5, 0, 4, 9, Color::getGreen());
 	rightCage = main->collisions.buildCage(3.5, 0, 4, 9, Color::getBlue());
@@ -12,22 +17,21 @@ DodgeballLevel::DodgeballLevel()
 	FuncTimer* spawnBall = new FuncTimer(5, -4, 10);
 	spawnBall->SetFuncPointer(SpawnDodgeBox);
 	spawnBall->callFunc(main);
-	spawnBall->start();
+	
 	main->funcTimers.push_back(spawnBall);
 
 	
 	scenes["main"] = main;
-	currentScene = scenes["main"];
+	currentScene = scenes["instructions"];
 
 	Scene* gameOver = new Scene(standardGravity, "gameOver");
-	gameOver->ui.labels.push_back(new Label(sf::String("Haha u lost"), 800, 450, 40, Color(0, 0, 0, 1), gameOver->ui.fonts["MainFont"], Color::getBlue()));
-	gameOver->keyboardFunc = DoNothing;
+	gameOver->buildGameOverScene("haha u lost");
 	scenes["gameOver"] = gameOver;
 }
 
 void DodgeballLevel::update()
 {
-	currentScene->update();
+	Level::update();
 	if (runner->score > 0)
 	{
 		currentScene = scenes["gameOver"];

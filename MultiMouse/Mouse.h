@@ -18,6 +18,7 @@ public:
 	float prevX, prevY;
 	bool active;
 	bool frozen;
+	Color teamColor;
 private:
 };
 

@@ -3,9 +3,30 @@
 
 MouseManager* MouseManager::instance;
 
+void MouseManager::setTeam(vector<Mouse*> m, Color color)
+{
+	Color dark = Color(color.r - .1f, color.b - .1f, color.g - .1f);
+	for (int i = 0; i < m.size(); i++)
+	{
+		m[i]->teamColor = dark;
+	}
+
+	teams.push_back(m);
+		
+}
+
+void MouseManager::clearTeams()
+{
+	teams.clear();
+	for (Mouse* m : mice)
+	{
+		m->teamColor = Color(0, 0, 0);
+	}
+}
+
 Mouse* MouseManager::buildMouse(int deviceNum)
 {
-	Color color = potentialMiceColors[mice.size()];
+	Color color = Color::getListOfColors()[mice.size()];
 	Mouse* mouse = new Mouse(color);
 	mice.push_back(mouse);
 	miceByColor[color] = mouse;

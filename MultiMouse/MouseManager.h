@@ -13,6 +13,9 @@ public:
 	map<int, Mouse*> miceDeviceMap;
 	map<Color, Mouse*> miceByColor;
 	vector<Mouse*> mice;
+	vector<vector<Mouse*>> teams;
+	void setTeam(vector<Mouse*> m, Color color);
+	void clearTeams();
 	Mouse* buildMouse(int deviceNum);
 	
 	void update();

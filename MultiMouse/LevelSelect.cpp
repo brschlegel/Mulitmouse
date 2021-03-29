@@ -14,12 +14,16 @@ LevelSelect::LevelSelect()
 	LevelButton* juggling = main->collisions.buildLevelButton(0, 2, 1.5f, .5f, Color::getGreen(), LevelName::Juggling);
 	activationConditions[juggling] = 2;
 	main->ui.buildLabelInTrigger("Juggling", juggling);
+
+	LevelButton* pong = main->collisions.buildLevelButton(1.5f, 2, 1.5f, .5f, Color::getGreen(), LevelName::Pong);
+	activationConditions[pong] = 2;
+	main->ui.buildLabelInTrigger("Pong", pong);
 	
 
 
 	main->frameScene();
-	scenes["main"] = main;
-	currentScene = scenes["main"];
+	scenes["gameOver"] = main;
+	currentScene = scenes["gameOver"];
 }
 
 void LevelSelect::update()

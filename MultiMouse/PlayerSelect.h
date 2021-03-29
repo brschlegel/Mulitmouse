@@ -1,5 +1,8 @@
 #pragma once
 #include "Level.h"
+#include <random>
+#define SFML_STATIC
+#include <iostream>
 
 
 class PlayerSelect :

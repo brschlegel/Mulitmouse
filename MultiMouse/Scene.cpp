@@ -88,4 +88,22 @@ void Scene::unload()
 	}
 }
 
+void Scene::buildInstructionScene(std::string levelName, std::string instructionText, std::string imageName)
+{
+	Label* l = ui.buildLabel(levelName, 0, 4, 30);
+	Label* description = ui.buildLabel(ui.fitInBox(instructionText, 30, 4), -5, 0, 30);
+	readyUpButton = collisions.buildMouseAssignmentButton(0, -2, 1.5, .75f, Color::getRed(), MouseManager::getInstance()->getActiveMice().size(), "PlayButton");
+	ui.buildSprite(imageName, 4, 0, 8, 8);
+	ui.buildLabelInTrigger("Ready Up", readyUpButton);
+}
+
+void Scene::buildGameOverScene(std::string losingMessage)
+{
+	ui.buildLabel(losingMessage, 0, 0, 40);
+	LevelButton* lb = collisions.buildLevelButton(0, -2, 2.75f, 1, Color::getGreen(), LevelName::LevelSelect);
+	lb->active = true;
+	ui.buildLabelInTrigger("Back to Level Select", lb);
+
+}
+
 

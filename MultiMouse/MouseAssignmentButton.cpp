@@ -28,3 +28,10 @@ void MouseAssignmentButton::addMouse(Mouse* m)
 {
 	mice.push_back(m);
 }
+
+bool MouseAssignmentButton::checkFull()
+{
+	if (mice.size() < occupancy)
+		return false;
+	return true;
+}

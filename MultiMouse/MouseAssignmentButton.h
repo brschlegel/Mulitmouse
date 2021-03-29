@@ -11,5 +11,6 @@ public:
     MouseAssignmentButton(float x, float y, float width, float height, Color color, int occupancy);
     void draw();
     void addMouse(Mouse* m);
+    bool checkFull();
 };
 

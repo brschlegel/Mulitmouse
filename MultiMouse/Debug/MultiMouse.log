@@ -1,3 +1,7 @@
-﻿  JugglingLevel.cpp
-C:\Users\Ben\Documents\MultiMouse\MultiMouse\FuncTimer.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+﻿  MouseManager.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\MouseManager.cpp(9,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\MouseManager.cpp(114,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\MouseManager.cpp(123,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\MouseManager.cpp(132,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\MouseManager.cpp(143,20): warning C4018: '<': signed/unsigned mismatch
   MultiMouse.vcxproj -> C:\Users\Ben\Documents\MultiMouse\Debug\MultiMouse.exe

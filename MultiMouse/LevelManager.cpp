@@ -26,6 +26,7 @@ void LevelManager::changeLevel(LevelName newLevel)
 		break;
 	case LevelName::LevelSelect:
 		MouseManager::getInstance()->setAllMiceActive();
+		MouseManager::getInstance()->clearTeams();
 		currentLevel = new LevelSelect();
 		break;
 	}
@@ -34,6 +35,13 @@ void LevelManager::changeLevel(LevelName newLevel)
 		if (MouseManager::getInstance()->getNumOfActiveMice() > currentLevel->mouseNum)
 		{
 			currentLevel = new PlayerSelect(currentLevel->mouseNum, newLevel);
+		}
+	}
+	else if (currentLevel->mouseNum < 0 && MouseManager::getInstance()->teams.size() == 0)
+	{
+		if (MouseManager::getInstance()->getNumOfActiveMice() >= -currentLevel->mouseNum)
+		{
+			currentLevel = new TeamSelect(-currentLevel->mouseNum, MouseManager::getInstance()->getNumOfActiveMice() / -currentLevel->mouseNum, newLevel);
 		}
 	}
 

@@ -1,4 +1,5 @@
 #pragma once
+#include <vector>
 class Color
 {
 public:
@@ -9,6 +10,7 @@ public:
 	static Color getRed();
 	static Color getGreen();
 	static Color getBlue();
+	static std::vector<Color> getListOfColors();
 	float convertIfLarge(float num);
 
 	//needed to sort in the map
