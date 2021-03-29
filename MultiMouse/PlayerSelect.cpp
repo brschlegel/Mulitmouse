@@ -4,6 +4,7 @@ PlayerSelect::PlayerSelect(int numButtons, LevelName chainedLevel)
 {
 	this->chainedLevel = chainedLevel;
 	Scene* main = new Scene(standardGravity, "main");
+	main->ui.buildLabel("Click on the squares to reserve your spot in the next game!", 0, 3, 30);
 	float increment = 8.0f / numButtons;
 	for (int i = 0; i < numButtons; i++)
 	{

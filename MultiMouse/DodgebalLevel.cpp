@@ -40,8 +40,15 @@ void DodgeballLevel::update()
 
 void DodgeballLevel::init()
 {
-	leftCage->AddMouse(MouseManager::getInstance()->mice[0]);
-	rightCage->AddMouse(MouseManager::getInstance()->mice[1]);
+	for (int i = 0; i < MouseManager::getInstance()->teams[0].size(); i++)
+	{
+		rightCage->AddMouse(MouseManager::getInstance()->teams[0][i]);
+	}
+
+	for (int i = 0; i < MouseManager::getInstance()->teams[1].size(); i++)
+	{
+		leftCage->AddMouse(MouseManager::getInstance()->teams[1][i]);
+	}
 
 	leftCage->init();
 	rightCage->init();

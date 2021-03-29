@@ -5,6 +5,7 @@ TeamSelect::TeamSelect(int numButtons, int perTeam, LevelName chainedLevel)
 	this->chainedLevel = chainedLevel;
 	float increment = 8.0f / numButtons;
 	Scene* main = new Scene(standardGravity, "main");
+	main->ui.buildLabel("Choose your teams! Don't be left out!", 0, 3, 30);
 	scenes["main"] = main;
 	for (int i = 0; i < numButtons; i++)
 	{
