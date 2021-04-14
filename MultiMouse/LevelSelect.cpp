@@ -19,6 +19,10 @@ LevelSelect::LevelSelect()
 	activationConditions[pong] = 2;
 	main->ui.buildLabelInTrigger("Pong", pong);
 	
+	LevelButton* musical = main->collisions.buildLevelButton(3.0f, 2, 1.5f, .5f, Color::getBlue(), LevelName::Musical);
+	activationConditions[musical] = 0;
+	Label* musicalLabel = main->ui.buildLabelInTrigger("Non-Musical Chairs", musical, 14);
+	
 
 
 	main->frameScene();

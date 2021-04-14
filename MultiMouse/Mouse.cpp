@@ -12,6 +12,7 @@ Mouse::Mouse(Color color) : PolygonObject(0, 0,color,0)
 	active = true;
 	frozen = false;
 	teamColor = Color(0, 0, 0);
+	drawn = true;
 }
 
 
@@ -56,6 +57,8 @@ void Mouse::releasePhysicsSelect()
 
 void Mouse::draw()
 {
+	if (!drawn)
+		return;
 
 	glPushMatrix();
 	if (active)

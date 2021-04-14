@@ -224,6 +224,7 @@
     <ClCompile Include="LevelSelect.cpp" />
     <ClCompile Include="MouseAssignmentButton.cpp" />
     <ClCompile Include="MouseCage.cpp" />
+    <ClCompile Include="MusicalChairs.cpp" />
     <ClCompile Include="PlayerSelect.cpp" />
     <ClCompile Include="PongLevel.cpp" />
     <ClCompile Include="Scene.cpp" />
@@ -266,6 +267,7 @@
     <ClInclude Include="LevelSelect.h" />
     <ClInclude Include="MouseAssignmentButton.h" />
     <ClInclude Include="MouseCage.h" />
+    <ClInclude Include="MusicalChairs.h" />
     <ClInclude Include="PlayerSelect.h" />
     <ClInclude Include="PongLevel.h" />
     <ClInclude Include="Scene.h" />

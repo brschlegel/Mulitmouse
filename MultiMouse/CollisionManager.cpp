@@ -164,13 +164,15 @@ void CollisionManager::update()
 						break;
 						//mouseassignmentbuttons
 					case 4:
+						//Checking if mouse is frozen so that we don't double assign mice
 						if (mice[i]->leftButtonPressed && !mice[i]->frozen)
 						{
 							MouseAssignmentButton* msb = static_cast<MouseAssignmentButton*>(triggers[j]);
+							
 							if (msb->mice.size() < msb->occupancy)
 							{
-								
 								MouseManager::getInstance()->mice[i]->frozen = true;
+								MouseManager::getInstance()->mice[i]->drawn = true;
 								msb->mice.push_back(mice[i]);
 							}
 						}

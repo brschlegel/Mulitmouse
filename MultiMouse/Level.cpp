@@ -22,6 +22,7 @@ void Level::update()
 			scenes["main"]->funcTimers[i]->start();
 
 		}
+	
 	}
 }
 

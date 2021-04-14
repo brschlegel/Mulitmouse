@@ -36,3 +36,21 @@ void SpawnDodgeBox(Scene* scene)
 	scene->world.AddBox(-6, 3, 1, Color::getRed(), .5, .5);
 	scene->world.AddBox(6, 3, 1, Color::getBlue(), .5, .5);
 }
+
+void turnMiceInvisible(Scene* scene)
+{
+	vector<Mouse*> activeMice = MouseManager::getInstance()->getActiveMice();
+	for (int i = 0; i < activeMice.size(); i++)
+	{
+		activeMice[i]->drawn = false;
+	}
+}
+
+void turnMiceVisible(Scene* scene)
+{
+	vector<Mouse*> activeMice = MouseManager::getInstance()->getActiveMice();
+	for (int i = 0; i < activeMice.size(); i++)
+	{
+		activeMice[i]->drawn = true;
+	}
+}

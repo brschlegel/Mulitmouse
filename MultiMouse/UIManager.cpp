@@ -60,10 +60,10 @@ sf::Vector2i UIManager::converWorldToUIDim(float width, float height)
 	return sf::Vector2<int>(newX, newY);
 }
 
-Label* UIManager::buildLabelInTrigger (std::string string, PolygonObject* obj,sf::String fontName, Color color , std::string name)
+Label* UIManager::buildLabelInTrigger (std::string string, PolygonObject* obj,int size, sf::String fontName, Color color , std::string name)
 {
 	sf::Vector2i vec = convertWorldToUICoords(obj->x * 2, obj->y * 2);
-	Label* l = new Label(string, vec.x, vec.y, 24, color, UIData::getInstance()->fonts[fontName], Color::getBlue(), name);
+	Label* l = new Label(string, vec.x, vec.y, size, color, UIData::getInstance()->fonts[fontName], Color::getBlue(), name);
 	labels.push_back(l);
 	return l;
 }
@@ -74,6 +74,14 @@ Label* UIManager::buildLabel(std::string string, float x, float y, int size, sf:
 	Label* l = new Label(string, vec.x, vec.y, size, color, UIData::getInstance()->fonts[fontName], Color::getBlue(), name);
 	labels.push_back(l);
 	return l;
+}
+
+Timer* UIManager::buildTimer(float maxTime, int x, int y, int size, std::string fontName, Color color, std::string name)
+{
+	sf::Vector2i vec = convertWorldToUICoords(x, y);
+	Timer* t = new Timer(maxTime, vec.x, vec.y, size, color, UIData::getInstance()->fonts[fontName], Color::getBlue(), name);
+	labels.push_back(t);
+	return t;
 }
 
 float UIManager::getWidthOfText(sf::String string, int charSize,  sf::String fontName)
@@ -159,4 +167,16 @@ sf::Sprite* UIManager::buildSprite(sf::String imageName, float x, float y, float
 	sprite->setPosition(vecCoord.x, vecCoord.y);
 	sprites.push_back(sprite);
 	return sprite;
+}
+
+vector<Timer*> UIManager::getTimers()
+{
+	std::vector<Timer*> timers;
+	for (Label* l : labels)
+	{
+		Timer* t = dynamic_cast<Timer*>(l);
+		if (t != nullptr)
+			timers.push_back(t);
+	}
+	return timers;
 }

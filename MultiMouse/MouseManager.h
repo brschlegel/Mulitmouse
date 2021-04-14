@@ -17,12 +17,14 @@ public:
 	void setTeam(vector<Mouse*> m, Color color);
 	void clearTeams();
 	Mouse* buildMouse(int deviceNum);
-	
+	void hideAllActiveMice(bool value = false);
+
 	void update();
 	void draw();
 	void setAllMiceActive(bool cond = true);
 	void unfreezeAllMice();
 	int getNumOfActiveMice();
+	void moveAllMiceOrigin();
 	vector<Mouse*> getActiveMice();
 	static MouseManager* instance;
 	static MouseManager* getInstance();

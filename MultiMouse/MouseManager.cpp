@@ -34,6 +34,16 @@ Mouse* MouseManager::buildMouse(int deviceNum)
 	return mouse;
 }
 
+void MouseManager::hideAllActiveMice(bool value )
+{
+	for (int i = 0; i < getActiveMice().size(); i++)
+	{
+		getActiveMice()[i]->drawn = value;
+	}
+}
+
+
+
 MouseManager::MouseManager()
 {
 	ManyMouse_Init();
@@ -115,6 +125,7 @@ void MouseManager::setAllMiceActive(bool cond)
 	{
 		mice[i]->active = cond;
 		mice[i]->frozen = false;
+		mice[i]->drawn = true;
 	}
 }
 
@@ -135,6 +146,15 @@ int MouseManager::getNumOfActiveMice()
 			count++;
 	}
 	return count;
+}
+
+void MouseManager::moveAllMiceOrigin()
+{
+	for (int i = 0; i < mice.size(); i++)
+	{
+		mice[i]->x = 0;
+		mice[i]->y = 0;
+	}
 }
 
 vector<Mouse*> MouseManager::getActiveMice()

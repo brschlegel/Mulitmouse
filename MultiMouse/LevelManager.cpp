@@ -24,6 +24,9 @@ void LevelManager::changeLevel(LevelName newLevel)
 	case LevelName::Dodgeball:
 		currentLevel = new DodgeballLevel();
 		break;
+	case LevelName::Musical:
+		currentLevel = new MusicalChairs();
+		break;
 	case LevelName::LevelSelect:
 		MouseManager::getInstance()->setAllMiceActive();
 		MouseManager::getInstance()->clearTeams();

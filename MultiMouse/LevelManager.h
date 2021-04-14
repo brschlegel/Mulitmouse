@@ -10,6 +10,7 @@
 #include "LevelSelect.h"
 #include "PlayerSelect.h"
 #include "TeamSelect.h"
+#include "MusicalChairs.h"
 
 class LevelManager;
 class LevelManager
