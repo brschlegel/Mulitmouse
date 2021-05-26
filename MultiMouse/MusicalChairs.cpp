@@ -10,7 +10,7 @@ MusicalChairs::MusicalChairs()
 
 	Scene* main = new Scene(standardGravity, "main");
 	scenes["main"] = main;
-	roundTimer = main->ui.buildTimer(20, 0, 0, 50, "MainFont", Color(0,0,0,.3f));
+	roundTimer = main->ui.buildTimer(40, 0, 0, 50, "MainFont", Color(0,0,0,.3f));
 	roundNum = 0;
 	FuncTimer* invis = new FuncTimer(5, -4, 20, "invis");
 	invis->SetFuncPointer(turnMiceInvisible);	

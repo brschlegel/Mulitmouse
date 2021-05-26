@@ -13,6 +13,7 @@
 #include "LevelManager.h"
 #include <ctime>
 #include <cstdlib>
+#include "Delegate.h"
 
 #define SFML_STATIC
 
@@ -48,6 +49,7 @@ void init(void)
 	// initialize the size of the window
 	levelManager = LevelManager::getInstance();
 	UIData::getInstance();
+
 
 }
 

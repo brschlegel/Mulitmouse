@@ -19,7 +19,7 @@ JugglingLevel::JugglingLevel()
 	dropBoxTimer->SetFuncPointer(setBallDynamic);
 	dropBoxTimer->start();
 	main->funcTimers.push_back(dropBoxTimer);
-	
+	scenes["main"] = main;
 
 	Scene* gameOver = new Scene(standardGravity, "gameOver");
 	gameOver->buildGameOverScene("haha u lost");

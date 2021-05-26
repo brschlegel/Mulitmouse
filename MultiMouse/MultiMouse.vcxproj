@@ -252,6 +252,7 @@
     <ClInclude Include="Box.h" />
     <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="Color.h" />
+    <ClInclude Include="Delegate.h" />
     <ClInclude Include="DodgebalLevel.h" />
     <ClInclude Include="KinematicCollisionFunctions.h" />
     <ClInclude Include="DebugLevel.h" />
