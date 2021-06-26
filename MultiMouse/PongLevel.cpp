@@ -9,10 +9,10 @@ PongLevel::PongLevel()
 	instructions->buildInstructionScene("Pong", "Ah the classic game Pong. Except you have to actively hold the paddles, and you can move them wherever you want. And there are multiple balls. And the physics are wackier. Whatever, just don't lose", "Pong");
 	scenes["instructions"] = instructions;
 
-	main->world.world->SetContactListener(&listener);
+	main->shapes->world->SetContactListener(&listener);
 	for (int i = 0; i < 3; i++)
 	{
-		Box* b = main->world.AddBox(0, 2, 1, Color::getBlue(), .2, .2);
+		Box* b = main->shapes->AddBox(0, 2, 1, Color::getBlue(), .2, .2);
 		b->selectable = false;
 		b->body->SetGravityScale(0);
 		b->body->SetType(b2_kinematicBody);
@@ -22,14 +22,14 @@ PongLevel::PongLevel()
 	moveBalls->SetFuncPointer(MovePongBall);
 	moveBalls->start();
 	main->funcTimers.push_back(moveBalls);
-	Box* paddle1 = main->world.AddBox(-2, 0, 1, Color::getBlue(), 2, .5);
+	Box* paddle1 = main->shapes->AddBox(-2, 0, 1, Color::getBlue(), 2, .5);
 	paddle1->addTag(Tag::Unscorable);
-	Box* paddle2 = main->world.AddBox(2, 0, 1, Color::getRed(), 2, .5);
+	Box* paddle2 = main->shapes->AddBox(2, 0, 1, Color::getRed(), 2, .5);
 	paddle2->addTag(Tag::Unscorable);
-	main->world.AddRectBarrier(0, -5, 20, 1);
-	main->world.AddRectBarrier(1, 5, 20, 1);
-	left = main->collisions.buildGoal(-5, 0,1,100, Color::getGreen(), "left");
-	right = main->collisions.buildGoal(5, 0,1,100, Color::getGreen(), "right");
+	main->shapes->AddRectBarrier(0, -5, 20, 1);
+	main->shapes->AddRectBarrier(1, 5, 20, 1);
+	left = main->shapes->buildGoal(-5, 0,1,100, Color::getGreen(), "left");
+	right = main->shapes->buildGoal(5, 0,1,100, Color::getGreen(), "right");
 
 	main->keyboardFunc = DoNothing;
 	scenes["main"] = main;

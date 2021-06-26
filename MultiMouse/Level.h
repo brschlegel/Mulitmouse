@@ -10,6 +10,7 @@
 #include "FuncTimer.h"
 
 
+
 #include <cmath>
 class Scene;
 class Level
@@ -23,7 +24,6 @@ public:
 	virtual void update();
 	virtual void init();
 	virtual void unload();
-	virtual int checkLevelUpdate();
 	int mouseNum;
 protected:
 	b2Vec2 standardGravity;

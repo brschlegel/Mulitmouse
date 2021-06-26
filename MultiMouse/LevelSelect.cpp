@@ -3,23 +3,23 @@
 LevelSelect::LevelSelect()
 {
 	Scene* main = new Scene(standardGravity, "main");
-	LevelButton* dodgeball = main->collisions.buildLevelButton(-1.5f, 2, 1.5f, .5f, Color::getRed(), LevelName::Dodgeball);
+	LevelButton* dodgeball = main->shapes->buildLevelButton(-1.5f, 2, 1.5f, .5f, Color::getRed(), LevelName::Dodgeball);
 	activationConditions[dodgeball] = -2;
 	main->ui.buildLabelInTrigger("Dodgeball", dodgeball);
 
-	LevelButton* debug = main->collisions.buildLevelButton(-3, 2, 1.5f, .5f, Color::getBlue(), LevelName::DebugLevel);
+	LevelButton* debug = main->shapes->buildLevelButton(-3, 2, 1.5f, .5f, Color::getBlue(), LevelName::DebugLevel);
 	activationConditions[debug] = 1;
 	main->ui.buildLabelInTrigger("Playbox", debug);
 
-	LevelButton* juggling = main->collisions.buildLevelButton(0, 2, 1.5f, .5f, Color::getGreen(), LevelName::Juggling);
+	LevelButton* juggling = main->shapes->buildLevelButton(0, 2, 1.5f, .5f, Color::getGreen(), LevelName::Juggling);
 	activationConditions[juggling] = 2;
 	main->ui.buildLabelInTrigger("Juggling", juggling);
 
-	LevelButton* pong = main->collisions.buildLevelButton(1.5f, 2, 1.5f, .5f, Color::getGreen(), LevelName::Pong);
+	LevelButton* pong = main->shapes->buildLevelButton(1.5f, 2, 1.5f, .5f, Color::getGreen(), LevelName::Pong);
 	activationConditions[pong] = 2;
 	main->ui.buildLabelInTrigger("Pong", pong);
 	
-	LevelButton* musical = main->collisions.buildLevelButton(3.0f, 2, 1.5f, .5f, Color::getBlue(), LevelName::Musical);
+	LevelButton* musical = main->shapes->buildLevelButton(3.0f, 2, 1.5f, .5f, Color::getBlue(), LevelName::Musical);
 	activationConditions[musical] = 0;
 	Label* musicalLabel = main->ui.buildLabelInTrigger("Non-Musical Chairs", musical, 14);
 	
@@ -34,6 +34,7 @@ void LevelSelect::update()
 {
 	currentScene->update();
 	checkActive();
+	
 }
 
 void LevelSelect::checkActive()

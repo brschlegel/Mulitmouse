@@ -1,11 +1,11 @@
 #include "MouseCage.h"
 
-MouseCage::MouseCage(float x, float y, Color color, std::string name) : Trigger(x,y,color,true,false,name)
+MouseCage::MouseCage(float x, float y, Color color, std::string name) : Trigger(x,y,color,1,name)
 {
 	triggerId = 2;
 }
 
-MouseCage::MouseCage(float x, float y, float width, float height, Color color, std::string name) : Trigger(x,y,width,height,color,true,false,name)
+MouseCage::MouseCage(float x, float y, float width, float height, Color color, std::string name) : Trigger(x,y,width,height,color,1,name)
 {
 	triggerId = 2;
 }
@@ -47,5 +47,6 @@ void MouseCage::init()
 		std::cout << "x: " << x << "y: " << y;
 		m->x = 2*x;
 		m->y = 2*y;
+		m->SetBounds(vertices[2].y, vertices[0].y, vertices[2].x, vertices[0].x);
 	}
 }

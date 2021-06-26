@@ -12,5 +12,6 @@ public:
     void draw();
     void addMouse(Mouse* m);
     bool checkFull();
+    void onCollision(PolygonObject* other);
 };
 

@@ -1,9 +1,11 @@
 #include "PolygonObject.h"
 #include <iostream>
-PolygonObject::PolygonObject(float x, float y, Color color ,float angle = 0, std::string name) : GameObject(x,y, name)
+PolygonObject::PolygonObject(float x, float y, Color color ,unsigned int mask,Layer layer,float angle, std::string name) : GameObject(x,y, name)
 {	
 	this->angle = angle;
 	this->color = color;
+	this->mask = mask;
+	this->layer = layer;
 }
 
 
@@ -45,5 +47,9 @@ void PolygonObject::setShapeAsBox(float width, float height)
 	addVertex(b2Vec2(x + width / 2, y + height / 2));
 	addVertex(b2Vec2(x - width / 2, y + height / 2));
 	setShape();
+}
+
+void PolygonObject::onCollision(PolygonObject* other)
+{
 }
 

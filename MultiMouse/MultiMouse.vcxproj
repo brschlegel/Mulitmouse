@@ -139,7 +139,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\Ben\Documents\MultiMouse\MultiMouse;C:\Users\Ben\Documents\MultiMouse\MultiMouse\Debug;C:\Users\Ben\Documents\MyLib\include;C:\Users\Ben\Documents\MultiMouse\MultiMouse\ManyMouse;C:\Users\Ben\Documents\MyLib\SFML-2.5.1\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Ben\Documents\MultiMouse\MultiMouse;C:\Users\Ben\Documents\MultiMouse\MultiMouse\Debug;C:\Users\Ben\Documents\MyLib\include;C:\Users\Ben\Documents\MultiMouse\MultiMouse\ManyMouse;C:\Users\Ben\Documents\MyLib\SFML-2.5.1\include;C:\Users\Ben\Documents\Boost\boost_1_62_0</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -211,6 +211,7 @@
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="DebugLevel.cpp" />
     <ClCompile Include="DodgebalLevel.cpp" />
+    <ClCompile Include="EventStorage.cpp" />
     <ClCompile Include="FuncTimer.cpp" />
     <ClCompile Include="FuncTimerFunctions.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -240,6 +241,8 @@
     <ClCompile Include="PhysicsWorld.cpp" />
     <ClCompile Include="PolygonObject.cpp" />
     <ClCompile Include="PolygonPhysicsObject.cpp" />
+    <ClCompile Include="ShapeManager.cpp" />
+    <ClCompile Include="ShapeStorage.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="TeamSelect.cpp" />
     <ClCompile Include="Timer.cpp" />
@@ -254,6 +257,7 @@
     <ClInclude Include="Color.h" />
     <ClInclude Include="Delegate.h" />
     <ClInclude Include="DodgebalLevel.h" />
+    <ClInclude Include="EventStorage.h" />
     <ClInclude Include="KinematicCollisionFunctions.h" />
     <ClInclude Include="DebugLevel.h" />
     <ClInclude Include="FuncTimer.h" />
@@ -280,6 +284,8 @@
     <ClInclude Include="PhysicsWorld.h" />
     <ClInclude Include="PolygonObject.h" />
     <ClInclude Include="PolygonPhysicsObject.h" />
+    <ClInclude Include="ShapeManager.h" />
+    <ClInclude Include="ShapeStorage.h" />
     <ClInclude Include="Source.h" />
     <ClInclude Include="TeamSelect.h" />
     <ClInclude Include="Timer.h" />

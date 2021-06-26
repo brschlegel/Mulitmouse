@@ -11,7 +11,7 @@ PlayerSelect::PlayerSelect(int numButtons, LevelName chainedLevel)
 		float random = ((float)rand()) / (float)RAND_MAX;
 		float x = random * increment + (increment * i) - 4;
 		float y = random * 4 - 2;
-		buttons.push_back(main->collisions.buildMouseAssignmentButton(x, y, .5f, .5f, Color::getBlue(), 1));
+		buttons.push_back(main->shapes->buildMouseAssignmentButton(x, y, .5f, .5f, Color::getBlue(), 1));
 	}
 
 	scenes["main"] = main;

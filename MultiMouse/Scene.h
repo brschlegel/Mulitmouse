@@ -7,19 +7,21 @@
 #include "FuncTimerFunctions.h"
 #include <string>
 #define SFML_STATIC
+#define BOOST_USE_WINDOWS_H
 #include <iostream>
 #include "SFML/Graphics.hpp"
 #include "SFML/Window.hpp"
 #include "SFML/OpenGL.hpp"
-
+#include "ShapeManager.h"
+#include "Delegate.h"
+#include <boost/signals2.hpp>
 
 class CollisionManager;
 class FuncTimer;
 class Scene
 {
 public:
-	PhysicsWorld world;
-	CollisionManager collisions;
+	ShapeStorage* shapes;
 	UIManager ui;
 	Scene(b2Vec2 gravity, std::string name);
 	void draw(sf::RenderWindow* window);
@@ -40,6 +42,6 @@ public:
 	void buildInstructionScene(std::string levelName, std::string instructionText, std::string imageName);
 	void buildGameOverScene(std::string losingMessage);
 
-
+	void startFuncTimers();
+	boost::signals2::signal<void()> initSignal;
 };
-

@@ -2,26 +2,26 @@
 
 Scene::Scene(b2Vec2 gravity, std::string name)
 {
-	world =  PhysicsWorld(gravity);
-	collisions =  CollisionManager(&world);
+	shapes = new ShapeStorage(gravity);
 	ui =  UIManager();
 	this->name = name;
 	//Default keyboard func
 	keyboardFunc = DoNothing;
+
+	
 }
 
 void Scene::draw(sf::RenderWindow* window)
 {
-	world.draw();
-	collisions.draw();
+	
+	shapes->draw();
 	ui.draw(window);
 }
 
 void Scene::update()
 {
 	Scene* scene = this;
-	world.Update();
-	collisions.update();
+	//ShapeStorage updated in source
 	for (FuncTimer* t : funcTimers)
 	{
 		t->update(scene);
@@ -42,8 +42,7 @@ FuncTimer* Scene::getTimerByName(std::string name)
 
 PolygonPhysicsObject* Scene::getBodyByName(std::string name)			
 {
-
-	return world.getBodyByName(name);
+	return shapes->getObjectByNameT<PolygonPhysicsObject>(name);
 }
 
 Label* Scene::getLabelByName(std::string name)
@@ -53,34 +52,32 @@ Label* Scene::getLabelByName(std::string name)
 
 Trigger* Scene::getTriggerByName(std::string name)
 {
-	return collisions.getTriggerByName(name);
+	return shapes->getObjectByNameT<Trigger>(name);
 }
 
 std::vector<PolygonPhysicsObject*> Scene::getBodyByTag(Tag tag)
 {
-	return world.getBodyByTag(tag);
+	return shapes->getObjectsByTagT<PolygonPhysicsObject>(tag);
 }
 
 void Scene::init()
 {
-	for (FuncTimer* t : funcTimers)
-	{
-		t->clock->restart();
-	}
+	startFuncTimers();
+	initSignal();
 }
 
 void Scene::frameScene()
 {
-	world.AddRectBarrier(0, -5, 20, 1);
-	world.AddRectBarrier(1, 5, 20, 1);
-	world.AddRectBarrier(-9, 0, 1, 10);
-	world.AddRectBarrier(9, 0, 1, 10);
+	shapes->AddRectBarrier(0, -5, 20, 1);
+	shapes->AddRectBarrier(1, 5, 20, 1);
+	shapes->AddRectBarrier(-9, 0, 1, 10);
+	shapes->AddRectBarrier(9, 0, 1, 10);
 }
 
 void Scene::unload()
 {
-	world.unload();
-	collisions.unload();
+	shapes->unload();
+	delete shapes;
 	ui.unload();
 	for (int i = 0; i < funcTimers.size(); i++)
 	{
@@ -92,7 +89,7 @@ void Scene::buildInstructionScene(std::string levelName, std::string instruction
 {
 	Label* l = ui.buildLabel(levelName, 0, 4, 30);
 	Label* description = ui.buildLabel(ui.fitInBox(instructionText, 30, 4), -5, 0, 30);
-	readyUpButton = collisions.buildMouseAssignmentButton(0, -2, 1.5, .75f, Color::getRed(), MouseManager::getInstance()->getActiveMice().size(), "PlayButton");
+	readyUpButton = shapes->buildMouseAssignmentButton(0, -2, 1.5, .75f, Color::getRed(), MouseManager::getInstance()->getActiveMice().size(), "PlayButton");
 	ui.buildSprite(imageName, 4, 0, 8, 8);
 	ui.buildLabelInTrigger("Ready Up", readyUpButton);
 }
@@ -100,10 +97,18 @@ void Scene::buildInstructionScene(std::string levelName, std::string instruction
 void Scene::buildGameOverScene(std::string losingMessage)
 {
 	ui.buildLabel(losingMessage, 0, 0, 40);
-	LevelButton* lb = collisions.buildLevelButton(0, -2, 2.75f, 1, Color::getGreen(), LevelName::LevelSelect);
+	LevelButton* lb = shapes->buildLevelButton(0, -2, 2.75f, 1, Color::getGreen(), LevelName::LevelSelect);
 	lb->active = true;
 	ui.buildLabelInTrigger("Back to Level Select", lb);
 
+}
+
+void Scene::startFuncTimers()
+{
+	for (FuncTimer* t : funcTimers)
+	{
+		t->start();
+	}
 }
 
 

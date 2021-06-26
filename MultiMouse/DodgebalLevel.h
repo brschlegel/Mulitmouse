@@ -1,5 +1,6 @@
 #pragma once
 #include "Level.h"
+#include "Delegate.h"
 class DodgeballLevel :
     public Level
 {

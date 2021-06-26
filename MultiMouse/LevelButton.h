@@ -1,5 +1,5 @@
 #pragma once
-#include "Trigger.h"
+#include "Trigger.h"    
 class LevelManager;
 class LevelButton :
     public Trigger
@@ -11,6 +11,7 @@ public:
     void onClick();
     void onStay();
     void draw();
+    void onCollision(PolygonObject* other);
 
 };
 

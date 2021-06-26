@@ -62,7 +62,7 @@ void MusicalChairs::startRound()
 			delete chairs[i];
 		}
 		chairs.clear();
-		scenes["main"]->collisions.triggers.clear();
+		scenes["main"]->shapes->clear();
 	}
 	
 	
@@ -88,7 +88,7 @@ void MusicalChairs::startRound()
 
 		float randY = (rand() % 1000 - 500) / 100.0f;
 		randY /= 2;
-		chairs.push_back(scenes["main"]->collisions.buildMouseAssignmentButton(randX, randY, 1, 1, Color::getBlue(), 1));
+		chairs.push_back(scenes["main"]->shapes->buildMouseAssignmentButton(randX, randY, 1, 1, Color::getBlue(), 1));
 	}
 	//reset timer
 	roundTimer->reset();

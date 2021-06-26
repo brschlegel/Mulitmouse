@@ -1,6 +1,6 @@
 #include "LevelButton.h"
 
-LevelButton::LevelButton(float x, float y, float width, float height, Color color, LevelName level, std::string name) : Trigger(x, y, width, height, color, true, false, name)
+LevelButton::LevelButton(float x, float y, float width, float height, Color color, LevelName level, std::string name) : Trigger(x, y, width, height, color,1, name)
 {
 	this->level = level;
 	this->triggerId = 3;
@@ -32,4 +32,16 @@ void LevelButton::draw()
 	}
 	glEnd();
 	glPopMatrix();
+}
+
+void LevelButton::onCollision(PolygonObject* other)
+{
+	Mouse* m = dynamic_cast<Mouse*>(other);
+	if (m != nullptr)
+	{
+		if (active && m->leftButtonPressed)
+		{
+			EventStorage::getInstance()->levelEvents.push_back((int)level);
+		}
+	}
 }

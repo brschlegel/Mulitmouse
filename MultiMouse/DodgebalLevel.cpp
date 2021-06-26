@@ -9,9 +9,9 @@ DodgeballLevel::DodgeballLevel()
 	scenes["instructions"] = instructions;
 
 	Scene* main = new Scene(standardGravity, "main");
-	leftCage = main->collisions.buildCage(-3.5, 0, 4, 9, Color::getGreen());
-	rightCage = main->collisions.buildCage(3.5, 0, 4, 9, Color::getBlue());
-	runner = main->collisions.buildGoal(0, 0, .25, .25, Color::getBlue(), "Runner");
+	leftCage = main->shapes->buildCage(-3.5, 0, 4, 9, Color::getGreen());
+	rightCage = main->shapes->buildCage(3.5, 0, 4, 9, Color::getBlue());
+	runner = main->shapes->buildGoal(0, 0, .25, .25, Color::getBlue(), "Runner");
 	main->frameScene();
 	main->keyboardFunc = DodgeBallRunner;
 	FuncTimer* spawnBall = new FuncTimer(5, -4, 10);
@@ -19,6 +19,8 @@ DodgeballLevel::DodgeballLevel()
 	spawnBall->callFunc(main);
 	
 	main->funcTimers.push_back(spawnBall);
+
+	main->initSignal.connect(boost::bind(&DodgeballLevel::init, this));
 
 	
 	scenes["main"] = main;
@@ -40,16 +42,17 @@ void DodgeballLevel::update()
 
 void DodgeballLevel::init()
 {
-	for (int i = 0; i < MouseManager::getInstance()->teams[0].size(); i++)
-	{
-		rightCage->AddMouse(MouseManager::getInstance()->teams[0][i]);
-	}
-
-	for (int i = 0; i < MouseManager::getInstance()->teams[1].size(); i++)
-	{
-		leftCage->AddMouse(MouseManager::getInstance()->teams[1][i]);
-	}
-
-	leftCage->init();
-	rightCage->init();
+	//for (int i = 0; i < MouseManager::getInstance()->teams[0].size(); i++)
+	//{
+	//	rightCage->AddMouse(MouseManager::getInstance()->teams[0][i]);
+	//}
+	//
+	//for (int i = 0; i < MouseManager::getInstance()->teams[1].size(); i++)
+	//{
+	//	leftCage->AddMouse(MouseManager::getInstance()->teams[1][i]);
+	//}
+	//
+	//leftCage->init();
+	//rightCage->init();
+	cout << "Debug" << endl;
 }

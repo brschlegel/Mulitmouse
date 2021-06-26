@@ -1,9 +1,10 @@
 #include "MouseAssignmentButton.h"
 
-MouseAssignmentButton::MouseAssignmentButton(float x, float y, float width, float height, Color color, int occupancy) : Trigger(x,y,width,height, color, true, false)
+MouseAssignmentButton::MouseAssignmentButton(float x, float y, float width, float height, Color color, int occupancy) : Trigger(x,y,width,height, color, 1)
 {
 	this->occupancy = occupancy;
 	triggerId = 4;
+
 }
 
 void MouseAssignmentButton::draw()
@@ -31,7 +32,29 @@ void MouseAssignmentButton::addMouse(Mouse* m)
 
 bool MouseAssignmentButton::checkFull()
 {
-	if (mice.size() < occupancy)
-		return false;
-	return true;
+	return !(mice.size() < occupancy);
+}
+
+void MouseAssignmentButton::onCollision(PolygonObject* other)
+{
+	Mouse* m = dynamic_cast<Mouse*>(other);
+	if (m != nullptr)
+	{
+		if (m->leftButtonPressed && !m->frozen)
+		{
+			if (!checkFull())
+			{
+				m->frozen = true;
+				m->drawn = true;
+				mice.push_back(m);
+				
+			}
+		}
+
+		if (m->frozen && m->rightButtonPressed)
+		{
+			m->frozen = false;
+			mice.erase(std::find(mice.begin(), mice.end(), m));
+		}
+	}
 }

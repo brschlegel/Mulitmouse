@@ -1,8 +1,7 @@
 #include "PolygonPhysicsObject.h"
 
-PolygonPhysicsObject::PolygonPhysicsObject(float x, float y,  float mass, Color color,float angle, std::string name) : PolygonObject(x,y,color, angle, name)
+PolygonPhysicsObject::PolygonPhysicsObject(float x, float y,  float mass, Color color, unsigned int mask, float angle, std::string name) : PolygonObject(x,y,color, mask, Layer::Physics, angle, name)
 {
-	
 	selected = nullptr;
 	def.position.Set(x, y);
 	def.angle = angle * b2_pi;

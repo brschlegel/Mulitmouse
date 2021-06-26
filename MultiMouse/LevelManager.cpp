@@ -55,10 +55,10 @@ void LevelManager::changeLevel(LevelName newLevel)
 
 void LevelManager::checkChangeLevel()
 {
-	int level = currentLevel->checkLevelUpdate();
-	if ( level != -1)
+	if (EventStorage::getInstance()->levelEvents.size() > 0)
 	{
-		changeLevel((LevelName)level);
+		changeLevel((LevelName)EventStorage::getInstance()->levelEvents[0]);
+		EventStorage::getInstance()->levelEvents.clear();
 	}
 }
 

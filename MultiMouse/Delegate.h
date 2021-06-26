@@ -1,4 +1,6 @@
 #pragma once
+
+
 /*
 DOCUMENTATION
 // CONFIG
@@ -381,6 +383,7 @@ private:
 		return output;
 	}
 };
+
 
 template<size_t MaxStackSize>
 class InlineAllocator

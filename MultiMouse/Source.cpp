@@ -15,6 +15,7 @@
 #include <cstdlib>
 #include "Delegate.h"
 
+
 #define SFML_STATIC
 
 #include <SFML/Window.hpp>
@@ -30,6 +31,7 @@ int width, height;
 PhysicsWorld world = PhysicsWorld();
 CollisionManager collisionManager = CollisionManager(&world);
 LevelManager* levelManager;
+ShapeManager shapeManager = ShapeManager();
 UIManager uiManager = UIManager();
 Goal g = Goal(-2, 2, Color::getGreen(), 1, 1);
 bool warpPointer = true;
@@ -76,6 +78,7 @@ void display(sf::RenderWindow* window)
 	
 
 	levelManager->currentLevel->draw(window);
+	
 	MouseManager::instance->draw();
 
 	
@@ -114,7 +117,9 @@ void update()
 	//world.Update();
 	//collisionManager.update();
 	levelManager->currentLevel->update();
+	shapeManager.update(levelManager->currentLevel->currentScene->shapes);
 	levelManager->checkChangeLevel();
+	
 }
 
 int main()

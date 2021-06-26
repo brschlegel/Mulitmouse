@@ -1,8 +1,8 @@
 #include "Mouse.h"
 #include "PolygonObject.h"
 #include <iostream>
-
-Mouse::Mouse(Color color) : PolygonObject(0, 0,color,0)
+float maxBounds[4] = { 5,-5,9,-9 };
+Mouse::Mouse(Color color) : PolygonObject(0, 0,color,6, Layer::Mice,0)
 {
 	sensitivityCoeff = 100;
 	leftButtonPressed = false;
@@ -13,6 +13,9 @@ Mouse::Mouse(Color color) : PolygonObject(0, 0,color,0)
 	frozen = false;
 	teamColor = Color(0, 0, 0);
 	drawn = true;
+
+	std::copy(std::begin(maxBounds), std::end(maxBounds), std::begin(bounds));
+	
 }
 
 
@@ -23,7 +26,14 @@ void Mouse::updateX(float num)
 		return;
 	prevX = x;
 	x += (num/sensitivityCoeff);
-
+	if (x > bounds[2])
+	{
+		x = bounds[2];
+	}
+	if (x < bounds[3])
+	{
+		x = bounds[3];
+	}
 }
 
 void Mouse::updateY(float num)
@@ -32,6 +42,14 @@ void Mouse::updateY(float num)
 		return;
 	prevY = y;
 	y -= num/sensitivityCoeff;
+	if (y > bounds[0])
+	{
+		y = bounds[0];
+	}
+	if (y < bounds[1])
+	{
+		y = bounds[1];
+	}
 }
 
 void Mouse::update()
@@ -100,4 +118,18 @@ void Mouse::draw()
 	
 
 	glPopMatrix();
+}
+
+void Mouse::SetBounds(float top, float bottom, float right, float left)
+{
+	bounds[0] = top;
+	bounds[1] = bottom;
+	bounds[2] = right;
+	bounds[3] = left;
+}
+
+void Mouse::ResetBounds()
+{
+	std::copy(std::begin(maxBounds), std::end(maxBounds), std::begin(bounds));
+
 }

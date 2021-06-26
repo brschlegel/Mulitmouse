@@ -2,6 +2,7 @@
 #include "Trigger.h"
 #include "Color.h"
 #include "Physics.h"
+
 class Goal :
     public Trigger
 {
@@ -11,5 +12,6 @@ public:
     Goal(float x, float y, Color color, float width, float height, std::string name = "unnamed");
     void onEnter(PolygonObject* object);
     void onStay();
+    void onCollision(PolygonObject* other);
 };
 

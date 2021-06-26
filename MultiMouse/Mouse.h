@@ -20,6 +20,10 @@ public:
 	bool frozen;
 	bool drawn;
 	Color teamColor;
+	float bounds[4];
+	void SetBounds(float top, float bottom, float right, float left);
+	void ResetBounds();
 private:
 };
+
 

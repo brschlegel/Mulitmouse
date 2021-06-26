@@ -80,7 +80,7 @@ void CollisionManager::update()
 		b2Transform bt = world->bodies[j]->body->GetTransform();
 		world->bodies[j]->shape.ComputeAABB(&b, bt, 0);
 
-		//mice
+		//mice	
 		for (unsigned int i = 0; i <mice.size(); i++)
 		{
 			b2AABB a;

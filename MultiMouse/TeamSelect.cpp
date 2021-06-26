@@ -9,14 +9,16 @@ TeamSelect::TeamSelect(int numButtons, int perTeam, LevelName chainedLevel)
 	scenes["main"] = main;
 	for (int i = 0; i < numButtons; i++)
 	{
-		buttons.push_back(main->collisions.buildMouseAssignmentButton((increment * i) + (increment / 2) - 4, 0, increment / 2, 4, Color::getListOfColors()[i], perTeam));
+		buttons.push_back(main->shapes->buildMouseAssignmentButton((increment * i) + (increment / 2) - 4, 0, increment / 2, 4, Color::getListOfColors()[i], perTeam));
 	}
 	cout << buttons.size();
+	cout << perTeam;
 	currentScene = main;
 }
 
 void TeamSelect::update()
 {
+	checkLevelUpdate();
 	Level::update();
 }
 
@@ -24,6 +26,7 @@ int TeamSelect::checkLevelUpdate()
 {
 	for (int i = 0; i < buttons.size(); i++)
 	{
+		cout << i << ":" << buttons[i]->mice.size() << endl;
 		if (buttons[i]->mice.size() < buttons[i]->occupancy)
 		{
 			return -1;
@@ -41,7 +44,7 @@ int TeamSelect::checkLevelUpdate()
 	}
 
 
-
+	EventStorage::getInstance()->levelEvents.push_back((int)chainedLevel);
 	return (int)chainedLevel;
 
 
