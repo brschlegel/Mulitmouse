@@ -62,7 +62,7 @@ sf::Vector2i UIManager::converWorldToUIDim(float width, float height)
 
 Label* UIManager::buildLabelInTrigger (std::string string, PolygonObject* obj,int size, sf::String fontName, Color color , std::string name)
 {
-	sf::Vector2i vec = convertWorldToUICoords(obj->x * 2, obj->y * 2);
+	sf::Vector2i vec = convertWorldToUICoords(obj->x , obj->y );
 	Label* l = new Label(string, vec.x, vec.y, size, color, UIData::getInstance()->fonts[fontName], Color::getBlue(), name);
 	labels.push_back(l);
 	return l;

@@ -13,7 +13,7 @@ void Level::draw(sf::RenderWindow* window)
 void Level::update()
 {
 	
-	//currentScene->update();
+	currentScene->update();
 	
 	if (scenes.find("instructions") != scenes.end() && currentScene == scenes["instructions"] && scenes["instructions"]->readyUpButton->checkFull())
 	{

@@ -13,7 +13,7 @@ void FuncTimer::update(Scene* scene)
 		float expression = ((m * (numRepetitions + 1)) + b);
 		if (clock->getElapsedTime().asSeconds() > (m * (numRepetitions + 1) + b))
 		{
-			func(scene);
+			callFunc();
 			numRepetitions = numRepetitions + 1;
 		}
 	}
@@ -28,12 +28,9 @@ FuncTimer::FuncTimer(float m, float b, int numRepeat, std::string name)
 	
 }
 
-void FuncTimer::SetFuncPointer(void(*funcPointer)(Scene* scene))
-{
-	func = funcPointer;
-}
 
-void FuncTimer::callFunc(Scene* scene)
+
+void FuncTimer::callFunc()
 {
-	func(scene);
+	del.ExecuteIfBound();
 }

@@ -25,6 +25,7 @@ public:
 	void unfreezeAllMice();
 	int getNumOfActiveMice();
 	void moveAllMiceOrigin();
+	void resetBounds();
 	vector<Mouse*> getActiveMice();
 	static MouseManager* instance;
 	static MouseManager* getInstance();

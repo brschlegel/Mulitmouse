@@ -9,19 +9,27 @@ DodgeballLevel::DodgeballLevel()
 	scenes["instructions"] = instructions;
 
 	Scene* main = new Scene(standardGravity, "main");
-	leftCage = main->shapes->buildCage(-3.5, 0, 4, 9, Color::getGreen());
-	rightCage = main->shapes->buildCage(3.5, 0, 4, 9, Color::getBlue());
+	leftCage = main->shapes->buildCage(-7, 0, 4, 9, Color::getGreen());
+	rightCage = main->shapes->buildCage(7, 0, 4, 9, Color::getBlue());
 	runner = main->shapes->buildGoal(0, 0, .25, .25, Color::getBlue(), "Runner");
 	main->frameScene();
 	main->keyboardFunc = DodgeBallRunner;
 	FuncTimer* spawnBall = new FuncTimer(5, -4, 10);
-	spawnBall->SetFuncPointer(SpawnDodgeBox);
-	spawnBall->callFunc(main);
+	spawnBall->del.BindLambda([main]()
+		{
+			main->shapes->AddBox(-6, 3, 1, Color::getRed(), .5, .5);
+			main->shapes->AddBox(6, 3, 1, Color::getBlue(), .5, .5);
+		});
+	spawnBall->callFunc();
 	
 	main->funcTimers.push_back(spawnBall);
 
-	main->initSignal.connect(boost::bind(&DodgeballLevel::init, this));
-
+	//main->initSignal.connect(boost::bind(&DodgeballLevel::init, this));
+	main->initDel.BindLambda([this]()
+		{
+			leftCage->init();
+			rightCage->init();
+		});
 	
 	scenes["main"] = main;
 	currentScene = scenes["instructions"];
@@ -36,23 +44,23 @@ void DodgeballLevel::update()
 	Level::update();
 	if (runner->score > 0)
 	{
+		MouseManager::getInstance()->resetBounds();
 		currentScene = scenes["gameOver"];
 	}
 }
 
 void DodgeballLevel::init()
 {
-	//for (int i = 0; i < MouseManager::getInstance()->teams[0].size(); i++)
-	//{
-	//	rightCage->AddMouse(MouseManager::getInstance()->teams[0][i]);
-	//}
-	//
-	//for (int i = 0; i < MouseManager::getInstance()->teams[1].size(); i++)
-	//{
-	//	leftCage->AddMouse(MouseManager::getInstance()->teams[1][i]);
-	//}
-	//
-	//leftCage->init();
-	//rightCage->init();
-	cout << "Debug" << endl;
+	for (int i = 0; i < MouseManager::getInstance()->teams[0].size(); i++)
+	{
+		rightCage->AddMouse(MouseManager::getInstance()->teams[0][i]);
+	}
+	
+	for (int i = 0; i < MouseManager::getInstance()->teams[1].size(); i++)
+	{
+		leftCage->AddMouse(MouseManager::getInstance()->teams[1][i]);
+	}
+	
+	
+	
 }

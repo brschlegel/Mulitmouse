@@ -19,8 +19,18 @@ PongLevel::PongLevel()
 		b->addTag(Tag::Pong);
 	}
 	FuncTimer* moveBalls = new FuncTimer(2, 0);
-	moveBalls->SetFuncPointer(MovePongBall);
-	moveBalls->start();
+	moveBalls->del.BindLambda([main]()
+		{
+			for (PolygonPhysicsObject* b : main->getBodyByTag(Tag::Pong))
+			{
+				b->body->SetType(b2_dynamicBody);
+				float x = (float)((rand() % 100) - 50) / 20;
+				float y = (float)((rand() % 100) - 50) / 20;
+				b->body->SetLinearVelocity(b2Vec2(x, y));
+			}
+		}
+			);
+	//moveBalls->start();
 	main->funcTimers.push_back(moveBalls);
 	Box* paddle1 = main->shapes->AddBox(-2, 0, 1, Color::getBlue(), 2, .5);
 	paddle1->addTag(Tag::Unscorable);
@@ -28,8 +38,8 @@ PongLevel::PongLevel()
 	paddle2->addTag(Tag::Unscorable);
 	main->shapes->AddRectBarrier(0, -5, 20, 1);
 	main->shapes->AddRectBarrier(1, 5, 20, 1);
-	left = main->shapes->buildGoal(-5, 0,1,100, Color::getGreen(), "left");
-	right = main->shapes->buildGoal(5, 0,1,100, Color::getGreen(), "right");
+	left = main->shapes->buildGoal(-9, 0,1,100, Color::getGreen(), "left");
+	right = main->shapes->buildGoal(9, 0,1,100, Color::getGreen(), "right");
 
 	main->keyboardFunc = DoNothing;
 	scenes["main"] = main;

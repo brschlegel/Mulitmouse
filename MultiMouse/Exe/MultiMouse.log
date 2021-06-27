@@ -1,5 +1,113 @@
-﻿  DodgebalLevel.cpp
+﻿  CollisionManager.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\CollisionManager.cpp(65,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\CollisionManager.cpp(106,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\CollisionManager.cpp(172,29): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\CollisionManager.cpp(239,20): warning C4018: '<': signed/unsigned mismatch
+  DebugLevel.cpp
 C:\Users\Ben\Documents\MultiMouse\MultiMouse\FuncTimer.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeStorage.h(17,14): warning C4305: 'argument': truncation from 'double' to 'float32'
   Unknown compiler version - please run the configure tests and report the results
+  DodgebalLevel.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\FuncTimer.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeStorage.h(17,14): warning C4305: 'argument': truncation from 'double' to 'float32'
+  Unknown compiler version - please run the configure tests and report the results
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\DodgebalLevel.cpp(54,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\DodgebalLevel.cpp(59,20): warning C4018: '<': signed/unsigned mismatch
+  FuncTimer.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\FuncTimer.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeStorage.h(17,14): warning C4305: 'argument': truncation from 'double' to 'float32'
+  Unknown compiler version - please run the configure tests and report the results
+  FuncTimerFunctions.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\FuncTimer.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeStorage.h(17,14): warning C4305: 'argument': truncation from 'double' to 'float32'
+  Unknown compiler version - please run the configure tests and report the results
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\FuncTimerFunctions.cpp(40,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\FuncTimerFunctions.cpp(49,20): warning C4018: '<': signed/unsigned mismatch
+  JugglingLevel.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\FuncTimer.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeStorage.h(17,14): warning C4305: 'argument': truncation from 'double' to 'float32'
+  Unknown compiler version - please run the configure tests and report the results
+  KeyboardFunction.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\FuncTimer.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeStorage.h(17,14): warning C4305: 'argument': truncation from 'double' to 'float32'
+  Unknown compiler version - please run the configure tests and report the results
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\KeyboardFunction.cpp(22,19): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\KeyboardFunction.cpp(27,19): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\KeyboardFunction.cpp(31,19): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\KeyboardFunction.cpp(36,19): warning C4305: '-=': truncation from 'double' to 'float'
+  Level.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\FuncTimer.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeStorage.h(17,14): warning C4305: 'argument': truncation from 'double' to 'float32'
+  Unknown compiler version - please run the configure tests and report the results
+  LevelManager.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\FuncTimer.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeStorage.h(17,14): warning C4305: 'argument': truncation from 'double' to 'float32'
+  Unknown compiler version - please run the configure tests and report the results
+  LevelSelect.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\FuncTimer.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeStorage.h(17,14): warning C4305: 'argument': truncation from 'double' to 'float32'
+  Unknown compiler version - please run the configure tests and report the results
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\LevelSelect.cpp(48,50): warning C4018: '>=': signed/unsigned mismatch
+  Mouse.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\Mouse.cpp(98,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\Mouse.cpp(111,20): warning C4018: '<': signed/unsigned mismatch
+  MouseManager.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\MouseManager.cpp(9,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\MouseManager.cpp(39,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\MouseManager.cpp(124,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\MouseManager.cpp(134,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\MouseManager.cpp(143,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\MouseManager.cpp(153,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\MouseManager.cpp(171,20): warning C4018: '<': signed/unsigned mismatch
+  MusicalChairs.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\FuncTimer.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeStorage.h(17,14): warning C4305: 'argument': truncation from 'double' to 'float32'
+  Unknown compiler version - please run the configure tests and report the results
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\MusicalChairs.cpp(19,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\MusicalChairs.cpp(31,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\MusicalChairs.cpp(53,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\MusicalChairs.cpp(70,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\MusicalChairs.cpp(72,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\MusicalChairs.cpp(87,20): warning C4018: '<': signed/unsigned mismatch
+  PlayerSelect.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\FuncTimer.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeStorage.h(17,14): warning C4305: 'argument': truncation from 'double' to 'float32'
+  Unknown compiler version - please run the configure tests and report the results
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\PlayerSelect.cpp(28,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\PlayerSelect.cpp(30,31): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\PlayerSelect.cpp(38,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\PlayerSelect.cpp(40,21): warning C4018: '<': signed/unsigned mismatch
+  PongLevel.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\FuncTimer.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeStorage.h(17,14): warning C4305: 'argument': truncation from 'double' to 'float32'
+  Unknown compiler version - please run the configure tests and report the results
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\PongLevel.cpp(15,66): warning C4305: 'argument': truncation from 'double' to 'float'
+  Scene.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\FuncTimer.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeStorage.h(17,14): warning C4305: 'argument': truncation from 'double' to 'float32'
+  Unknown compiler version - please run the configure tests and report the results
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\Scene.cpp(86,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeStorage.h(75,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\Scene.cpp(60): message : see reference to function template instantiation 'std::vector<PolygonPhysicsObject *,std::allocator<PolygonPhysicsObject *>> ShapeStorage::getObjectsByTagT<PolygonPhysicsObject>(Tag)' being compiled
+  ShapeManager.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeStorage.h(17,14): warning C4305: 'argument': truncation from 'double' to 'float32'
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeManager.cpp(31,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeManager.cpp(59,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeStorage.h(50,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeManager.cpp(58): message : see reference to function template instantiation 'std::vector<PolygonPhysicsObject *,std::allocator<PolygonPhysicsObject *>> ShapeStorage::getObjectOfType<PolygonPhysicsObject>(void)' being compiled
+  Source.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\FuncTimer.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeStorage.h(17,14): warning C4305: 'argument': truncation from 'double' to 'float32'
+  Unknown compiler version - please run the configure tests and report the results
+  TeamSelect.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\FuncTimer.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeStorage.h(17,14): warning C4305: 'argument': truncation from 'double' to 'float32'
+  Unknown compiler version - please run the configure tests and report the results
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\TeamSelect.cpp(27,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\TeamSelect.cpp(30,31): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\TeamSelect.cpp(37,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\TeamSelect.cpp(40,21): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeStorage.h(69): warning C4715: 'ShapeStorage::getObjectByNameT<PolygonPhysicsObject>': not all control paths return a value
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeStorage.h(69): warning C4715: 'ShapeStorage::getObjectByNameT<Trigger>': not all control paths return a value
   MultiMouse.vcxproj -> C:\Users\Ben\Documents\MultiMouse\Exe\MultiMouse.exe

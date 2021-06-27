@@ -157,6 +157,14 @@ void MouseManager::moveAllMiceOrigin()
 	}
 }
 
+void MouseManager::resetBounds()
+{
+	for (Mouse* m : mice)
+	{
+		m->ResetBounds();
+	}
+}
+
 vector<Mouse*> MouseManager::getActiveMice()
 {
 	vector<Mouse*> activeMice;

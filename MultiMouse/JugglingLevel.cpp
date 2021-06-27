@@ -9,15 +9,29 @@ JugglingLevel::JugglingLevel()
 
 	Scene* main = new Scene( standardGravity, "main");
 	//main->world.AddBox(0, 2, 1, Color::getRed(), .5, .5);
-	bottomGoal = main->shapes->buildGoal(0, -2.5,100,1, Color::getBlue(), "Bottom");
+	bottomGoal = main->shapes->buildGoal(0, -5,100,1, Color::getBlue(), "Bottom");
 	main->keyboardFunc = DoNothing;
 	FuncTimer* spawnBoxTimer = new FuncTimer(5,-3, 10, "SpawnBox");
-	spawnBoxTimer->SetFuncPointer(spawnKinematicBox);
+	spawnBoxTimer->del.BindLambda([main]()
+		{
+			Box* b = main->shapes->AddBox(0, 2, 1, Color::getRed(), .5, .5);
+			b->body->SetType(b2_kinematicBody);
+			b->addTag(Tag::Ball);
+		});
 	//spawnBoxTimer->start();
 	main->funcTimers.push_back(spawnBoxTimer);
 	FuncTimer* dropBoxTimer = new FuncTimer(5,-3, 10, "DroppingBox");
-	dropBoxTimer->SetFuncPointer(setBallDynamic);
-	dropBoxTimer->start();
+	dropBoxTimer->del.BindLambda([main]()
+		{
+			for (PolygonPhysicsObject* ball : main->getBodyByTag(Tag::Ball))
+			{
+				if (ball->body->GetType() != b2_dynamicBody)
+				{
+					ball->body->SetType(b2_dynamicBody);
+				}
+			}
+		});
+	//dropBoxTimer->start();
 	main->funcTimers.push_back(dropBoxTimer);
 	scenes["main"] = main;
 

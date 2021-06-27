@@ -19,7 +19,6 @@ Mouse::Mouse(Color color) : PolygonObject(0, 0,color,6, Layer::Mice,0)
 }
 
 
-
 void Mouse::updateX(float num)
 {
 	if (frozen)

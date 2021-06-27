@@ -64,6 +64,10 @@ void Scene::init()
 {
 	startFuncTimers();
 	initSignal();
+	if (initDel.GetSize() > 0)
+	{
+		initDel.Execute();
+	}
 }
 
 void Scene::frameScene()
@@ -89,7 +93,7 @@ void Scene::buildInstructionScene(std::string levelName, std::string instruction
 {
 	Label* l = ui.buildLabel(levelName, 0, 4, 30);
 	Label* description = ui.buildLabel(ui.fitInBox(instructionText, 30, 4), -5, 0, 30);
-	readyUpButton = shapes->buildMouseAssignmentButton(0, -2, 1.5, .75f, Color::getRed(), MouseManager::getInstance()->getActiveMice().size(), "PlayButton");
+	readyUpButton = shapes->buildMouseAssignmentButton(0, -4, 1.5, .75f, Color::getRed(), MouseManager::getInstance()->getActiveMice().size(), "PlayButton");
 	ui.buildSprite(imageName, 4, 0, 8, 8);
 	ui.buildLabelInTrigger("Ready Up", readyUpButton);
 }

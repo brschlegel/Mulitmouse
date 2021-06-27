@@ -42,10 +42,10 @@ void PolygonObject::setShape()
 
 void PolygonObject::setShapeAsBox(float width, float height)
 {
-	addVertex(b2Vec2(x - width / 2, y - height / 2));
-	addVertex(b2Vec2(x + width / 2, y - height / 2));
-	addVertex(b2Vec2(x + width / 2, y + height / 2));
-	addVertex(b2Vec2(x - width / 2, y + height / 2));
+	addVertex(b2Vec2(- width / 2,  - height / 2));
+	addVertex(b2Vec2( width / 2,  - height / 2));
+	addVertex(b2Vec2( width / 2,  height / 2));
+	addVertex(b2Vec2( -width / 2,  height / 2));
 	setShape();
 }
 

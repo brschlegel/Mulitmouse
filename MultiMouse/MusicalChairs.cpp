@@ -13,11 +13,26 @@ MusicalChairs::MusicalChairs()
 	roundTimer = main->ui.buildTimer(40, 0, 0, 50, "MainFont", Color(0,0,0,.3f));
 	roundNum = 0;
 	FuncTimer* invis = new FuncTimer(5, -4, 20, "invis");
-	invis->SetFuncPointer(turnMiceInvisible);	
+	invis->del.BindLambda([]()
+		{
+			vector<Mouse*> activeMice = MouseManager::getInstance()->getActiveMice();
+			for (int i = 0; i < activeMice.size(); i++)
+			{
+				activeMice[i]->drawn = false;
+			}
+		}
+	);
 	main->funcTimers.push_back(invis);
 
 	FuncTimer* vis = new FuncTimer(5, 0, 20, "vis");
-	vis->SetFuncPointer(turnMiceVisible);
+	vis->del.BindLambda([]()
+		{
+			vector<Mouse*> activeMice = MouseManager::getInstance()->getActiveMice();
+			for (int i = 0; i < activeMice.size(); i++)
+			{
+				activeMice[i]->drawn = true;
+			}
+		});
 	main->funcTimers.push_back(vis);
 	//startRound();
 
@@ -84,10 +99,10 @@ void MusicalChairs::startRound()
 	for (int i = 0; i < numChairs; i++)
 	{
 		float randX = (rand() % 1600 - 800) / 100.0f;
-		randX /= 2;
+		
 
 		float randY = (rand() % 1000 - 500) / 100.0f;
-		randY /= 2;
+	
 		chairs.push_back(scenes["main"]->shapes->buildMouseAssignmentButton(randX, randY, 1, 1, Color::getBlue(), 1));
 	}
 	//reset timer

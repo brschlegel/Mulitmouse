@@ -41,6 +41,7 @@ public:
 	MouseAssignmentButton* readyUpButton;
 	void buildInstructionScene(std::string levelName, std::string instructionText, std::string imageName);
 	void buildGameOverScene(std::string losingMessage);
+	Delegate<void> initDel;
 
 	void startFuncTimers();
 	boost::signals2::signal<void()> initSignal;

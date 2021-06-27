@@ -1,6 +1,7 @@
 #pragma once
 #include <string>;
 #include "Scene.h"
+#include "Delegate.h"
 class Scene;
 class FuncTimer
 {
@@ -8,8 +9,8 @@ public:
 	void start();
 	void update(Scene* scene);
 	FuncTimer(float m, float b, int numRepeat = 1, std::string name = "unnamed");
-	void SetFuncPointer(void (*funcPointer)(Scene* scene));
-	void callFunc(Scene* scene);
+	Delegate<void> del;
+	void callFunc();
 	std::string name;
 	sf::Clock* clock;
 private:
