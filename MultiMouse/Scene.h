@@ -15,6 +15,7 @@
 #include "ShapeManager.h"
 #include "Delegate.h"
 #include <boost/signals2.hpp>
+#include "Structure.h"
 
 class CollisionManager;
 class FuncTimer;

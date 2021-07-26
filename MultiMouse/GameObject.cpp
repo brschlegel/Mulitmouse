@@ -19,6 +19,7 @@ void GameObject::addTag(Tag tag)
 	tags.push_back(tag);
 }
 
+
 GameObject::GameObject(float x, float y, std::string name)
 {
 	this->x = x;

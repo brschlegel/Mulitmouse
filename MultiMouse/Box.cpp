@@ -14,7 +14,7 @@ Box::Box(float x, float y, float mass, Color color, float height, float width,fl
 void Box::onCollision(PolygonObject* other)
 {
 	Mouse* m = dynamic_cast<Mouse*>(other);
-	if (m != nullptr)
+	if (m != nullptr && selectable)
 	{
 		if (m->leftButtonPressed && m->physicsSelect == NULL)
 		{
@@ -24,4 +24,9 @@ void Box::onCollision(PolygonObject* other)
 			m->physicsSelect = this;
 		}
 	}
+}
+
+void Box::updateObj()
+{
+	PolygonObject::updateObj();
 }

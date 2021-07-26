@@ -34,7 +34,7 @@ int PlayerSelect::checkLevelUpdate()
 	}
 
 	//if weve made it here prepare to switch levels
-	MouseManager::getInstance()->setAllMiceActive(false);
+	MouseManager::getInstance()->resetMice(false);
 	for (int i = 0; i < buttons.size(); i++)
 	{
 		for (int j = 0; j < buttons[i]->mice.size(); j++)

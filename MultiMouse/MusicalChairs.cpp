@@ -66,7 +66,7 @@ void MusicalChairs::startRound()
 	//Deactivate dead mice if not first round
 	if (roundNum > 0)
 	{
-		MouseManager::getInstance()->setAllMiceActive(false);
+		MouseManager::getInstance()->resetMice(false);
 		for (int i = 0; i < chairs.size(); i++)
 		{
 			for (int j = 0; j < chairs[i]->mice.size(); j++)
@@ -122,7 +122,7 @@ void MusicalChairs::update()
 		if (MouseManager::getInstance()->getNumOfActiveMice() <= 1)
 		{
 			currentScene = scenes["gameOver"];
-			MouseManager::getInstance()->setAllMiceActive(true);
+			MouseManager::getInstance()->resetMice(true);
 		}
 
 	}

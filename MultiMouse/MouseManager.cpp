@@ -63,6 +63,11 @@ MouseManager* MouseManager::getInstance()
 
 void MouseManager::update()
 {
+	for (Mouse* m : mice)
+	{
+		m->prevLeft = m->leftButtonPressed;
+		m->prevRight = m->prevRight;
+	}
 	ManyMouseEvent event;
 	while (ManyMouse_PollEvent(&event) != 0)
 	{
@@ -119,7 +124,7 @@ void MouseManager::draw()
 	}
 }
 
-void MouseManager::setAllMiceActive(bool cond)
+void MouseManager::resetMice(bool cond)
 {
 	for (int i = 0; i < mice.size();i++)
 	{
@@ -127,6 +132,7 @@ void MouseManager::setAllMiceActive(bool cond)
 		mice[i]->frozen = false;
 		mice[i]->drawn = true;
 	}
+	resetBounds();
 }
 
 void MouseManager::unfreezeAllMice()

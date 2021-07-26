@@ -3,3 +3,4 @@
 #include "PolygonPhysicsObject.h"
 #include "Box.h"
 #include "Barrier.h"
+#include "COMBox.h"

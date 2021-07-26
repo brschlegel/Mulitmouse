@@ -80,6 +80,18 @@ Barrier* ShapeStorage::AddRectBarrier(float x, float y, float width, float heigh
 	return barrier;
 }
 
+COMBox* ShapeStorage::buildCOMBox(float x, float y, float width, float height, Color color,std::string name)
+{
+	COMBox* box = new COMBox(x, y, width, height,color, name);
+	box->body = world->CreateBody(&box->def);
+	box->body->CreateFixture(&box->fixtureDef);
+	box->body->SetUserData(box);
+	box->body->SetGravityScale(0);
+	box->body->SetType(b2_dynamicBody);
+	shapes.push_back(box);
+	return box;
+}
+
 void ShapeStorage::unload()
 {
 	for (int i = 0; i < shapes.size(); i++)

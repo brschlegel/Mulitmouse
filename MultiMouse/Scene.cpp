@@ -104,6 +104,10 @@ void Scene::buildGameOverScene(std::string losingMessage)
 	LevelButton* lb = shapes->buildLevelButton(0, -2, 2.75f, 1, Color::getGreen(), LevelName::LevelSelect);
 	lb->active = true;
 	ui.buildLabelInTrigger("Back to Level Select", lb);
+	initDel.BindLambda([this]
+		{
+			MouseManager::getInstance()->resetMice();
+		});
 
 }
 

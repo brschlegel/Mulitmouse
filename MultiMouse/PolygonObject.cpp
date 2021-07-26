@@ -53,3 +53,8 @@ void PolygonObject::onCollision(PolygonObject* other)
 {
 }
 
+void PolygonObject::updateObj()
+{
+	updateDel.ExecuteIfBound();
+}
+

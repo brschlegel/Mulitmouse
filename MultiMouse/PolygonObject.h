@@ -3,6 +3,7 @@
 #include <vector>
 #include <GL/freeglut.h>
 #include "Color.h"
+#include "Delegate.h"
 class PolygonObject;
 enum class Layer{Physics = 4, Triggers = 2, Mice = 1};
 class PolygonObject :
@@ -23,6 +24,9 @@ public:
     unsigned int mask;
     virtual void onCollision(PolygonObject* other);
     Layer layer;
+    virtual void updateObj();
+    Delegate<void> updateDel;
+
     
 };
 

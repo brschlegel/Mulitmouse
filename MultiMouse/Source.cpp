@@ -16,6 +16,7 @@
 #include "Delegate.h"
 
 
+
 #define SFML_STATIC
 
 #include <SFML/Window.hpp>
@@ -23,6 +24,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/OpenGL.hpp>
 #include "Source.h"
+#include <chrono>
 
 
 using namespace std;
@@ -37,15 +39,10 @@ Goal g = Goal(-2, 2, Color::getGreen(), 1, 1);
 bool warpPointer = true;
 
 
-// the window's width and height
-
-
-
-
-
-
 void init(void)
 {
+	//Initialize srand
+	srand(std::chrono::high_resolution_clock::now().time_since_epoch().count());
 
 	MouseManager::getInstance();
 	// initialize the size of the window

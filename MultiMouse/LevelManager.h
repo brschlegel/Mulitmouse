@@ -11,6 +11,7 @@
 #include "PlayerSelect.h"
 #include "TeamSelect.h"
 #include "MusicalChairs.h"
+#include "MazeLevel.h"
 
 class LevelManager;
 class LevelManager
@@ -20,6 +21,7 @@ public:
 
 	void changeLevel(LevelName newLevel);
 	void checkChangeLevel();
+	map<LevelName, int> reqs;
 	static LevelManager* instance;
 	static LevelManager* getInstance();
 private:

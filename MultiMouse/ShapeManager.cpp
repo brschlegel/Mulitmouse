@@ -54,6 +54,11 @@ void ShapeManager::HandleCollision(ShapeStorage* shapes)
 void ShapeManager::update(ShapeStorage* storage)
 {
 	storage->world->Step(1.0f / 60.0f, 6, 2);
+	for (int i = 0; i < storage->count(); i++)
+	{
+		storage->shapes[i]->updateObj();
+	
+	}
 	//Keep x and y updated on physics objects
 	vector<PolygonPhysicsObject*> bodies = storage->getObjectOfType<PolygonPhysicsObject>();
 	for (int i = 0; i < bodies.size(); i++)

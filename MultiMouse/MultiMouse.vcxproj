@@ -209,6 +209,7 @@
     <ClCompile Include="Box.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="Color.cpp" />
+    <ClCompile Include="COMBox.cpp" />
     <ClCompile Include="DebugLevel.cpp" />
     <ClCompile Include="DodgebalLevel.cpp" />
     <ClCompile Include="EventStorage.cpp" />
@@ -223,11 +224,13 @@
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="LevelButton.cpp" />
     <ClCompile Include="LevelSelect.cpp" />
+    <ClCompile Include="MazeLevel.cpp" />
     <ClCompile Include="MouseAssignmentButton.cpp" />
     <ClCompile Include="MouseCage.cpp" />
     <ClCompile Include="MusicalChairs.cpp" />
     <ClCompile Include="PlayerSelect.cpp" />
     <ClCompile Include="PongLevel.cpp" />
+    <ClCompile Include="RandomHelper.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="LevelManager.cpp" />
     <ClCompile Include="ManyMouse\linux_evdev.c" />
@@ -244,6 +247,7 @@
     <ClCompile Include="ShapeManager.cpp" />
     <ClCompile Include="ShapeStorage.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Structure.cpp" />
     <ClCompile Include="TeamSelect.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="Trigger.cpp" />
@@ -255,6 +259,7 @@
     <ClInclude Include="Box.h" />
     <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="Color.h" />
+    <ClInclude Include="COMBox.h" />
     <ClInclude Include="Delegate.h" />
     <ClInclude Include="DodgebalLevel.h" />
     <ClInclude Include="EventStorage.h" />
@@ -270,11 +275,14 @@
     <ClInclude Include="Level.h" />
     <ClInclude Include="LevelButton.h" />
     <ClInclude Include="LevelSelect.h" />
+    <ClInclude Include="MazeLevel.h" />
     <ClInclude Include="MouseAssignmentButton.h" />
     <ClInclude Include="MouseCage.h" />
     <ClInclude Include="MusicalChairs.h" />
     <ClInclude Include="PlayerSelect.h" />
     <ClInclude Include="PongLevel.h" />
+    <ClInclude Include="RandomHelper.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="LevelManager.h" />
     <ClInclude Include="ManyMouse\manymouse.h" />
@@ -287,11 +295,15 @@
     <ClInclude Include="ShapeManager.h" />
     <ClInclude Include="ShapeStorage.h" />
     <ClInclude Include="Source.h" />
+    <ClInclude Include="Structure.h" />
     <ClInclude Include="TeamSelect.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="Trigger.h" />
     <ClInclude Include="UIData.h" />
     <ClInclude Include="UIManager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MultiMouse.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

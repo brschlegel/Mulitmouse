@@ -4,8 +4,8 @@
 #include <string>
 #include <vector>
 
-enum class LevelName { DebugLevel, Juggling, Pong, Dodgeball, LevelSelect, PlayerSelect, TeamSelect, Musical };
-enum class Tag{Ball, Pong, Unscorable};
+enum class LevelName { DebugLevel, Juggling, Pong, Dodgeball, LevelSelect, PlayerSelect, TeamSelect, Musical, Maze };
+enum class Tag{Ball, Pong, Unscorable, Unselectable};
 
 class GameObject
 {
@@ -15,6 +15,7 @@ public:
 	bool hasTag(Tag tag);
 	void addTag(Tag tag);
 	virtual void draw() = 0;
+
 	GameObject(float x, float y, std::string name = "unnamed");
 private:
 	std::vector<Tag> tags;

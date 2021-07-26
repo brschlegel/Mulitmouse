@@ -41,14 +41,10 @@ void MouseCage::AddMouse(Mouse* mouse)
 
 void MouseCage::init()
 {
-
 	for (Mouse* m : mice)
 	{
-		std::cout << "x: " << x << "y: " << y << endl;
-		m->x = 2 *x;
-		m->y = 2*y;
-	
-		
+		m->x = x;
+		m->y = y;
 		m->SetBounds(y + vertices[2].y, y + vertices[0].y, x + vertices[2].x, x + vertices[0].x );
 	}
 }

@@ -11,8 +11,7 @@ TeamSelect::TeamSelect(int numButtons, int perTeam, LevelName chainedLevel)
 	{
 		buttons.push_back(main->shapes->buildMouseAssignmentButton((increment * i) + (increment / 2) - 4, 0, increment / 2, 4, Color::getListOfColors()[i], perTeam));
 	}
-	cout << buttons.size();
-	cout << perTeam;
+
 	currentScene = main;
 }
 
@@ -26,14 +25,14 @@ int TeamSelect::checkLevelUpdate()
 {
 	for (int i = 0; i < buttons.size(); i++)
 	{
-		cout << i << ":" << buttons[i]->mice.size() << endl;
+	
 		if (buttons[i]->mice.size() < buttons[i]->occupancy)
 		{
 			return -1;
 		}
 	}
 
-	MouseManager::getInstance()->setAllMiceActive(false);
+	MouseManager::getInstance()->resetMice(false);
 	for (int i = 0; i < buttons.size(); i++)
 	{
 		MouseManager::getInstance()->setTeam(buttons[i]->mice, Color::getListOfColors()[i]);

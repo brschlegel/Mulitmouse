@@ -5,6 +5,7 @@
 #include "MouseCage.h"
 #include "LevelButton.h"
 #include "MouseAssignmentButton.h"
+#include "COMBox.h"
 
 #pragma once
 //Wrapper class for an array with helpful methods to make things
@@ -26,6 +27,7 @@ public:
 	MouseAssignmentButton* buildMouseAssignmentButton(float x, float y, float width, float height, Color color, int occupancy, std::string name = "unnamed");
 	Box* AddBox(float x, float y, float mass, Color color, float height, float width, float friction = .3, float density = 1, float angle = 0, std::string name = "unnamed");
 	Barrier* AddRectBarrier(float x, float y, float width, float height, float angle = 0, std::string name = "unnamed");
+	COMBox* buildCOMBox(float x, float y, float width, float height, Color color,std::string name = "unnamed");
 	void unload();
 	void deleteObject(int index);
 	void deleteObject(PolygonObject* obj);

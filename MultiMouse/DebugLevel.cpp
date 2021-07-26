@@ -2,7 +2,7 @@
 #include "KeyboardFunctions.h"
 DebugLevel::DebugLevel()
 {
-	mouseNum = 1;
+	mouseNum = 0;
 	Scene* instructions = new Scene(standardGravity, "Instructions");
 	instructions->buildInstructionScene("DebugLevel", "This is the sandbox level!Press b on the keyboard to spawn a box to play with. Throwing the box into the green goal will make it disappear!", "DebugLevel");
 	scenes["instructions"] = instructions;
@@ -10,9 +10,13 @@ DebugLevel::DebugLevel()
 	scenes["main"]= new  Scene(standardGravity, "Main");
 
 	scenes["main"]->frameScene();
-	scenes["main"]->shapes->AddBox(0, 4, 1, Color::getRed(), .5f, .5f);
+	Box* b = scenes["main"]->shapes->AddBox(0, 4, 1, Color::getRed(), 1.0f, 1.0f);
+	scenes["main"]->shapes->AddRectBarrier(0, 0, 1, 1);
 	scenes["main"]->shapes->buildGoal(-2, 2, 1, 1, Color::getGreen());
 	scenes["main"]->keyboardFunc = DebugLevelKeyboard;
+	COMBox* com = scenes["main"]->shapes->buildCOMBox(0, 0, .5f, .5f, Color::getRed());
+	com->setTeam(MouseManager::getInstance()->getActiveMice());
+
 	currentScene = scenes["instructions"]; 
 }
 

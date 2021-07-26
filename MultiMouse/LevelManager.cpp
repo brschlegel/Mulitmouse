@@ -4,12 +4,36 @@ LevelManager* LevelManager::instance;
 LevelManager::LevelManager()
 {
 	currentLevel = new LevelSelect();
+	reqs[LevelName::Juggling] = 2;
+	reqs[LevelName::DebugLevel] = 0;
+	reqs[LevelName::Pong] = 2;
+	reqs[LevelName::Dodgeball] = -2;
+	reqs[LevelName::Musical] = 0;
+	reqs[LevelName::Maze] = -2;
+
 }
 
 void LevelManager::changeLevel(LevelName newLevel)
 {
 	currentLevel->unload();
 	MouseManager::getInstance()->unfreezeAllMice();
+
+	if (reqs[newLevel] > 0)
+	{
+		if (MouseManager::getInstance()->getNumOfActiveMice() > currentLevel->mouseNum)
+		{
+			currentLevel = new PlayerSelect(currentLevel->mouseNum, newLevel);
+			return;
+		}
+	}
+	else if (reqs[newLevel] < 0 && MouseManager::getInstance()->teams.size() == 0)
+	{
+		if (MouseManager::getInstance()->getNumOfActiveMice() >= -reqs[newLevel])
+		{
+			currentLevel = new TeamSelect(-reqs[newLevel], MouseManager::getInstance()->getNumOfActiveMice() / -reqs[newLevel], newLevel);
+			return;
+		}
+	}
 	switch (newLevel)
 	{
 	case LevelName::Juggling:
@@ -28,25 +52,15 @@ void LevelManager::changeLevel(LevelName newLevel)
 		currentLevel = new MusicalChairs();
 		break;
 	case LevelName::LevelSelect:
-		MouseManager::getInstance()->setAllMiceActive();
+		MouseManager::getInstance()->resetMice();
 		MouseManager::getInstance()->clearTeams();
 		currentLevel = new LevelSelect();
 		break;
+	case LevelName::Maze:
+		currentLevel = new MazeLevel();
+		break;
 	}
-	if (currentLevel->mouseNum > 0)
-	{
-		if (MouseManager::getInstance()->getNumOfActiveMice() > currentLevel->mouseNum)
-		{
-			currentLevel = new PlayerSelect(currentLevel->mouseNum, newLevel);
-		}
-	}
-	else if (currentLevel->mouseNum < 0 && MouseManager::getInstance()->teams.size() == 0)
-	{
-		if (MouseManager::getInstance()->getNumOfActiveMice() >= -currentLevel->mouseNum)
-		{
-			currentLevel = new TeamSelect(-currentLevel->mouseNum, MouseManager::getInstance()->getNumOfActiveMice() / -currentLevel->mouseNum, newLevel);
-		}
-	}
+	
 
 
 

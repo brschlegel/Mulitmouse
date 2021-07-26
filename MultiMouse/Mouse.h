@@ -8,7 +8,7 @@ class Mouse : public PolygonObject
 public:
 	Mouse(Color color);
 	float sensitivityCoeff;
-	bool leftButtonPressed, rightButtonPressed;
+	bool leftButtonPressed, rightButtonPressed, prevLeft, prevRight;
 	void updateX(float num);
 	void updateY(float num);
 	void update();

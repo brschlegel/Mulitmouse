@@ -22,6 +22,11 @@ LevelSelect::LevelSelect()
 	LevelButton* musical = main->shapes->buildLevelButton(6.0f, 4, 1.5f, .5f, Color::getBlue(), LevelName::Musical);
 	activationConditions[musical] = 0;
 	Label* musicalLabel = main->ui.buildLabelInTrigger("Non-Musical Chairs", musical, 14);
+
+	LevelButton* maze = main->shapes->buildLevelButton(-6, 3, 1.5f, .5f, Color::getRed(), LevelName::Maze);
+	activationConditions[maze] = -4;
+	main->ui.buildLabelInTrigger("Maze", maze);
+
 	
 
 

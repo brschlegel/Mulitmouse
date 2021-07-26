@@ -21,7 +21,7 @@ public:
 
 	void update();
 	void draw();
-	void setAllMiceActive(bool cond = true);
+	void resetMice(bool cond = true);
 	void unfreezeAllMice();
 	int getNumOfActiveMice();
 	void moveAllMiceOrigin();

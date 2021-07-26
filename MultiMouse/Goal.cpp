@@ -28,7 +28,7 @@ void Goal::onStay()
 
 void Goal::onCollision(PolygonObject* other)
 {
-	cout << objects.size();
+	
 	if (!other->hasTag(Tag::Unscorable))
 	{
 		onEnter(other);
