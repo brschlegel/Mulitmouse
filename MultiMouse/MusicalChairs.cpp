@@ -4,15 +4,15 @@ MusicalChairs::MusicalChairs()
 {
 	mouseNum = 0;
 	Scene* instructions = new Scene(standardGravity, "instructions");
-	instructions->buildInstructionScene("Non-Musical Chairs", "In Non-Musical Chairs your mouse is turned invisible, and you must find your way to the boxes. Click on the box to secure your place in the next round Every now and then your mouse will flicker on the screen, revealing its current position. The round ends when the time limit has been reached or all boxes are full. Try to be the last player standing! ", "Musical");
+	instructions->buildInstructionScene("Non-Musical Chairs", "In Non-Musical Chairs your mouse is turned invisible, and you must find your way to the boxes. Click on the box to secure your place in the next round Every now and then your mouse will flicker on the screen, revealing its current position. The round ends when the time limit has been reached or all boxes are full. Try to be the last player standing! ", "NonMusicalChairs");
 	currentScene = instructions;
 	scenes["instructions"] = instructions;
 
 	Scene* main = new Scene(standardGravity, "main");
 	scenes["main"] = main;
-	roundTimer = main->ui.buildTimer(40, 0, 0, 50, "MainFont", Color(0,0,0,.3f));
+	roundTimer = main->ui.buildTimer(9, 0, 0, 50, "MainFont", Color(0,0,0,.3f));
 	roundNum = 0;
-	FuncTimer* invis = new FuncTimer(5, -4, 20, "invis");
+	FuncTimer* invis = new FuncTimer(3, -2, 20, "invis");
 	invis->del.BindLambda([]()
 		{
 			vector<Mouse*> activeMice = MouseManager::getInstance()->getActiveMice();
@@ -24,7 +24,7 @@ MusicalChairs::MusicalChairs()
 	);
 	main->funcTimers.push_back(invis);
 
-	FuncTimer* vis = new FuncTimer(5, 0, 20, "vis");
+	FuncTimer* vis = new FuncTimer(3, 0, 20, "vis");
 	vis->del.BindLambda([]()
 		{
 			vector<Mouse*> activeMice = MouseManager::getInstance()->getActiveMice();
@@ -74,7 +74,7 @@ void MusicalChairs::startRound()
 				cout << "reset a mouse active" << endl;
 				chairs[i]->mice[j]->active = true;
 			}
-			delete chairs[i];
+			scenes["main"]->shapes->deleteObject(chairs[i]);
 		}
 		chairs.clear();
 		scenes["main"]->shapes->clear();

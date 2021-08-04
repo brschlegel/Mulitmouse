@@ -20,9 +20,9 @@ void LevelManager::changeLevel(LevelName newLevel)
 
 	if (reqs[newLevel] > 0)
 	{
-		if (MouseManager::getInstance()->getNumOfActiveMice() > currentLevel->mouseNum)
+		if (MouseManager::getInstance()->getNumOfActiveMice() > reqs[newLevel])
 		{
-			currentLevel = new PlayerSelect(currentLevel->mouseNum, newLevel);
+			currentLevel = new PlayerSelect(reqs[newLevel], newLevel);
 			return;
 		}
 	}

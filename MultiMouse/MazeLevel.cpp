@@ -1,11 +1,12 @@
 #include "MazeLevel.h"
 
-string levels[] = { "First", "Righty" };
+vector<string> levels = { "First", "Righty" };
+
 MazeLevel::MazeLevel()
 {
 	mouseNum = -2;
 	Scene* instructions = new Scene(standardGravity, "Instructions");
-	instructions->buildInstructionScene("Maze", "Work with your team to solve the maze before your opponents. The box will be situated at the center of your teams mice, left click to increase your influence!", "DebugLevel");
+	instructions->buildInstructionScene("Maze", "Work with your team to solve the maze before your opponents. The box will be situated at the center of your teams mice, left click to increase your influence!", "Maze");
 	scenes["instructions"] = instructions;
 
 	scenes["main"] = new  Scene(standardGravity, "Main");
@@ -17,8 +18,9 @@ MazeLevel::MazeLevel()
 	main->shapes->AddRectBarrier(0, 0, .5, 10);
 	
 	//Select Random Level
-	//int levelID = rand() % levels->size();
-	int levelID = 1;
+
+	int levelID = rand() % levels.size();
+	//int levelID = 1;
 	Structure s = Structure("Mazes/" + levels[levelID], .5f);
 	s.buildStructure(main->shapes, b2Vec2(4.5,-.5));
 	s.buildStructure(main->shapes, b2Vec2(-4.5, -.5));

@@ -21,6 +21,7 @@ PlayerSelect::PlayerSelect(int numButtons, LevelName chainedLevel)
 void PlayerSelect::update()
 {
 	currentScene->update();
+	checkLevelUpdate();
 }
 
 int PlayerSelect::checkLevelUpdate()
@@ -42,5 +43,6 @@ int PlayerSelect::checkLevelUpdate()
 			buttons[i]->mice[j]->active = true;
 		}
 	}
- 	return (int)chainedLevel;
+	EventStorage::getInstance()->levelEvents.push_back((int)chainedLevel);
+	return (int)chainedLevel;
 }
