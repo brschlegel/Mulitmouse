@@ -1,9 +1,0 @@
-﻿  PlayerSelect.cpp
-C:\Users\Ben\Documents\MultiMouse\MultiMouse\FuncTimer.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeStorage.h(18,14): warning C4305: 'argument': truncation from 'double' to 'float32'
-  Unknown compiler version - please run the configure tests and report the results
-C:\Users\Ben\Documents\MultiMouse\MultiMouse\PlayerSelect.cpp(29,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Ben\Documents\MultiMouse\MultiMouse\PlayerSelect.cpp(31,31): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Ben\Documents\MultiMouse\MultiMouse\PlayerSelect.cpp(39,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Ben\Documents\MultiMouse\MultiMouse\PlayerSelect.cpp(41,21): warning C4018: '<': signed/unsigned mismatch
-  MultiMouse.vcxproj -> C:\Users\Ben\Documents\MultiMouse\Exe\MultiMouse.exe
