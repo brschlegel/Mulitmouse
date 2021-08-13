@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Multimouse</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+  <!-- Custom styles for this template -->
+  <link href="css/scrolling-nav.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Home</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+        
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#Content">Abstraction</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#Game">Scripting</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#AIPlayer">Building Minigame</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="https://brschlegel.github.io/">Personal Website</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section id="about">
+    <div class="container">
+      <div class="row">
+
+        <h2>What is it?</h2>
+        <p>Mulitmouse is a collection of minigames where players can plug multiple mice into their computer and have each mouse control its own pointer (default behavior is to have all the mice influence one pointer). The game is coded in C++, using the <a href = "https://icculus.org/manymouse/">ManyMouse Library</a> for splitting the mouse input, <a href = "https://box2d.org/">Box2D for physics</a>, <a href = "https://www.opengl.org//">OpenGL</a> for primitives, and <a href = "https://www.sfml-dev.org/">SFML</a> for windowing, text and images.</p>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="Content" class="bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm">
+          <h1>Designing for abstraction</h1>
+          <div class="figure">
+            <img src="Maze.png" class="image-fluid figure-img">
+          </div>
+          <p>Because the manymouse library has to get data from very low level sources I thought it would be unwise to try to retrofit it into an existing game engine, meaning all gameplay code was written by me. As this project was meant to more be exploring the design space of multiple mice in one game, I knew my #1 priority when it came to developing the framework to build my minigames off of would be flexibility.
+            Designing and implementing the base framework has given me more C++ experience for sure, but I think more importantly it gave me experience trying to build a codebase that I would be working off of for more than just a semester. In addition I knew the framework had to give me the freedom to make many types of minigames, while still giving me the building blocks to make implementing a new minigame a quick and simple process. I believe I succeeded in that goal
+          </p>
+        
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="Game" class="bg-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm">
+          <h1>"Scripting"</h1>
+          <p>Over the course of this project I would run into things where in order to keep the project in scope, I would need to make baby versions of some of the systems I've come to know in the engines I've used in the past. For example, I made a func-timer object that would take in a function and call that function repeatedly at certain time intervals, aiming for a simple version of Invoke Repeating or Coroutine system in Unity. 
+            The most interesting example of this in my opinion would be my "scripting" system. I often found myself needing to write small functions, often just to set things up on a certain object, that really only pertained to one minigame. I kept thinking that Function pointers didn't have the flexibility that I wanted, and after some digging I ran across this blog post: <a href = "https://simoncoenen.com/blog/programming/CPP_Delegates">C++ Delegates</a>. This was exactly what I needed, and combining them with lambda functions I was able to create a very basic scripting system that would mirror being able to write Start and Update functions for Monobehaviors in Unity.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="AIPlayer" class="bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm">
+          <h1>Building a minigame</h1>
+          <p>My favorite part of this project has to be just how simple and quick it is to get a new minigame up and running. Each minigame consists of 3 scenes, instructions, main, and gameover. Instructions and gameover are made using a helper function, and you simply supply some text and an image and they are set. 
+            Main is where things get interesting. Here all you have to do is add some objects (Their behavior is already all set to go), including some extra behavior through the update delegate if you need it. This will be about 20 lines for a very complex game. After that you add a win condition into the minigames update method, and you are set. You have a complete minigame! At the current point in the project this framework has really taken form, and I am hoping to start pumping out minigames over the course of this next semester.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom JavaScript for this theme -->
+  <script src="js/scrolling-nav.js"></script>
+
+</body>
+
+</html>
