@@ -344,6 +344,9 @@
     <ClInclude Include="RandomHelper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="manymouse.h">
+      <Filter>Header Files\Mice</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="MultiMouse.rc">

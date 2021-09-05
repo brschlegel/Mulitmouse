@@ -1,9 +1,252 @@
-﻿  PlayerSelect.cpp
+﻿  Barrier.cpp
+  Box.cpp
+  CollisionManager.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\CollisionManager.cpp(65,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\CollisionManager.cpp(106,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\CollisionManager.cpp(172,29): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\CollisionManager.cpp(239,20): warning C4018: '<': signed/unsigned mismatch
+  Color.cpp
+  COMBox.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\COMBox.cpp(5,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\COMBox.cpp(13,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\COMBox.cpp(44,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\COMBox.cpp(49,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\COMBox.cpp(63,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\COMBox.cpp(69,20): warning C4018: '<': signed/unsigned mismatch
+  DebugLevel.cpp
 C:\Users\Ben\Documents\MultiMouse\MultiMouse\FuncTimer.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeStorage.h(18,14): warning C4305: 'argument': truncation from 'double' to 'float32'
-  Unknown compiler version - please run the configure tests and report the results
+  DodgebalLevel.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\FuncTimer.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeStorage.h(18,14): warning C4305: 'argument': truncation from 'double' to 'float32'
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\DodgebalLevel.cpp(54,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\DodgebalLevel.cpp(59,20): warning C4018: '<': signed/unsigned mismatch
+  EventStorage.cpp
+  FuncTimer.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\FuncTimer.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeStorage.h(18,14): warning C4305: 'argument': truncation from 'double' to 'float32'
+  FuncTimerFunctions.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\FuncTimer.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeStorage.h(18,14): warning C4305: 'argument': truncation from 'double' to 'float32'
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\FuncTimerFunctions.cpp(40,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\FuncTimerFunctions.cpp(49,20): warning C4018: '<': signed/unsigned mismatch
+  GameObject.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\GameObject.cpp(7,20): warning C4018: '<': signed/unsigned mismatch
+  Goal.cpp
+  JugglingLevel.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\FuncTimer.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeStorage.h(18,14): warning C4305: 'argument': truncation from 'double' to 'float32'
+  KeyboardFunction.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\FuncTimer.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeStorage.h(18,14): warning C4305: 'argument': truncation from 'double' to 'float32'
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\KeyboardFunction.cpp(22,19): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\KeyboardFunction.cpp(27,19): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\KeyboardFunction.cpp(31,19): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\KeyboardFunction.cpp(36,19): warning C4305: '-=': truncation from 'double' to 'float'
+  KinematicCollisionFunctions.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\KinematicCollisionFunctions.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Label.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\Label.cpp(4,146): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\Label.cpp(4,143): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\Label.cpp(12,81): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\Label.cpp(12,62): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\Label.cpp(12,43): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\Label.cpp(19,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\Label.cpp(19,20): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Level.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\FuncTimer.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeStorage.h(18,14): warning C4305: 'argument': truncation from 'double' to 'float32'
+  LevelButton.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\LevelButton.cpp(25,27): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\LevelButton.cpp(29,20): warning C4018: '<': signed/unsigned mismatch
+  LevelSelect.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\FuncTimer.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeStorage.h(18,14): warning C4305: 'argument': truncation from 'double' to 'float32'
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\LevelSelect.cpp(53,50): warning C4018: '>=': signed/unsigned mismatch
+  MazeLevel.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\FuncTimer.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeStorage.h(18,14): warning C4305: 'argument': truncation from 'double' to 'float32'
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\MazeLevel.cpp(41,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\MazeLevel.cpp(79,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\MazeLevel.cpp(91,20): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+  Compiling...
+  MouseAssignmentButton.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\MouseAssignmentButton.cpp(13,18): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\MouseAssignmentButton.cpp(20,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\MouseAssignmentButton.cpp(35,23): warning C4018: '<': signed/unsigned mismatch
+  MouseCage.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\MouseCage.cpp(21,20): warning C4018: '<': signed/unsigned mismatch
+  MusicalChairs.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\FuncTimer.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeStorage.h(18,14): warning C4305: 'argument': truncation from 'double' to 'float32'
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\MusicalChairs.cpp(19,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\MusicalChairs.cpp(31,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\MusicalChairs.cpp(53,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\MusicalChairs.cpp(70,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\MusicalChairs.cpp(72,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\MusicalChairs.cpp(87,20): warning C4018: '<': signed/unsigned mismatch
+  PlayerSelect.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\FuncTimer.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeStorage.h(18,14): warning C4305: 'argument': truncation from 'double' to 'float32'
 C:\Users\Ben\Documents\MultiMouse\MultiMouse\PlayerSelect.cpp(29,20): warning C4018: '<': signed/unsigned mismatch
 C:\Users\Ben\Documents\MultiMouse\MultiMouse\PlayerSelect.cpp(31,31): warning C4018: '<': signed/unsigned mismatch
 C:\Users\Ben\Documents\MultiMouse\MultiMouse\PlayerSelect.cpp(39,20): warning C4018: '<': signed/unsigned mismatch
 C:\Users\Ben\Documents\MultiMouse\MultiMouse\PlayerSelect.cpp(41,21): warning C4018: '<': signed/unsigned mismatch
+  PongLevel.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\FuncTimer.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeStorage.h(18,14): warning C4305: 'argument': truncation from 'double' to 'float32'
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\PongLevel.cpp(15,66): warning C4305: 'argument': truncation from 'double' to 'float'
+  RandomHelper.cpp
+  Scene.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\FuncTimer.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeStorage.h(18,14): warning C4305: 'argument': truncation from 'double' to 'float32'
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\Scene.cpp(85,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeStorage.h(77,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\Scene.cpp(60): message : see reference to function template instantiation 'std::vector<PolygonPhysicsObject *,std::allocator<PolygonPhysicsObject *>> ShapeStorage::getObjectsByTagT<PolygonPhysicsObject>(Tag)' being compiled
+  LevelManager.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\FuncTimer.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeStorage.h(18,14): warning C4305: 'argument': truncation from 'double' to 'float32'
+  Mouse.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\Mouse.cpp(98,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\Mouse.cpp(111,20): warning C4018: '<': signed/unsigned mismatch
+  MouseManager.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\MouseManager.cpp(9,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\MouseManager.cpp(39,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\MouseManager.cpp(129,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\MouseManager.cpp(140,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\MouseManager.cpp(149,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\MouseManager.cpp(159,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\MouseManager.cpp(177,20): warning C4018: '<': signed/unsigned mismatch
+  PhysicsWorld.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\PhysicsWorld.cpp(15,39): warning C4305: 'argument': truncation from 'double' to 'float32'
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\PhysicsWorld.cpp(41,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\PhysicsWorld.cpp(49,23): warning C4018: '<': signed/unsigned mismatch
+  PolygonObject.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\PolygonObject.cpp(19,20): warning C4018: '<': signed/unsigned mismatch
+  PolygonPhysicsObject.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\PolygonPhysicsObject.cpp(28,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\PolygonPhysicsObject.cpp(38,20): warning C4018: '<': signed/unsigned mismatch
+  ShapeManager.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeStorage.h(18,14): warning C4305: 'argument': truncation from 'double' to 'float32'
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeManager.cpp(31,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeManager.cpp(64,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeStorage.h(52,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeManager.cpp(63): message : see reference to function template instantiation 'std::vector<PolygonPhysicsObject *,std::allocator<PolygonPhysicsObject *>> ShapeStorage::getObjectOfType<PolygonPhysicsObject>(void)' being compiled
+  ShapeStorage.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeStorage.h(18,14): warning C4305: 'argument': truncation from 'double' to 'float32'
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeStorage.cpp(97,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeStorage.cpp(170,20): warning C4018: '<': signed/unsigned mismatch
+  Source.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\FuncTimer.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeStorage.h(18,14): warning C4305: 'argument': truncation from 'double' to 'float32'
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\Source.cpp(45,74): warning C4244: 'argument': conversion from '_Rep' to 'unsigned int', possible loss of data
+          with
+          [
+              _Rep=__int64
+          ]
+  Structure.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeStorage.h(18,14): warning C4305: 'argument': truncation from 'double' to 'float32'
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\Structure.cpp(24,11): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\Structure.cpp(26,11): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\Structure.cpp(34,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\Structure.cpp(36,21): warning C4018: '<': signed/unsigned mismatch
+  TeamSelect.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\FuncTimer.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeStorage.h(18,14): warning C4305: 'argument': truncation from 'double' to 'float32'
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\TeamSelect.cpp(26,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\TeamSelect.cpp(29,31): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\TeamSelect.cpp(36,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\TeamSelect.cpp(39,21): warning C4018: '<': signed/unsigned mismatch
+  Timer.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\Timer.cpp(19,20): warning C4018: '<': signed/unsigned mismatch
+  Trigger.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\Trigger.cpp(33,20): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeStorage.h(71): warning C4715: 'ShapeStorage::getObjectByNameT<Trigger>': not all control paths return a value
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ShapeStorage.h(71): warning C4715: 'ShapeStorage::getObjectByNameT<PolygonPhysicsObject>': not all control paths return a value
+  Compiling...
+  UIData.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\UIData.cpp(29,23): warning C4018: '<': signed/unsigned mismatch
+  UIManager.cpp
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\UIManager.cpp(17,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\UIManager.cpp(21,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\UIManager.cpp(40,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\UIManager.cpp(48,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\UIManager.cpp(49,11): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\UIManager.cpp(57,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\UIManager.cpp(58,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\UIManager.cpp(81,47): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\UIManager.cpp(81,44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\UIManager.cpp(104,28): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\UIManager.cpp(129,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\UIManager.cpp(167,42): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\UIManager.cpp(167,30): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
+  Generating Code...
+  linux_evdev.c
+  macosx_hidmanager.c
+  macosx_hidutilities.c
+  manymouse.c
+  windows_wminput.c
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ManyMouse\windows_wminput.c(361,35): warning C4133: '=': incompatible types - from 'const char *' to 'LPCWSTR'
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ManyMouse\windows_wminput.c(367,46): warning C4133: 'function': incompatible types - from 'const char *' to 'LPCTSTR'
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ManyMouse\windows_wminput.c(367,56): warning C4133: 'function': incompatible types - from 'const char *' to 'LPCTSTR'
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ManyMouse\windows_wminput.c(407,37): warning C4133: 'function': incompatible types - from 'const char *' to 'LPCTSTR'
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ManyMouse\windows_wminput.c(434,61): warning C4133: 'function': incompatible types - from 'char *' to 'PTSTR'
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ManyMouse\windows_wminput.c(609,19): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ben\Documents\MultiMouse\MultiMouse\ManyMouse\windows_wminput.c(628,13): warning C4018: '>=': signed/unsigned mismatch
+  x11_xinput2.c
+  Generating Code...
+box2d.lib(b2ChainShape.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'box2d.lib(b2ChainShape.obj)' or at 'C:\Users\Ben\Documents\MultiMouse\Exe\Box2D.pdb'; linking object as if no debug info
+box2d.lib(b2EdgeShape.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'box2d.lib(b2EdgeShape.obj)' or at 'C:\Users\Ben\Documents\MultiMouse\Exe\Box2D.pdb'; linking object as if no debug info
+box2d.lib(b2PolygonShape.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'box2d.lib(b2PolygonShape.obj)' or at 'C:\Users\Ben\Documents\MultiMouse\Exe\Box2D.pdb'; linking object as if no debug info
+box2d.lib(b2BroadPhase.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'box2d.lib(b2BroadPhase.obj)' or at 'C:\Users\Ben\Documents\MultiMouse\Exe\Box2D.pdb'; linking object as if no debug info
+box2d.lib(b2CollideCircle.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'box2d.lib(b2CollideCircle.obj)' or at 'C:\Users\Ben\Documents\MultiMouse\Exe\Box2D.pdb'; linking object as if no debug info
+box2d.lib(b2CollideEdge.obj) : warning LNK4099: PDB '' was not found with 'box2d.lib(b2CollideEdge.obj)' or at ''; linking object as if no debug info
+box2d.lib(b2CollidePolygon.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'box2d.lib(b2CollidePolygon.obj)' or at 'C:\Users\Ben\Documents\MultiMouse\Exe\Box2D.pdb'; linking object as if no debug info
+box2d.lib(b2Collision.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'box2d.lib(b2Collision.obj)' or at 'C:\Users\Ben\Documents\MultiMouse\Exe\Box2D.pdb'; linking object as if no debug info
+box2d.lib(b2Distance.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'box2d.lib(b2Distance.obj)' or at 'C:\Users\Ben\Documents\MultiMouse\Exe\Box2D.pdb'; linking object as if no debug info
+box2d.lib(b2DynamicTree.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'box2d.lib(b2DynamicTree.obj)' or at 'C:\Users\Ben\Documents\MultiMouse\Exe\Box2D.pdb'; linking object as if no debug info
+box2d.lib(b2TimeOfImpact.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'box2d.lib(b2TimeOfImpact.obj)' or at 'C:\Users\Ben\Documents\MultiMouse\Exe\Box2D.pdb'; linking object as if no debug info
+box2d.lib(b2BlockAllocator.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'box2d.lib(b2BlockAllocator.obj)' or at 'C:\Users\Ben\Documents\MultiMouse\Exe\Box2D.pdb'; linking object as if no debug info
+box2d.lib(b2Draw.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'box2d.lib(b2Draw.obj)' or at 'C:\Users\Ben\Documents\MultiMouse\Exe\Box2D.pdb'; linking object as if no debug info
+box2d.lib(b2Math.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'box2d.lib(b2Math.obj)' or at 'C:\Users\Ben\Documents\MultiMouse\Exe\Box2D.pdb'; linking object as if no debug info
+box2d.lib(b2Settings.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'box2d.lib(b2Settings.obj)' or at 'C:\Users\Ben\Documents\MultiMouse\Exe\Box2D.pdb'; linking object as if no debug info
+box2d.lib(b2StackAllocator.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'box2d.lib(b2StackAllocator.obj)' or at 'C:\Users\Ben\Documents\MultiMouse\Exe\Box2D.pdb'; linking object as if no debug info
+box2d.lib(b2Timer.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'box2d.lib(b2Timer.obj)' or at 'C:\Users\Ben\Documents\MultiMouse\Exe\Box2D.pdb'; linking object as if no debug info
+box2d.lib(b2ChainAndCircleContact.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'box2d.lib(b2ChainAndCircleContact.obj)' or at 'C:\Users\Ben\Documents\MultiMouse\Exe\Box2D.pdb'; linking object as if no debug info
+box2d.lib(b2ChainAndPolygonContact.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'box2d.lib(b2ChainAndPolygonContact.obj)' or at 'C:\Users\Ben\Documents\MultiMouse\Exe\Box2D.pdb'; linking object as if no debug info
+box2d.lib(b2CircleContact.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'box2d.lib(b2CircleContact.obj)' or at 'C:\Users\Ben\Documents\MultiMouse\Exe\Box2D.pdb'; linking object as if no debug info
+box2d.lib(b2Contact.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'box2d.lib(b2Contact.obj)' or at 'C:\Users\Ben\Documents\MultiMouse\Exe\Box2D.pdb'; linking object as if no debug info
+box2d.lib(b2ContactSolver.obj) : warning LNK4099: PDB '' was not found with 'box2d.lib(b2ContactSolver.obj)' or at ''; linking object as if no debug info
+box2d.lib(b2EdgeAndCircleContact.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'box2d.lib(b2EdgeAndCircleContact.obj)' or at 'C:\Users\Ben\Documents\MultiMouse\Exe\Box2D.pdb'; linking object as if no debug info
+box2d.lib(b2EdgeAndPolygonContact.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'box2d.lib(b2EdgeAndPolygonContact.obj)' or at 'C:\Users\Ben\Documents\MultiMouse\Exe\Box2D.pdb'; linking object as if no debug info
+box2d.lib(b2PolygonAndCircleContact.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'box2d.lib(b2PolygonAndCircleContact.obj)' or at 'C:\Users\Ben\Documents\MultiMouse\Exe\Box2D.pdb'; linking object as if no debug info
+box2d.lib(b2PolygonContact.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'box2d.lib(b2PolygonContact.obj)' or at 'C:\Users\Ben\Documents\MultiMouse\Exe\Box2D.pdb'; linking object as if no debug info
+box2d.lib(b2DistanceJoint.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'box2d.lib(b2DistanceJoint.obj)' or at 'C:\Users\Ben\Documents\MultiMouse\Exe\Box2D.pdb'; linking object as if no debug info
+box2d.lib(b2FrictionJoint.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'box2d.lib(b2FrictionJoint.obj)' or at 'C:\Users\Ben\Documents\MultiMouse\Exe\Box2D.pdb'; linking object as if no debug info
+box2d.lib(b2GearJoint.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'box2d.lib(b2GearJoint.obj)' or at 'C:\Users\Ben\Documents\MultiMouse\Exe\Box2D.pdb'; linking object as if no debug info
+box2d.lib(b2Joint.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'box2d.lib(b2Joint.obj)' or at 'C:\Users\Ben\Documents\MultiMouse\Exe\Box2D.pdb'; linking object as if no debug info
+box2d.lib(b2MotorJoint.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'box2d.lib(b2MotorJoint.obj)' or at 'C:\Users\Ben\Documents\MultiMouse\Exe\Box2D.pdb'; linking object as if no debug info
+box2d.lib(b2MouseJoint.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'box2d.lib(b2MouseJoint.obj)' or at 'C:\Users\Ben\Documents\MultiMouse\Exe\Box2D.pdb'; linking object as if no debug info
+box2d.lib(b2PrismaticJoint.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'box2d.lib(b2PrismaticJoint.obj)' or at 'C:\Users\Ben\Documents\MultiMouse\Exe\Box2D.pdb'; linking object as if no debug info
+box2d.lib(b2PulleyJoint.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'box2d.lib(b2PulleyJoint.obj)' or at 'C:\Users\Ben\Documents\MultiMouse\Exe\Box2D.pdb'; linking object as if no debug info
+box2d.lib(b2RevoluteJoint.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'box2d.lib(b2RevoluteJoint.obj)' or at 'C:\Users\Ben\Documents\MultiMouse\Exe\Box2D.pdb'; linking object as if no debug info
+box2d.lib(b2RopeJoint.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'box2d.lib(b2RopeJoint.obj)' or at 'C:\Users\Ben\Documents\MultiMouse\Exe\Box2D.pdb'; linking object as if no debug info
+box2d.lib(b2WeldJoint.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'box2d.lib(b2WeldJoint.obj)' or at 'C:\Users\Ben\Documents\MultiMouse\Exe\Box2D.pdb'; linking object as if no debug info
+box2d.lib(b2WheelJoint.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'box2d.lib(b2WheelJoint.obj)' or at 'C:\Users\Ben\Documents\MultiMouse\Exe\Box2D.pdb'; linking object as if no debug info
+box2d.lib(b2Body.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'box2d.lib(b2Body.obj)' or at 'C:\Users\Ben\Documents\MultiMouse\Exe\Box2D.pdb'; linking object as if no debug info
+box2d.lib(b2ContactManager.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'box2d.lib(b2ContactManager.obj)' or at 'C:\Users\Ben\Documents\MultiMouse\Exe\Box2D.pdb'; linking object as if no debug info
+box2d.lib(b2Fixture.obj) : warning LNK4099: PDB '' was not found with 'box2d.lib(b2Fixture.obj)' or at ''; linking object as if no debug info
+box2d.lib(b2Island.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'box2d.lib(b2Island.obj)' or at 'C:\Users\Ben\Documents\MultiMouse\Exe\Box2D.pdb'; linking object as if no debug info
+box2d.lib(b2World.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'box2d.lib(b2World.obj)' or at 'C:\Users\Ben\Documents\MultiMouse\Exe\Box2D.pdb'; linking object as if no debug info
+box2d.lib(b2WorldCallbacks.obj) : warning LNK4099: PDB 'Box2D.pdb' was not found with 'box2d.lib(b2WorldCallbacks.obj)' or at 'C:\Users\Ben\Documents\MultiMouse\Exe\Box2D.pdb'; linking object as if no debug info
   MultiMouse.vcxproj -> C:\Users\Ben\Documents\MultiMouse\Exe\MultiMouse.exe

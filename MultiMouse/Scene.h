@@ -7,14 +7,13 @@
 #include "FuncTimerFunctions.h"
 #include <string>
 #define SFML_STATIC
-#define BOOST_USE_WINDOWS_H
 #include <iostream>
 #include "SFML/Graphics.hpp"
 #include "SFML/Window.hpp"
 #include "SFML/OpenGL.hpp"
 #include "ShapeManager.h"
 #include "Delegate.h"
-#include <boost/signals2.hpp>
+
 #include "Structure.h"
 
 class CollisionManager;
@@ -45,5 +44,5 @@ public:
 	Delegate<void> initDel;
 
 	void startFuncTimers();
-	boost::signals2::signal<void()> initSignal;
+	
 };
