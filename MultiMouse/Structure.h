@@ -3,7 +3,7 @@
 #include <fstream>
 #include <vector>
 #include <sstream>
-#include "ShapeStorage.h"
+#include <ShapeStorage.h>
 using namespace std;
 class Structure
 {

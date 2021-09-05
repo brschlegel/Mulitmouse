@@ -63,6 +63,7 @@ std::vector<PolygonPhysicsObject*> Scene::getBodyByTag(Tag tag)
 void Scene::init()
 {
 	startFuncTimers();
+	initSignal();
 	if (initDel.GetSize() > 0)
 	{
 		initDel.Execute();
