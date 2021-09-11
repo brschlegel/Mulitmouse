@@ -207,6 +207,7 @@
   <ItemGroup>
     <ClCompile Include="Barrier.cpp" />
     <ClCompile Include="Box.cpp" />
+    <ClCompile Include="CircusLevel.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="COMBox.cpp" />
@@ -227,6 +228,7 @@
     <ClCompile Include="MazeLevel.cpp" />
     <ClCompile Include="MouseAssignmentButton.cpp" />
     <ClCompile Include="MouseCage.cpp" />
+    <ClCompile Include="MouseGoal.cpp" />
     <ClCompile Include="MusicalChairs.cpp" />
     <ClCompile Include="PlayerSelect.cpp" />
     <ClCompile Include="PongLevel.cpp" />
@@ -257,6 +259,7 @@
   <ItemGroup>
     <ClInclude Include="Barrier.h" />
     <ClInclude Include="Box.h" />
+    <ClInclude Include="CircusLevel.h" />
     <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="COMBox.h" />
@@ -278,6 +281,7 @@
     <ClInclude Include="MazeLevel.h" />
     <ClInclude Include="MouseAssignmentButton.h" />
     <ClInclude Include="MouseCage.h" />
+    <ClInclude Include="MouseGoal.h" />
     <ClInclude Include="MusicalChairs.h" />
     <ClInclude Include="PlayerSelect.h" />
     <ClInclude Include="PongLevel.h" />

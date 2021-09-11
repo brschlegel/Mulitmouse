@@ -59,6 +59,9 @@ void LevelManager::changeLevel(LevelName newLevel)
 	case LevelName::Maze:
 		currentLevel = new MazeLevel();
 		break;
+	case LevelName::Circus:
+		currentLevel = new CircusLevel();
+		break;
 	}
 	
 

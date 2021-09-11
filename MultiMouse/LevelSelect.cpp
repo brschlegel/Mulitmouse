@@ -27,6 +27,10 @@ LevelSelect::LevelSelect()
 	activationConditions[maze] = -4;
 	main->ui.buildLabelInTrigger("Maze", maze);
 
+	LevelButton* circus = main->shapes->buildLevelButton(-3, 3, 1.5f, .5f, Color::getBlue(), LevelName::Circus);
+	activationConditions[circus] = 0;
+	main->ui.buildLabelInTrigger("Circus", circus);
+
 	
 
 

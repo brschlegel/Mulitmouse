@@ -14,6 +14,7 @@
 #include "ShapeManager.h"
 #include "Delegate.h"
 #include "Structure.h"
+#include "MouseGoal.h"
 
 class CollisionManager;
 class FuncTimer;

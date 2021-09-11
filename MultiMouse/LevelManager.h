@@ -12,6 +12,7 @@
 #include "TeamSelect.h"
 #include "MusicalChairs.h"
 #include "MazeLevel.h"
+#include "CircusLevel.h"
 
 class LevelManager;
 class LevelManager

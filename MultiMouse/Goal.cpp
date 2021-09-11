@@ -13,6 +13,10 @@ Goal::Goal(float x, float y, Color color, float width, float height, std::string
 	triggerId = 1;
 }
 
+Goal::Goal(float x, float y, Color color, float width, float height, int mask, std::string name) : Trigger(x, y, width, height, color, mask, name)
+{
+}
+
 void Goal::onEnter(PolygonObject* object)
 {
 	score++;

@@ -14,6 +14,7 @@ public:
 	float unitScale;
 	vector<vector<char>> arr;
 	void buildStructure(ShapeStorage* storage, b2Vec2 origin);
+	vector<PolygonObject*> objects;
 		
 };
 

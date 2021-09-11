@@ -92,6 +92,13 @@ COMBox* ShapeStorage::buildCOMBox(float x, float y, float width, float height, C
 	return box;
 }
 
+MouseGoal* ShapeStorage::buildMouseGoal(float x, float y, float width, float height, Color color, std::string name)
+{
+	MouseGoal* m = new MouseGoal(x, y, color, width, height, name);
+	shapes.push_back(m);
+	return m;
+}
+
 void ShapeStorage::unload()
 {
 	for (int i = 0; i < shapes.size(); i++)

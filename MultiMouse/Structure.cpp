@@ -37,7 +37,11 @@ void Structure::buildStructure(ShapeStorage* storage, b2Vec2 origin)
 		{
 			if (arr[i][j] == 'b')
 			{
-				storage->AddRectBarrier(j * unitScale + shift.x,- i * unitScale + shift.y, unitScale, unitScale);
+				objects.push_back(storage->AddRectBarrier(j * unitScale + shift.x,- i * unitScale + shift.y, unitScale, unitScale));
+			}
+			else if (arr[i][j] == 'm')
+			{
+				objects.push_back(storage->buildMouseGoal(j * unitScale + shift.x, -i * unitScale + shift.y, unitScale, unitScale, Color::getRed()));
 			}
 		}
 	}

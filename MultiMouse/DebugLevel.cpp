@@ -16,6 +16,7 @@ DebugLevel::DebugLevel()
 	scenes["main"]->keyboardFunc = DebugLevelKeyboard;
 	COMBox* com = scenes["main"]->shapes->buildCOMBox(0, 0, .5f, .5f, Color::getRed());
 	com->setTeam(MouseManager::getInstance()->getActiveMice());
+	scenes["main"]->shapes->buildMouseGoal(2, 2, 1, 1, Color::getGreen());
 
 	currentScene = scenes["instructions"]; 
 }
