@@ -17,6 +17,7 @@ public:
 	virtual void draw() = 0;
 
 	GameObject(float x, float y, std::string name = "unnamed");
+	GameObject(std::string name = "unnamed");
 private:
 	std::vector<Tag> tags;
 	
