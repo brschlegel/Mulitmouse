@@ -7,14 +7,22 @@ CircusLevel::CircusLevel()
 	scenes["instructions"] = instructions;
 
 	Scene* main = new Scene(standardGravity, "main");
-	startingPosition = b2Vec2(0, -4);
-	//goals.push_back(main->shapes->buildMouseGoal(0, 0, 1, 1, Color::getBlue()));
-	Structure s = Structure("Mazes/First", .5f);
+	startingPosition = b2Vec2(0, -4.75f);
+	
+	Structure s = Structure("CircusMazes/First", .5f);
 	s.buildStructure(main->shapes, b2Vec2(0, 0));
+	//Adding all the goals to the list
+	for (PolygonObject* obj : s.objects)
+	{
+		MouseGoal* goal = dynamic_cast<MouseGoal*>(obj);
+		goals.push_back(goal);
+	}
+	
+	finish = main->shapes->buildMouseGoal(0, 5, 2, 1, Color::getBlue());
 	scenes["main"] = main;
 
 	Scene* gameOver = new Scene(standardGravity, "gameOver");
-	gameOver->buildGameOverScene("haha u lost");
+	gameOver->buildGameOverScene("haha u won");
 	scenes["gameOver"] = gameOver;
 
 	currentScene = scenes["instructions"];
@@ -32,5 +40,15 @@ void CircusLevel::update()
 			mouse->y = startingPosition.y;
 		}
 		goal->mice.clear();
+	}
+
+	if (finish->mice.size() > 0)
+	{
+		currentScene = scenes["gameOver"];
+		for (Mouse* m : finish->mice)
+		{
+			m->frozen = false;
+			
+		}
 	}
 }

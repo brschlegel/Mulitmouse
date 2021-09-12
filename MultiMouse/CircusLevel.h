@@ -9,6 +9,6 @@ public:
     vector<MouseGoal*> goals;
     void update();
     b2Vec2 startingPosition;
-    
+    MouseGoal* finish;
 };
 
