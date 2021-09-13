@@ -8,6 +8,7 @@ void ShapeManager::HandleCollision(ShapeStorage* shapes)
 		b2Transform at;
 		at.Set(b2Vec2(shapes->shapes[i]->x, shapes->shapes[i]->y), 0);
 		shapes->shapes[i]->shape.ComputeAABB(&a, at, 0);
+		//Other shapes
 		for (int j = 0; j < shapes->count(); j++)
 		{
 			if (i == j)
@@ -27,7 +28,7 @@ void ShapeManager::HandleCollision(ShapeStorage* shapes)
 				}
 			}
 		}
-
+		//mice handled seperately
 		for (int j = 0; j < MouseManager::getInstance()->mice.size(); j++)
 		{
 
@@ -40,6 +41,21 @@ void ShapeManager::HandleCollision(ShapeStorage* shapes)
 				if (b2TestOverlap(a, b))
 				{
 					shapes->shapes[i]->onCollision(MouseManager::getInstance()->mice[j]);
+				}
+			}
+		}
+
+		//Line time
+		for (int j = 0; j < shapes->lines.size(); j++)
+		{
+			if (((shapes->lines[j]->mask & (int)shapes->shapes[i]->layer) > 0))
+			{
+				for (int k = 0; k < shapes->lines[j]->LOD; k++)
+				{
+					if (shapes->shapes[i]->shape.TestPoint(at, shapes->lines[j]->points[k].position) && shapes->lines[j]->points[k].active)
+					{
+						shapes->lines[j]->onCollision(shapes->shapes[i], k);
+					}
 				}
 			}
 		}
