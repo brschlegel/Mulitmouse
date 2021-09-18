@@ -3,6 +3,7 @@
 #include <vector>
 #include "LinePoint.h"
 #include "PolygonObject.h"
+#include <iostream>
 class Line :
     public GameObject
 {
@@ -14,7 +15,9 @@ public:
     unsigned int mask;
     Color color;
     void draw() override;
-    void update();
+    virtual void update();
+    void reset();
+    virtual void placePoints() = 0;
     virtual void onCollision(PolygonObject* obj, int index);
 };
 

@@ -92,6 +92,13 @@ COMBox* ShapeStorage::buildCOMBox(float x, float y, float width, float height, C
 	return box;
 }
 
+ConnectingLine* ShapeStorage::buildConnectingLine(Color color, int LOD, int mask, std::string name)
+{
+	ConnectingLine* line = new ConnectingLine(color, LOD, mask, name);
+	lines.push_back(line);
+	return line;
+}
+
 void ShapeStorage::unload()
 {
 	for (int i = 0; i < shapes.size(); i++)
@@ -170,5 +177,9 @@ void ShapeStorage::draw()
 	for (int i = 0; i < shapes.size(); i++)
 	{
 		shapes[i]->draw();
+	}
+	for (int i = 0; i < lines.size(); i++)
+	{
+		lines[i]->draw();
 	}
 }

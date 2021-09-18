@@ -7,6 +7,7 @@
 #include "MouseAssignmentButton.h"
 #include "COMBox.h"
 #include "Line.h"
+#include "ConnectingLine.h"
 
 #pragma once
 //Wrapper class for an array with helpful methods to make things
@@ -31,7 +32,7 @@ public:
 	COMBox* buildCOMBox(float x, float y, float width, float height, Color color,std::string name = "unnamed");
 
 	//lines
-
+	ConnectingLine* buildConnectingLine(Color color, int LOD, int mask, std::string name = "unnamed");
 	void unload();
 	void deleteObject(int index);
 	void deleteObject(PolygonObject* obj);

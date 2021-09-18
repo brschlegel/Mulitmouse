@@ -50,12 +50,16 @@ void ShapeManager::HandleCollision(ShapeStorage* shapes)
 		{
 			if (((shapes->lines[j]->mask & (int)shapes->shapes[i]->layer) > 0))
 			{
+			
 				for (int k = 0; k < shapes->lines[j]->LOD; k++)
 				{
-					if (shapes->shapes[i]->shape.TestPoint(at, shapes->lines[j]->points[k].position) && shapes->lines[j]->points[k].active)
+					if (shapes->shapes[i]->shape.TestPoint(at, shapes->lines[j]->points[k].position) /*&& shapes->lines[j]->points[k].active*/)
 					{
 						shapes->lines[j]->onCollision(shapes->shapes[i], k);
+						break;
 					}
+					
+					
 				}
 			}
 		}
@@ -69,11 +73,16 @@ void ShapeManager::HandleCollision(ShapeStorage* shapes)
 
 void ShapeManager::update(ShapeStorage* storage)
 {
+
 	storage->world->Step(1.0f / 60.0f, 6, 2);
 	for (int i = 0; i < storage->count(); i++)
 	{
 		storage->shapes[i]->updateObj();
-	
+		
+	}
+	for (int i = 0; i < storage->lines.size(); i++)
+	{
+		storage->lines[i]->update();
 	}
 	//Keep x and y updated on physics objects
 	vector<PolygonPhysicsObject*> bodies = storage->getObjectOfType<PolygonPhysicsObject>();
@@ -86,10 +95,4 @@ void ShapeManager::update(ShapeStorage* storage)
 	HandleCollision(storage);
 }
 
-void ShapeManager::draw(ShapeStorage* storage)
-{
-	for (int i = 0; i < storage->count(); i++)
-	{
-		storage->shapes[i]->draw();
-	}
-}
+

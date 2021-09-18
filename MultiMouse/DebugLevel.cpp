@@ -12,10 +12,12 @@ DebugLevel::DebugLevel()
 	scenes["main"]->frameScene();
 	Box* b = scenes["main"]->shapes->AddBox(0, 4, 1, Color::getRed(), 1.0f, 1.0f);
 	scenes["main"]->shapes->AddRectBarrier(0, 0, 1, 1);
+	scenes["main"]->shapes->AddRectBarrier(0, 3, 3, 1);
 	scenes["main"]->shapes->buildGoal(-2, 2, 1, 1, Color::getGreen());
 	scenes["main"]->keyboardFunc = DebugLevelKeyboard;
-	COMBox* com = scenes["main"]->shapes->buildCOMBox(0, 0, .5f, .5f, Color::getRed());
-	com->setTeam(MouseManager::getInstance()->getActiveMice());
+	ConnectingLine* line = scenes["main"]->shapes->buildConnectingLine(Color::getRed(), 100, 4);
+	line->SetEnds(MouseManager::getInstance()->getActiveMice()[0], MouseManager::getInstance()->getActiveMice()[1]);
+
 
 	currentScene = scenes["instructions"]; 
 }
