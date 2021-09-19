@@ -98,7 +98,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(VC_SourcePath)class;C:\Users\Ben\Downloads\ft2104\freetype-2.10.4\include</IncludePath>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(VC_SourcePath)class</IncludePath>
     <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(VC_SourcePath)class</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Exe|Win32'">
@@ -124,12 +124,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\Ben\Documents\MultiMouse\MultiMouse;C:\Users\Ben\Documents\MultiMouse\MultiMouse\Debug;C:\Users\Ben\Documents\MyLib\include;C:\Users\Ben\Documents\MultiMouse\MultiMouse\ManyMouse;C:\Users\Ben\Documents\MyLib\SFML-2.5.1\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)MultiMouse;$(SolutionDir)MultiMouse\Debug;$(SolutionDir)MyLib\include;$(SolutionDir)MultiMouse\ManyMouse;$(SolutionDir)MyLib\SFML-2.5.1\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\Ben\Documents\MyLib\SFML-2.5.1\lib;C:\Users\Ben\Documents\MyLib\lib\x32</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)MyLib\SFML-2.5.1\lib;$(SolutionDir)MyLib\lib\x32</AdditionalLibraryDirectories>
       <AdditionalDependencies>box2d.lib;freetype.lib;sfml-graphics-s-d.lib;sfml-window-s-d.lib;sfml-system-s-d.lib;opengl32.lib;winmm.lib;gdi32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
