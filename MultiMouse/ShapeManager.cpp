@@ -8,6 +8,7 @@ void ShapeManager::HandleCollision(ShapeStorage* shapes)
 		b2Transform at;
 		at.Set(b2Vec2(shapes->shapes[i]->x, shapes->shapes[i]->y), 0);
 		shapes->shapes[i]->shape.ComputeAABB(&a, at, 0);
+		//Other shapes
 		for (int j = 0; j < shapes->count(); j++)
 		{
 			if (i == j)
@@ -27,7 +28,7 @@ void ShapeManager::HandleCollision(ShapeStorage* shapes)
 				}
 			}
 		}
-
+		//mice handled seperately
 		for (int j = 0; j < MouseManager::getInstance()->mice.size(); j++)
 		{
 
@@ -43,6 +44,25 @@ void ShapeManager::HandleCollision(ShapeStorage* shapes)
 				}
 			}
 		}
+
+		//Line time
+		for (int j = 0; j < shapes->lines.size(); j++)
+		{
+			if (((shapes->lines[j]->mask & (int)shapes->shapes[i]->layer) > 0))
+			{
+			
+				for (int k = 0; k < shapes->lines[j]->LOD; k++)
+				{
+					if (shapes->shapes[i]->shape.TestPoint(at, shapes->lines[j]->points[k].position) /*&& shapes->lines[j]->points[k].active*/)
+					{
+						shapes->lines[j]->onCollision(shapes->shapes[i], k);
+						break;
+					}
+					
+					
+				}
+			}
+		}
 	}
 	//Collect events and delete objects
 	for (int i = EventStorage::getInstance()->collisionEvents.size() - 1; i > -1 ; i--)
@@ -53,11 +73,16 @@ void ShapeManager::HandleCollision(ShapeStorage* shapes)
 
 void ShapeManager::update(ShapeStorage* storage)
 {
+
 	storage->world->Step(1.0f / 60.0f, 6, 2);
 	for (int i = 0; i < storage->count(); i++)
 	{
 		storage->shapes[i]->updateObj();
-	
+		
+	}
+	for (int i = 0; i < storage->lines.size(); i++)
+	{
+		storage->lines[i]->update();
 	}
 	//Keep x and y updated on physics objects
 	vector<PolygonPhysicsObject*> bodies = storage->getObjectOfType<PolygonPhysicsObject>();
@@ -70,10 +95,4 @@ void ShapeManager::update(ShapeStorage* storage)
 	HandleCollision(storage);
 }
 
-void ShapeManager::draw(ShapeStorage* storage)
-{
-	for (int i = 0; i < storage->count(); i++)
-	{
-		storage->shapes[i]->draw();
-	}
-}
+

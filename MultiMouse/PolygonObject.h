@@ -5,7 +5,7 @@
 #include "Color.h"
 #include "Delegate.h"
 class PolygonObject;
-enum class Layer{Physics = 4, Triggers = 2, Mice = 1};
+enum class Layer{Physics = 4, Triggers = 2, Mice = 1, None = 0};
 class PolygonObject :
     public GameObject
 {

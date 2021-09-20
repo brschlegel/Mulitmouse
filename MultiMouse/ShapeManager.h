@@ -9,7 +9,6 @@ class ShapeManager
 public:
 	void HandleCollision(ShapeStorage* shapes);
 	void update(ShapeStorage* storage);
-	void draw(ShapeStorage* storage);
 	
 
 };

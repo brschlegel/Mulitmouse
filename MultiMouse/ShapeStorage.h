@@ -6,7 +6,9 @@
 #include "LevelButton.h"
 #include "MouseAssignmentButton.h"
 #include "COMBox.h"
-#include "MouseGoal.h"
+#include "Line.h"
+#include "ConnectingLine.h"
+#include "Bezier.h"
 
 #pragma once
 //Wrapper class for an array with helpful methods to make things
@@ -29,8 +31,11 @@ public:
 	Box* AddBox(float x, float y, float mass, Color color, float height, float width, float friction = .3, float density = 1, float angle = 0, std::string name = "unnamed");
 	Barrier* AddRectBarrier(float x, float y, float width, float height, float angle = 0, std::string name = "unnamed");
 	COMBox* buildCOMBox(float x, float y, float width, float height, Color color,std::string name = "unnamed");
-	MouseGoal* buildMouseGoal(float x, float y, float width, float height, Color color, std::string name = "unnamed");
 
+	//lines
+	ConnectingLine* buildConnectingLine(Color color, int LOD, int mask, std::string name = "unnamed");
+	Bezier* buildBezier(Color color, int LOD, int mask, std::string name = "unnamed");
+	ControlPoint* buildControlPoint(b2Vec2 position, Color color);
 	void unload();
 	void deleteObject(int index);
 	void deleteObject(PolygonObject* obj);
@@ -44,6 +49,7 @@ public:
 	template<class T>
 	vector<T*> getObjectsByTagT(Tag tag);
 	vector<PolygonObject*> shapes;
+	vector<Line*> lines;
 	void draw();
 private:
 };

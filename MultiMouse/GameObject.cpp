@@ -26,3 +26,8 @@ GameObject::GameObject(float x, float y, std::string name)
 	this->y = y;
 	this->name = name;
 }
+
+GameObject::GameObject(std::string name)
+{
+	this->name = name;
+}

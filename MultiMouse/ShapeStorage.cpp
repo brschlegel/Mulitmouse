@@ -92,11 +92,25 @@ COMBox* ShapeStorage::buildCOMBox(float x, float y, float width, float height, C
 	return box;
 }
 
-MouseGoal* ShapeStorage::buildMouseGoal(float x, float y, float width, float height, Color color, std::string name)
+ConnectingLine* ShapeStorage::buildConnectingLine(Color color, int LOD, int mask, std::string name)
 {
-	MouseGoal* m = new MouseGoal(x, y, color, width, height, name);
-	shapes.push_back(m);
-	return m;
+	ConnectingLine* line = new ConnectingLine(color, LOD, mask, name);
+	lines.push_back(line);
+	return line;
+}
+
+Bezier* ShapeStorage::buildBezier(Color color, int LOD, int mask, std::string name)
+{
+	Bezier* line = new Bezier(color, LOD, mask, name);
+	lines.push_back(line);
+	return line;
+}
+
+ControlPoint* ShapeStorage::buildControlPoint(b2Vec2 position, Color color)
+{
+	ControlPoint* point = new ControlPoint(position, color);
+	shapes.push_back(point);
+	return point;
 }
 
 void ShapeStorage::unload()
@@ -104,6 +118,10 @@ void ShapeStorage::unload()
 	for (int i = 0; i < shapes.size(); i++)
 	{
 		delete shapes[i];
+	}
+	for (int i = 0; i < lines.size(); i++)
+	{
+		delete lines[i];
 	}
 	world->~b2World();
 }
@@ -177,5 +195,10 @@ void ShapeStorage::draw()
 	for (int i = 0; i < shapes.size(); i++)
 	{
 		shapes[i]->draw();
+		
+	}
+	for (int i = 0; i < lines.size(); i++)
+	{
+		lines[i]->draw();
 	}
 }
