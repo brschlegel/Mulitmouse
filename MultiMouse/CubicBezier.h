@@ -1,5 +1,6 @@
 #pragma once
 #include "Line.h"
+#include "BenMath.h"
 class CubicBezier :
     public Line
 {

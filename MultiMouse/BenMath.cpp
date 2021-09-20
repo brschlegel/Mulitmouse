@@ -18,6 +18,7 @@ int BenMath::binomialCoefficients(std::pair<int, int> val)
         return 1;
     }
     int coeff = binomialCoefficients(std::make_pair(val.first - 1, val.second - 1)) + binomialCoefficients(std::make_pair(val.first - 1, val.second));
+    //cache values, shouldn't do this all the time
     computedValues[val] = coeff;
     return coeff;
 }
