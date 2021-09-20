@@ -2,10 +2,8 @@
 
 ConnectingLine::ConnectingLine(Color color, int LOD, int mask, std::string name) : Line(color, LOD, mask, name)
 {
-	for (int i = 0; i < LOD; i++)
-	{
-		points.push_back(LinePoint());
-	}
+	source = nullptr;
+	end = nullptr;
 }
 
 void ConnectingLine::SetEnds(PolygonObject* source, PolygonObject* end)

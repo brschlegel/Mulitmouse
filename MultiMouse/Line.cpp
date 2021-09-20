@@ -6,6 +6,10 @@ Line::Line(Color color, int LOD, int mask, std::string name) : GameObject(name)
 	this->LOD = LOD;
 	this->end = LOD;
 	this->mask = mask;
+	for (int i = 0; i < LOD; i++)
+	{
+		points.push_back(LinePoint());
+	}
 }
 
 void Line::draw()

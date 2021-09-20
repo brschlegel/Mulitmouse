@@ -99,11 +99,29 @@ ConnectingLine* ShapeStorage::buildConnectingLine(Color color, int LOD, int mask
 	return line;
 }
 
+CubicBezier* ShapeStorage::buildCubicBezier(Color color, int LOD, int mask, std::string name)
+{
+	CubicBezier* line = new CubicBezier(color, LOD, mask, name);
+	lines.push_back(line);
+	return line;
+}
+
+ControlPoint* ShapeStorage::buildControlPoint(b2Vec2 position, Color color)
+{
+	ControlPoint* point = new ControlPoint(position, color);
+	shapes.push_back(point);
+	return point;
+}
+
 void ShapeStorage::unload()
 {
 	for (int i = 0; i < shapes.size(); i++)
 	{
 		delete shapes[i];
+	}
+	for (int i = 0; i < lines.size(); i++)
+	{
+		delete lines[i];
 	}
 	world->~b2World();
 }
@@ -177,6 +195,7 @@ void ShapeStorage::draw()
 	for (int i = 0; i < shapes.size(); i++)
 	{
 		shapes[i]->draw();
+		
 	}
 	for (int i = 0; i < lines.size(); i++)
 	{

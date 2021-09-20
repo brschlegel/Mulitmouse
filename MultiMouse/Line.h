@@ -4,6 +4,7 @@
 #include "LinePoint.h"
 #include "PolygonObject.h"
 #include <iostream>
+#include "ControlPoint.h"
 class Line :
     public GameObject
 {

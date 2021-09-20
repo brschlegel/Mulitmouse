@@ -210,6 +210,12 @@
     <ClCompile Include="ConnectingLine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ControlPoint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CubicBezier.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Barrier.h">
@@ -357,6 +363,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ConnectingLine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ControlPoint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CubicBezier.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

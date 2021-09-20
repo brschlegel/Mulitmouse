@@ -8,6 +8,7 @@
 #include "COMBox.h"
 #include "Line.h"
 #include "ConnectingLine.h"
+#include "CubicBezier.h"
 
 #pragma once
 //Wrapper class for an array with helpful methods to make things
@@ -33,6 +34,8 @@ public:
 
 	//lines
 	ConnectingLine* buildConnectingLine(Color color, int LOD, int mask, std::string name = "unnamed");
+	CubicBezier* buildCubicBezier(Color color, int LOD, int mask, std::string name = "unnamed");
+	ControlPoint* buildControlPoint(b2Vec2 position, Color color);
 	void unload();
 	void deleteObject(int index);
 	void deleteObject(PolygonObject* obj);
