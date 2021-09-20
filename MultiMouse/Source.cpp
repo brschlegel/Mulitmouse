@@ -14,6 +14,8 @@
 #include <ctime>
 #include <cstdlib>
 #include "Delegate.h"
+#include "BenMath.h"
+
 
 
 
@@ -49,7 +51,15 @@ void init(void)
 	levelManager = LevelManager::getInstance();
 	UIData::getInstance();
 
-
+	for (int i = 0; i < 10; i++)
+	{
+		string s = "";
+		for (int j = 0; j < 10; j++)
+		{
+			s += to_string(BenMath::binomialCoefficients(i, j)) + " ";
+		}
+		cout << s << endl;
+	}
 }
 
 // called when the GL context need to be rendered

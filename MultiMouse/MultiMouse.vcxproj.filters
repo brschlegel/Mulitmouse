@@ -216,6 +216,9 @@
     <ClCompile Include="CubicBezier.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BenMath.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Barrier.h">
@@ -369,6 +372,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CubicBezier.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BenMath.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
