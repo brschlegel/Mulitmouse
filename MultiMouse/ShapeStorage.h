@@ -9,6 +9,7 @@
 #include "Line.h"
 #include "ConnectingLine.h"
 #include "Bezier.h"
+#include "MouseGoal.h"
 
 #pragma once
 //Wrapper class for an array with helpful methods to make things
@@ -31,6 +32,7 @@ public:
 	Box* AddBox(float x, float y, float mass, Color color, float height, float width, float friction = .3, float density = 1, float angle = 0, std::string name = "unnamed");
 	Barrier* AddRectBarrier(float x, float y, float width, float height, float angle = 0, std::string name = "unnamed");
 	COMBox* buildCOMBox(float x, float y, float width, float height, Color color,std::string name = "unnamed");
+	MouseGoal* buildMouseGoal(float x, float y, float width, float height, Color color, std::string name = "unnamed");
 
 	//lines
 	ConnectingLine* buildConnectingLine(Color color, int LOD, int mask, std::string name = "unnamed");
