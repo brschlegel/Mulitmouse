@@ -213,7 +213,7 @@
     <ClCompile Include="ControlPoint.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CubicBezier.cpp">
+    <ClCompile Include="Bezier.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="BenMath.cpp">
@@ -371,7 +371,7 @@
     <ClInclude Include="ControlPoint.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CubicBezier.h">
+    <ClInclude Include="Bezier.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="BenMath.h">

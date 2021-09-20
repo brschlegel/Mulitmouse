@@ -99,9 +99,9 @@ ConnectingLine* ShapeStorage::buildConnectingLine(Color color, int LOD, int mask
 	return line;
 }
 
-CubicBezier* ShapeStorage::buildCubicBezier(Color color, int LOD, int mask, std::string name)
+Bezier* ShapeStorage::buildBezier(Color color, int LOD, int mask, std::string name)
 {
-	CubicBezier* line = new CubicBezier(color, LOD, mask, name);
+	Bezier* line = new Bezier(color, LOD, mask, name);
 	lines.push_back(line);
 	return line;
 }

@@ -16,7 +16,7 @@ DebugLevel::DebugLevel()
 	
 	scenes["main"]->shapes->buildGoal(-2, 2, 1, 1, Color::getGreen());
 	scenes["main"]->keyboardFunc = DebugLevelKeyboard;
-	CubicBezier* bezier = scenes["main"]->shapes->buildCubicBezier(Color::getRed(), 100, 4);
+	Bezier* bezier = scenes["main"]->shapes->buildBezier(Color::getRed(), 100, 4);
 	bezier->addControlPoint(main->shapes->buildControlPoint(b2Vec2(5, -3), Color::getBlue()));
 	bezier->addControlPoint(MouseManager::getInstance()->getActiveMice()[0]);
 	bezier->addControlPoint(MouseManager::getInstance()->getActiveMice()[1]);

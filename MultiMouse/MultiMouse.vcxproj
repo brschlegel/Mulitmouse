@@ -213,7 +213,7 @@
     <ClCompile Include="COMBox.cpp" />
     <ClCompile Include="ConnectingLine.cpp" />
     <ClCompile Include="ControlPoint.cpp" />
-    <ClCompile Include="CubicBezier.cpp" />
+    <ClCompile Include="Bezier.cpp" />
     <ClCompile Include="DebugLevel.cpp" />
     <ClCompile Include="DodgebalLevel.cpp" />
     <ClCompile Include="EventStorage.cpp" />
@@ -268,7 +268,7 @@
     <ClInclude Include="COMBox.h" />
     <ClInclude Include="ConnectingLine.h" />
     <ClInclude Include="ControlPoint.h" />
-    <ClInclude Include="CubicBezier.h" />
+    <ClInclude Include="Bezier.h" />
     <ClInclude Include="Delegate.h" />
     <ClInclude Include="DodgebalLevel.h" />
     <ClInclude Include="EventStorage.h" />

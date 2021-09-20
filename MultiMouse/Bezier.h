@@ -1,11 +1,11 @@
 #pragma once
 #include "Line.h"
 #include "BenMath.h"
-class CubicBezier :
+class Bezier :
     public Line
 {
 public:
-    CubicBezier(Color color, int LOD, int mask, std::string name = "unnamed");
+    Bezier(Color color, int LOD, int mask, std::string name = "unnamed");
     std::vector<PolygonObject*> controlPoints;
     void addControlPoint(PolygonObject* obj);
     void update() override;

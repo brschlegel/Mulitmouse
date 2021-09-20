@@ -1,22 +1,22 @@
-#include "CubicBezier.h"
+#include "Bezier.h"
 
-CubicBezier::CubicBezier(Color color, int LOD, int mask, std::string name) : Line(color, LOD, mask, name)
+Bezier::Bezier(Color color, int LOD, int mask, std::string name) : Line(color, LOD, mask, name)
 {
 	//Adding one more to cover gaps
 	points.push_back(LinePoint());
 }
 
-void CubicBezier::addControlPoint(PolygonObject* obj)
+void Bezier::addControlPoint(PolygonObject* obj)
 {
 	controlPoints.push_back(obj);
 }
 
-void CubicBezier::update()
+void Bezier::update()
 {
 	placePoints();
 }
 
-void CubicBezier::placePoints()
+void Bezier::placePoints()
 {
 	//b2Vec2 p1 = b2Vec2(controlPoints[0]->x, controlPoints[0]->y);
 	//b2Vec2 p2 = b2Vec2(controlPoints[1]->x, controlPoints[1]->y);
