@@ -11,6 +11,7 @@ void ClickedMouseGoal::onCollision(PolygonObject* other)
 	if (mouse != nullptr && mouse->leftButtonPressed && !mouse->prevLeft)
 	{
 		numClicks++;
+		cout << "clicked" << endl;
 	}
 
 }
