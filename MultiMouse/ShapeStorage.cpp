@@ -99,6 +99,13 @@ MouseGoal* ShapeStorage::buildMouseGoal(float x, float y, float width, float hei
 	return m;
 }
 
+ClickedMouseGoal* ShapeStorage::buildClickedMouseGoal(float x, float y, float width, float height, Color color, std::string name)
+{
+	ClickedMouseGoal* goal = new ClickedMouseGoal(x, y, width, height, color, name);
+	shapes.push_back(goal);
+	return goal;
+}
+
 ConnectingLine* ShapeStorage::buildConnectingLine(Color color, int LOD, int mask, std::string name)
 {
 	ConnectingLine* line = new ConnectingLine(color, LOD, mask, name);
