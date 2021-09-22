@@ -215,6 +215,7 @@
     <ClCompile Include="ConnectingLine.cpp" />
     <ClCompile Include="ControlPoint.cpp" />
     <ClCompile Include="Bezier.cpp" />
+    <ClCompile Include="CurveMatch.cpp" />
     <ClCompile Include="DebugLevel.cpp" />
     <ClCompile Include="DodgebalLevel.cpp" />
     <ClCompile Include="EventStorage.cpp" />
@@ -272,6 +273,7 @@
     <ClInclude Include="ConnectingLine.h" />
     <ClInclude Include="ControlPoint.h" />
     <ClInclude Include="Bezier.h" />
+    <ClInclude Include="CurveMatch.h" />
     <ClInclude Include="Delegate.h" />
     <ClInclude Include="DodgebalLevel.h" />
     <ClInclude Include="EventStorage.h" />

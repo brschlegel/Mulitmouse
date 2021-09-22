@@ -62,6 +62,9 @@ void LevelManager::changeLevel(LevelName newLevel)
 	case LevelName::Circus:
 		currentLevel = new CircusLevel();
 		break;
+	case LevelName::CurveMatch:
+		currentLevel = new CurveMatch();
+		break;
 	}
 	
 

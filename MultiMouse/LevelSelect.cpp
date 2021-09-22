@@ -31,6 +31,10 @@ LevelSelect::LevelSelect()
 	activationConditions[circus] = 0;
 	main->ui.buildLabelInTrigger("Circus", circus);
 
+	LevelButton* curveMatch = main->shapes->buildLevelButton(0, 3, 1.5f, .5f, Color::getBlue(), LevelName::CurveMatch);
+	activationConditions[curveMatch] = 0;
+	main->ui.buildLabelInTrigger("Curve Match", curveMatch);
+
 	
 
 

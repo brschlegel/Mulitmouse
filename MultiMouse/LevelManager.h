@@ -13,6 +13,7 @@
 #include "MusicalChairs.h"
 #include "MazeLevel.h"
 #include "CircusLevel.h"
+#include "CurveMatch.h"
 
 class LevelManager;
 class LevelManager
