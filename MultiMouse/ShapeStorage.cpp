@@ -101,7 +101,7 @@ MouseGoal* ShapeStorage::buildMouseGoal(float x, float y, float width, float hei
 
 ClickedMouseGoal* ShapeStorage::buildClickedMouseGoal(float x, float y, float width, float height, Color color, std::string name)
 {
-	ClickedMouseGoal* goal = new ClickedMouseGoal(x, y, width, height, color, name);
+	ClickedMouseGoal* goal = new ClickedMouseGoal(x, y, color, width, height,  name);
 	shapes.push_back(goal);
 	return goal;
 }
