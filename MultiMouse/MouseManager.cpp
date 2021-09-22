@@ -27,7 +27,7 @@ void MouseManager::clearTeams()
 Mouse* MouseManager::buildMouse(int deviceNum)
 {
 	Color color = Color::getListOfColors()[mice.size()];
-	Mouse* mouse = new Mouse(color);
+	Mouse* mouse = new Mouse(color, mice.size() + 1);
 	mice.push_back(mouse);
 	miceByColor[color] = mouse;
 	miceDeviceMap[deviceNum] = mouse;
@@ -116,12 +116,15 @@ void MouseManager::update()
 	}
 }
 
-void MouseManager::draw()
+void MouseManager::draw(sf::RenderWindow* window)
 {
+	window->pushGLStates();
+	window->resetGLStates();
 	for (unsigned int i = 0; i < mice.size(); ++i)
 	{
-		mice[i]->draw();
+		mice[i]->draw(window);
 	}
+	window->popGLStates();
 }
 
 void MouseManager::resetMice(bool cond)

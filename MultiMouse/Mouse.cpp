@@ -1,8 +1,10 @@
 #include "Mouse.h"
 #include "PolygonObject.h"
 #include <iostream>
+#include <string>
+
 float maxBounds[4] = { 5,-5,9,-9 };
-Mouse::Mouse(Color color) : PolygonObject(0, 0,color,6, Layer::Mice,0)
+Mouse::Mouse(Color color, int num) : PolygonObject(0, 0,color,6, Layer::Mice,0)
 {
 	sensitivityCoeff = 100;
 	leftButtonPressed = false;
@@ -13,6 +15,16 @@ Mouse::Mouse(Color color) : PolygonObject(0, 0,color,6, Layer::Mice,0)
 	frozen = false;
 	teamColor = Color(0, 0, 0);
 	drawn = true;
+	text = sf::Text();
+	text.setString(std::to_string(num));
+	text.setCharacterSize(16);
+	text.setFont(UIData::getInstance()->fonts["MainFont"]);
+
+	text.setFillColor(sf::Color(color.r * 255, color.g * 255, color.b * 255, 255));
+	sf::FloatRect textRect = text.getLocalBounds();
+
+	text.setOrigin(textRect.left + textRect.width / 2.0f,
+		textRect.top + textRect.height / 2.0f);
 
 	std::copy(std::begin(maxBounds), std::end(maxBounds), std::begin(bounds));
 	
@@ -72,7 +84,7 @@ void Mouse::releasePhysicsSelect()
 	
 }
 
-void Mouse::draw()
+void Mouse::draw(sf::RenderWindow* window)
 {
 	if (!drawn)
 		return;
@@ -84,7 +96,6 @@ void Mouse::draw()
 		glColor4f(color.r, color.g, color.b, .5f);
 	glTranslatef(x, y, 0);
 	glRotatef(angle * 180.0f / b2_pi, 0, 0, 1);
-	glBegin(GL_POLYGON);
 
 	std::vector<b2Vec2> drawVerts;
 	float multi = 1.25f;
@@ -94,12 +105,11 @@ void Mouse::draw()
 	//drawVerts.push_back(b2Vec2(0,0));
 	//drawVerts.push_back(b2Vec2(.03f, -.03f));
 	drawVerts.push_back(multi * b2Vec2(.06f, .03f));
-
-	for (int i = 0; i < drawVerts.size(); i++)
-	{
-		glVertex2f(drawVerts[i].x, drawVerts[i].y);
-	}
-	glEnd();
+	auto textPos = UIData::getInstance()->convertWorldToUICoords(x, y);
+	text.setFont(UIData::getInstance()->fonts["MainFont"]);
+	text.setPosition(textPos.x, textPos.y);
+	std::cout << textPos.x << "y: " << textPos.y << std::endl;
+	window->draw(text);
 	float xOffset = 0; 
 	float yOffset = 0;
 	if (active)

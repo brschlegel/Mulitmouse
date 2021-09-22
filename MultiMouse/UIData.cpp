@@ -18,6 +18,14 @@ sf::Texture* UIData::getTexture(sf::String name)
     return images["default"];
 }
 
+sf::Vector2<int> UIData::convertWorldToUICoords(float x, float y)
+{
+    int newX = (SCREENWIDTH / (8.8889 * 2)) * x + (SCREENWIDTH / 2);
+    int newY = (SCREENHEIGHT / 10.0f) * -y + (SCREENHEIGHT / 2);
+
+    return sf::Vector2<int>(newX, newY);
+}
+
 UIData::UIData()
 {
     sf::Font font;
@@ -36,4 +44,7 @@ UIData::UIData()
          
         images[files[i]] = t;
     }
+
+    SCREENWIDTH = sf::VideoMode::getDesktopMode().width;
+    SCREENHEIGHT = sf::VideoMode::getDesktopMode().height;
 }

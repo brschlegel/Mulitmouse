@@ -1,12 +1,19 @@
 #pragma once
 #include "PolygonObject.h"
 #include "PolygonPhysicsObject.h"
+#define SFML_STATIC
 #include <iostream>
+#include "SFML/Graphics.hpp"
+#include "SFML/Window.hpp"
+#include "SFML/OpenGL.hpp"
+#include <string>
+#include "UIData.h"
 class PolygonPhysicsObject;
 class Mouse : public PolygonObject
 {
 public:
-	Mouse(Color color);
+	sf::Text text;
+	Mouse(Color color, int num);
 	float sensitivityCoeff;
 	bool leftButtonPressed, rightButtonPressed, prevLeft, prevRight;
 	void updateX(float num);
@@ -14,7 +21,7 @@ public:
 	void update();
 	PolygonPhysicsObject* physicsSelect;
 	void releasePhysicsSelect();
-	void draw();
+	void draw(sf::RenderWindow* window);
 	float prevX, prevY;
 	bool active;
 	bool frozen;
