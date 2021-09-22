@@ -14,6 +14,8 @@
 #include "MazeLevel.h"
 #include "CircusLevel.h"
 #include "CurveMatch.h"
+#include "WackAMole.h"
+
 
 class LevelManager;
 class LevelManager

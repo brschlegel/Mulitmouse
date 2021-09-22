@@ -261,6 +261,7 @@
     <ClCompile Include="Trigger.cpp" />
     <ClCompile Include="UIData.cpp" />
     <ClCompile Include="UIManager.cpp" />
+    <ClCompile Include="WackAMole.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Barrier.h" />
@@ -318,6 +319,7 @@
     <ClInclude Include="Trigger.h" />
     <ClInclude Include="UIData.h" />
     <ClInclude Include="UIManager.h" />
+    <ClInclude Include="WackAMole.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="MultiMouse.rc" />

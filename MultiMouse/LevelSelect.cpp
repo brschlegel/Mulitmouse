@@ -31,11 +31,17 @@ LevelSelect::LevelSelect()
 	activationConditions[circus] = 0;
 	main->ui.buildLabelInTrigger("Circus", circus);
 
+
 	LevelButton* curveMatch = main->shapes->buildLevelButton(0, 3, 1.5f, .5f, Color::getBlue(), LevelName::CurveMatch);
 	activationConditions[curveMatch] = 0;
 	main->ui.buildLabelInTrigger("Curve Match", curveMatch);
 
 	
+
+	LevelButton* WackAMole = main->shapes->buildLevelButton(0, 0, 1.5f, .5f, Color::getBlue(), LevelName::WackAMole);
+	activationConditions[WackAMole] = 0;
+	main->ui.buildLabelInTrigger("WackAMole", WackAMole);
+
 
 
 	main->frameScene();

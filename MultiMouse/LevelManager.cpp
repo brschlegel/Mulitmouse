@@ -10,6 +10,8 @@ LevelManager::LevelManager()
 	reqs[LevelName::Dodgeball] = -2;
 	reqs[LevelName::Musical] = 0;
 	reqs[LevelName::Maze] = -2;
+	reqs[LevelName::Circus] = 0;
+	reqs[LevelName::WackAMole] = 0;
 
 }
 
@@ -62,8 +64,12 @@ void LevelManager::changeLevel(LevelName newLevel)
 	case LevelName::Circus:
 		currentLevel = new CircusLevel();
 		break;
+
 	case LevelName::CurveMatch:
 		currentLevel = new CurveMatch();
+		break;
+	case LevelName::WackAMole:
+		currentLevel = new WackAMole();
 		break;
 	}
 	
