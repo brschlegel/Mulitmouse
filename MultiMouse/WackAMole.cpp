@@ -18,9 +18,7 @@ WackAMole::WackAMole()
 	main->funcTimers.push_back(spawnBoxTimer);
 	FuncTimer* deleteBoxTimer = new FuncTimer(5,-1, 10 , "DeleteBox");
 	deleteBoxTimer->del.BindLambda([main]() {
-		if (mole->numClicks > 0) {
-			score = 1;
-		}
+		
 		main->shapes->deleteObject(mole);
 		});
 	main->funcTimers.push_back(deleteBoxTimer);
@@ -39,9 +37,9 @@ void WackAMole::update()
 	Level::update();
 	if (currentScene->name == "main")
 	{
-		if (score > 0)
-		{
+		if (mole != nullptr &&  mole->numClicks > 0) {
 			currentScene = scenes["gameOver"];
 		}
+		
 	}
 }
