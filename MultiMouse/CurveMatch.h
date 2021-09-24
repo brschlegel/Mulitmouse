@@ -11,6 +11,9 @@ public:
 	void update();
 	void generateNewCurve();
 	b2Vec2 generateControlPoint();
+	int score;
+	Timer* timer;
+	float threshold;
 
 
 };

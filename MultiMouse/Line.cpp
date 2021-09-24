@@ -8,7 +8,7 @@ Line::Line(Color color, int LOD, int mask, std::string name) : GameObject(name)
 	this->mask = mask;
 	for (int i = 0; i < LOD; i++)
 	{
-		points.push_back(LinePoint());
+		points.push_back(LinePoint(color));
 	}
 }
 
@@ -16,9 +16,10 @@ void Line::draw()
 {
 	glPushMatrix();
 	glBegin(GL_LINE_STRIP);
-	glColor4f(color.r, color.g, color.b, color.a);
+	
 	for (int i = 0; i < end; i++)
 	{
+		glColor4f(points[i].color.r, points[i].color.g, points[i].color.b, points[i].color.a);
 		glVertex2f(points[i].position.x, points[i].position.y);
 	}
 	glEnd();

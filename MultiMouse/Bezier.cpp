@@ -3,7 +3,7 @@
 Bezier::Bezier(Color color, int LOD, int mask, std::string name) : Line(color, LOD, mask, name)
 {
 	//Adding one more to cover gaps
-	points.push_back(LinePoint());
+	points.push_back(LinePoint(color));
 }
 
 void Bezier::addControlPoint(PolygonObject* obj)

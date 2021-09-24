@@ -1,6 +1,8 @@
 #include "CurveMatch.h"
 
 Color transparent = Color(1, 1, 1, 0);
+
+
 CurveMatch::CurveMatch()
 {
 	Scene* instructions = new Scene(standardGravity, "instructions");
@@ -8,8 +10,22 @@ CurveMatch::CurveMatch()
 	currentScene = instructions;
 	scenes["instructions"] = instructions;
 	numMice = MouseManager::getInstance()->getNumOfActiveMice();
-
+	threshold = .25f * numMice;
 	Scene* main = new Scene(standardGravity, "main");
+	timer = main->ui.buildTimer(30, 0, 4, 30);
+	
+	//Curve to be matched
+	Color gameCurveColor = Color::getBlue();
+	gameCurveColor.a = .5f;
+	gameCurve = main->shapes->buildBezier(gameCurveColor, 200, 0);
+	gameCurve->addControlPoint(main->shapes->buildControlPoint(b2Vec2(5, -3), transparent));
+	for (int i = 0; i < numMice; i++)
+	{
+		gameCurve->addControlPoint(main->shapes->buildControlPoint(generateControlPoint(), transparent));
+	}
+	gameCurve->addControlPoint(main->shapes->buildControlPoint(b2Vec2(-5, 3),transparent));
+
+	//Players curve
 	playerCurve = main->shapes->buildBezier(Color::getRed(), 200, 0);
 	playerCurve->addControlPoint(main->shapes->buildControlPoint(b2Vec2(5, -3), Color::getRed()));
 	for (int i = 0; i < numMice; i++)
@@ -17,14 +33,6 @@ CurveMatch::CurveMatch()
 		playerCurve->addControlPoint(MouseManager::getInstance()->mice[i]);
 	}
 	playerCurve->addControlPoint(main->shapes->buildControlPoint(b2Vec2(-5, 3), Color::getRed()));
-	
-	gameCurve = main->shapes->buildBezier(Color::getBlue(), 200, 0);
-	gameCurve->addControlPoint(main->shapes->buildControlPoint(b2Vec2(5, -3), transparent));
-	for (int i = 0; i < numMice; i++)
-	{
-		gameCurve->addControlPoint(main->shapes->buildControlPoint(generateControlPoint(), transparent));
-	}
-	gameCurve->addControlPoint(main->shapes->buildControlPoint(b2Vec2(-5, 3),transparent));
 	
 	scenes["main"] = main;
 
@@ -37,6 +45,33 @@ CurveMatch::CurveMatch()
 void CurveMatch::update()
 {
 	Level::update();
+	int numCorrect = 0;
+	if (currentScene->name == "main")
+	{
+		for (int i = 0; i < gameCurve->points.size(); i++)
+		{
+			float distance = b2Distance(gameCurve->points[i].position, playerCurve->points[i].position);
+			if (distance < threshold)
+			{
+				numCorrect++;
+				playerCurve->points[i].color = Color::getGreen();
+			}
+			else
+			{
+				playerCurve->points[i].color = Color::getRed();
+			}
+		}
+		if (numCorrect == gameCurve->points.size())
+		{
+			generateNewCurve();
+			score++;
+		}
+		if (timer->getNumSeconds() < 0)
+		{
+			scenes["gameOver"]->ui.buildLabel("Score: " + to_string(score), 0, -1, 24);
+			currentScene = scenes["gameOver"];
+		}
+	}
 
 }
 
@@ -51,5 +86,11 @@ b2Vec2 CurveMatch::generateControlPoint()
 
 void CurveMatch::generateNewCurve()
 {
+	for (int i = 0; i < numMice; i++)
+	{
+		b2Vec2 newPoint = generateControlPoint();
+		gameCurve->controlPoints[i + 1]->x = newPoint.x;
+		gameCurve->controlPoints[i + 1]->y = newPoint.y;
 
+	}
 }
