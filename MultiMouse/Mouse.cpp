@@ -94,6 +94,7 @@ void Mouse::draw(sf::RenderWindow* window)
 		glColor4f(color.r, color.g, color.b, color.a);
 	else
 		glColor4f(color.r, color.g, color.b, .5f);
+	glColor4f(0, 0, 0, 1);
 	glTranslatef(x, y, 0);
 	glRotatef(angle * 180.0f / b2_pi, 0, 0, 1);
 
@@ -116,13 +117,7 @@ void Mouse::draw(sf::RenderWindow* window)
 		glColor3f(teamColor.r, teamColor.b, teamColor.g);
 	else
 		glColor4f(teamColor.r, teamColor.b, teamColor.g, .5f);
-	glLineWidth(2);
-	glBegin(GL_LINE_LOOP);
-	for (int i = 0; i < drawVerts.size(); i++)
-	{
-		glVertex2f(drawVerts[i].x, drawVerts[i].y);
-	}
-	glEnd();
+
 
 	
 
