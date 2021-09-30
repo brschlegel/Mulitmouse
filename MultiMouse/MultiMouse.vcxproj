@@ -210,6 +210,7 @@
     <ClCompile Include="Box.cpp" />
     <ClCompile Include="CircusLevel.cpp" />
     <ClCompile Include="ClickedMouseGoal.cpp" />
+    <ClCompile Include="ClickRace.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="COMBox.cpp" />
@@ -270,6 +271,7 @@
     <ClInclude Include="Box.h" />
     <ClInclude Include="CircusLevel.h" />
     <ClInclude Include="ClickedMouseGoal.h" />
+    <ClInclude Include="ClickRace.h" />
     <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="COMBox.h" />
