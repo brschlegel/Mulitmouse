@@ -28,6 +28,11 @@ void ClickRace::update()
 	
 	if (currentScene->name == "main")
 	{
+		if (goal->score > 0)
+		{
+			currentScene = scenes["gameOver"];
+			return;
+		}
 		if (clickButton->numClicks > 0) {
 			runner->body->SetLinearVelocity(b2Vec2(0, 3));
 			clickButton->numClicks = 0;
@@ -36,9 +41,6 @@ void ClickRace::update()
 		{
 			runner->body->SetLinearVelocity(b2Vec2(0, 0));
 		}
-		if (goal->score > 0)
-		{
-			currentScene = scenes["gameOver"];
-		}
+		
 	}
 }
