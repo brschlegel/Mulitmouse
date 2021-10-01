@@ -43,7 +43,7 @@ LevelSelect::LevelSelect()
 	main->ui.buildLabelInTrigger("WackAMole", WackAMole);
 
 	LevelButton* ClickRace = main->shapes->buildLevelButton(6, 3, 1.5f, 0.5f, Color::getBlue(), LevelName::ClickRace);
-	activationConditions[ClickRace] = 0;
+	activationConditions[ClickRace] = 2;
 	main->ui.buildLabelInTrigger("ClickRace", ClickRace);
 
 

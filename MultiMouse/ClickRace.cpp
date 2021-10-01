@@ -9,6 +9,7 @@ ClickRace::ClickRace()
 	Scene* main = new Scene(standardGravity, "main");
 	goal = main->shapes->buildGoal(0,5,2,2,Color::getGreen());
 	clickButton = main->shapes->buildClickedMouseGoal(-5,0,1,1,Color::getBlue());
+	clickButton2 = main->shapes->buildClickedMouseGoal(5, 0, 1, 1, Color::getRed());
 	runner = main->shapes->AddBox(-0.5, 0, 1, Color::getBlue(), 1,1);
 	runner2 = main->shapes->AddBox(0.5, 0, 1, Color::getRed(), 1, 1);
 	runner->body->SetType(b2_kinematicBody);
@@ -41,6 +42,14 @@ void ClickRace::update()
 		{
 			runner->body->SetLinearVelocity(b2Vec2(0, 0));
 		}
-		
+		if (clickButton2->numClicks>0)
+		{
+			runner2->body->SetLinearVelocity(b2Vec2(0, 3));
+			clickButton2->numClicks = 0;
+		}
+		else
+		{
+			runner2->body->SetLinearVelocity(b2Vec2(0,0));
+		}
 	}
 }

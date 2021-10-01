@@ -12,7 +12,7 @@ LevelManager::LevelManager()
 	reqs[LevelName::Maze] = -2;
 	reqs[LevelName::Circus] = 0;
 	reqs[LevelName::WackAMole] = 0;
-	reqs[LevelName::ClickRace] = 0;
+	reqs[LevelName::ClickRace] = 2;
 }
 
 void LevelManager::changeLevel(LevelName newLevel)

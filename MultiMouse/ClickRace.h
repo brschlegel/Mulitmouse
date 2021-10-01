@@ -13,4 +13,5 @@ class ClickRace :
 		Box* runner;
 		Box* runner2;
 		ClickedMouseGoal* clickButton;
+		ClickedMouseGoal* clickButton2;
 };
