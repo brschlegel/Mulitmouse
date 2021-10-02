@@ -40,7 +40,7 @@ void MouseAssignmentButton::onCollision(PolygonObject* other)
 	Mouse* m = dynamic_cast<Mouse*>(other);
 	if (m != nullptr)
 	{
-		if (m->leftButtonPressed && !m->frozen)
+		if (m->leftButtonPressed && !m->frozen && m->active)
 		{
 			if (!checkFull())
 			{
