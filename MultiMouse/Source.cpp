@@ -77,7 +77,7 @@ void display(sf::RenderWindow* window)
 
 	levelManager->currentLevel->draw(window);
 	
-	MouseManager::instance->draw();
+	MouseManager::instance->draw(window);
 
 	
 	

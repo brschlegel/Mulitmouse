@@ -5,10 +5,9 @@ MouseManager* MouseManager::instance;
 
 void MouseManager::setTeam(vector<Mouse*> m, Color color)
 {
-	Color dark = Color(color.r - .1f, color.b - .1f, color.g - .1f);
 	for (int i = 0; i < m.size(); i++)
 	{
-		m[i]->teamColor = dark;
+		m[i]->color = color;
 	}
 
 	teams.push_back(m);
@@ -20,14 +19,14 @@ void MouseManager::clearTeams()
 	teams.clear();
 	for (Mouse* m : mice)
 	{
-		m->teamColor = Color(0, 0, 0);
+		m->color = Color(0, 0, 0);
 	}
 }
 
 Mouse* MouseManager::buildMouse(int deviceNum)
 {
-	Color color = Color::getListOfColors()[mice.size()];
-	Mouse* mouse = new Mouse(color);
+	Color color = Color(0, 0, 0);
+	Mouse* mouse = new Mouse(color, mice.size() + 1);
 	mice.push_back(mouse);
 	miceByColor[color] = mouse;
 	miceDeviceMap[deviceNum] = mouse;
@@ -116,12 +115,15 @@ void MouseManager::update()
 	}
 }
 
-void MouseManager::draw()
+void MouseManager::draw(sf::RenderWindow* window)
 {
+	
 	for (unsigned int i = 0; i < mice.size(); ++i)
 	{
-		mice[i]->draw();
+		mice[i]->draw(window);
 	}
+	
+
 }
 
 void MouseManager::resetMice(bool cond)

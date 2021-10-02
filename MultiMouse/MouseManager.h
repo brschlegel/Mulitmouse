@@ -20,7 +20,7 @@ public:
 	void hideAllActiveMice(bool value = false);
 
 	void update();
-	void draw();
+	void draw(sf::RenderWindow* window);
 	void resetMice(bool cond = true);
 	void unfreezeAllMice();
 	int getNumOfActiveMice();
