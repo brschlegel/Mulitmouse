@@ -8,6 +8,6 @@ public:
     void update();
 private:
     Goal* bottomGoal;
- 
+    int count;
 };
 

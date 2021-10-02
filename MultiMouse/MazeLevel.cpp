@@ -25,9 +25,9 @@ MazeLevel::MazeLevel()
 	s.buildStructure(main->shapes, b2Vec2(4.5,-.5));
 	s.buildStructure(main->shapes, b2Vec2(-4.5, -.5));
 	//Add COM Boxes
-	COMBox* lBox  = main->shapes->buildCOMBox(-3, -4, .3f, .3f, MouseManager::getInstance()->teams[0][0]->teamColor);
+	COMBox* lBox  = main->shapes->buildCOMBox(-3, -4, .3f, .3f, MouseManager::getInstance()->teams[0][0]->color);
 	lBox->setTeam(MouseManager::getInstance()->teams[0]);
-	COMBox* rBox = main->shapes->buildCOMBox(3, -4, .3f, .3f, MouseManager::getInstance()->teams[1][0]->teamColor);
+	COMBox* rBox = main->shapes->buildCOMBox(3, -4, .3f, .3f, MouseManager::getInstance()->teams[1][0]->color);
 	rBox->setTeam(MouseManager::getInstance()->teams[1]);
 
 	//Add mouse cages

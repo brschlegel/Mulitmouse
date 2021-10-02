@@ -15,5 +15,6 @@ public:
 	Label(sf::String string, int x, int y, int size, Color textColor, sf::Font font, Color backgroundColor, std::string name = "unnamed");
 	void virtual draw(sf::RenderWindow* window);
 	void draw();
+	void SetString(std::string string);
 };
 

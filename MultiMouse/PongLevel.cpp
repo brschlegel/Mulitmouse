@@ -10,7 +10,7 @@ PongLevel::PongLevel()
 	scenes["instructions"] = instructions;
 
 	main->shapes->world->SetContactListener(&listener);
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < 1; i++)
 	{
 		Box* b = main->shapes->AddBox(0, 2, 1, Color::getBlue(), .2, .2);
 		b->selectable = false;

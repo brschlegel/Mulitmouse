@@ -12,11 +12,12 @@ JugglingLevel::JugglingLevel()
 	bottomGoal = main->shapes->buildGoal(0, -5,100,1, Color::getBlue(), "Bottom");
 	main->keyboardFunc = DoNothing;
 	FuncTimer* spawnBoxTimer = new FuncTimer(5,-3, 10, "SpawnBox");
-	spawnBoxTimer->del.BindLambda([main]()
+	spawnBoxTimer->del.BindLambda([main, this]()
 		{
 			Box* b = main->shapes->AddBox(0, 2, 1, Color::getRed(), .5, .5);
 			b->body->SetType(b2_kinematicBody);
 			b->addTag(Tag::Ball);
+			count++;
 		});
 	//spawnBoxTimer->start();
 	main->funcTimers.push_back(spawnBoxTimer);
@@ -31,7 +32,10 @@ JugglingLevel::JugglingLevel()
 				}
 			}
 		});
-	//dropBoxTimer->start();
+
+	main->shapes->AddRectBarrier(0, 7, 100, 1);
+	main->shapes->AddRectBarrier(9, 0, 1, 10);
+	main->shapes->AddRectBarrier(-9, 0, 1, 10);
 	main->funcTimers.push_back(dropBoxTimer);
 	scenes["main"] = main;
 
@@ -50,6 +54,7 @@ void JugglingLevel::update()
 		if (bottomGoal->score > 0)
 		{
 			currentScene = scenes["gameOver"];
+			currentScene->getLabelByName("losing")->SetString("Congrats, you juggled " + to_string(count - 1) + " boxes!");
 		}
 	}
 

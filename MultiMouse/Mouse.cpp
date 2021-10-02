@@ -13,7 +13,7 @@ Mouse::Mouse(Color color, int num) : PolygonObject(0, 0,color,6, Layer::Mice,0)
 	setShapeAsBox(.25f, .25f);
 	active = true;
 	frozen = false;
-	teamColor = Color(0, 0, 0);
+
 	drawn = true;
 	text = sf::Text();
 	text.setString(std::to_string(num));

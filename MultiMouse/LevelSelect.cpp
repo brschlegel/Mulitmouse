@@ -4,7 +4,7 @@ LevelSelect::LevelSelect()
 {
 	Scene* main = new Scene(standardGravity, "main");
 	LevelButton* dodgeball = main->shapes->buildLevelButton(-3, 4, 1.5f, .5f, Color::getRed(), LevelName::Dodgeball);
-	activationConditions[dodgeball] = -2;
+	activationConditions[dodgeball] = 2;
 	main->ui.buildLabelInTrigger("Dodgeball", dodgeball);
 
 	LevelButton* debug = main->shapes->buildLevelButton(-6, 4, 1.5f, .5f, Color::getBlue(), LevelName::DebugLevel);
@@ -24,7 +24,7 @@ LevelSelect::LevelSelect()
 	Label* musicalLabel = main->ui.buildLabelInTrigger("Non-Musical Chairs", musical, 14);
 
 	LevelButton* maze = main->shapes->buildLevelButton(-6, 3, 1.5f, .5f, Color::getRed(), LevelName::Maze);
-	activationConditions[maze] = -4;
+	activationConditions[maze] = 4;
 	main->ui.buildLabelInTrigger("Maze", maze);
 
 	LevelButton* circus = main->shapes->buildLevelButton(-3, 3, 1.5f, .5f, Color::getBlue(), LevelName::Circus);
@@ -69,13 +69,6 @@ void LevelSelect::checkActive()
 			if (itr->second > 0)
 			{
 				if (MouseManager::getInstance()->mice.size() >= itr->second)
-				{
-					itr->first->active = true;
-				}
-			}
-			else if (itr->second < 0)
-			{
-				if (MouseManager::getInstance()->mice.size() % -itr->second == 0)
 				{
 					itr->first->active = true;
 				}

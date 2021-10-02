@@ -99,7 +99,7 @@ void Scene::buildInstructionScene(std::string levelName, std::string instruction
 
 void Scene::buildGameOverScene(std::string losingMessage)
 {
-	ui.buildLabel(losingMessage, 0, 0, 40);
+	ui.buildLabel(losingMessage, 0, 0, 40, "MainFont", Color(0,0,0,1), "losing");
 	LevelButton* lb = shapes->buildLevelButton(0, -2, 2.75f, 1, Color::getGreen(), LevelName::LevelSelect);
 	lb->active = true;
 	ui.buildLabelInTrigger("Back to Level Select", lb);

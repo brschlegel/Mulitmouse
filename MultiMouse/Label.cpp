@@ -34,3 +34,15 @@ void Label::draw(sf::RenderWindow* window)
 void Label::draw()
 {
 }
+
+void Label::SetString(std::string string)
+{
+	text->setFont(font);
+	text->setString(string);
+	sf::FloatRect textRect = text->getLocalBounds();
+
+	text->setOrigin(textRect.left + textRect.width / 2.0f,
+		textRect.top + textRect.height / 2.0f);
+	text->setPosition(x, y);
+
+}
