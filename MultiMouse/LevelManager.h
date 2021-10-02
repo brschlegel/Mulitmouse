@@ -15,6 +15,7 @@
 #include "CircusLevel.h"
 #include "CurveMatch.h"
 #include "WackAMole.h"
+#include "ClickRace.h"
 
 
 class LevelManager;
