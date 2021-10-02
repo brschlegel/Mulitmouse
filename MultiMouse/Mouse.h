@@ -22,6 +22,7 @@ public:
 	PolygonPhysicsObject* physicsSelect;
 	void releasePhysicsSelect();
 	void draw(sf::RenderWindow* window);
+	void drawGL();
 	float prevX, prevY;
 	bool active;
 	bool frozen;

@@ -17,7 +17,7 @@ Mouse::Mouse(Color color, int num) : PolygonObject(0, 0,color,6, Layer::Mice,0)
 	drawn = true;
 	text = sf::Text();
 	text.setString(std::to_string(num));
-	text.setCharacterSize(16);
+	text.setCharacterSize(24);
 	text.setFont(UIData::getInstance()->fonts["MainFont"]);
 
 	text.setFillColor(sf::Color(color.r * 255, color.g * 255, color.b * 255, 255));
@@ -88,39 +88,60 @@ void Mouse::draw(sf::RenderWindow* window)
 {
 	if (!drawn)
 		return;
+	
+	drawGL();
+	
+	window->pushGLStates();
 
-	glPushMatrix();
+	
+		
 	if (active)
-		glColor4f(color.r, color.g, color.b, color.a);
+		text.setFillColor(sf::Color(color.r * 255, color.g * 255, color.b * 255, 255));
 	else
-		glColor4f(color.r, color.g, color.b, .5f);
-	glColor4f(0, 0, 0, 1);
-	glTranslatef(x, y, 0);
-	glRotatef(angle * 180.0f / b2_pi, 0, 0, 1);
+		text.setFillColor(sf::Color(color.r * 255, color.g * 255, color.b * 255, 255.0f/2));
 
-	std::vector<b2Vec2> drawVerts;
-	float multi = 1.25f;
-	drawVerts.push_back(multi * b2Vec2(-.1f, .1f));
-	drawVerts.push_back(multi * b2Vec2(-.09f, -.06f));
-	//drawVerts.push_back(b2Vec2(-.07f, -.04f));
-	//drawVerts.push_back(b2Vec2(0,0));
-	//drawVerts.push_back(b2Vec2(.03f, -.03f));
-	drawVerts.push_back(multi * b2Vec2(.06f, .03f));
+
 	auto textPos = UIData::getInstance()->convertWorldToUICoords(x, y);
 	text.setFont(UIData::getInstance()->fonts["MainFont"]);
 	text.setPosition(textPos.x, textPos.y);
-	std::cout << textPos.x << "y: " << textPos.y << std::endl;
+	
 	window->draw(text);
-	float xOffset = 0; 
-	float yOffset = 0;
-	if (active)
-		glColor3f(teamColor.r, teamColor.b, teamColor.g);
-	else
-		glColor4f(teamColor.r, teamColor.b, teamColor.g, .5f);
+	
+	window->popGLStates();
 
 
 	
 
+	
+}
+
+void Mouse::drawGL()
+{
+
+	glPushMatrix();
+	glTranslatef(x, y, 0);
+	glRotatef(angle * 180.0f / b2_pi, 0, 0, 1);
+	//back fill
+	glBegin(GL_POLYGON);
+	glColor4f(1, 1, 1, 1);
+	for (int i = 0; i < vertices.size(); i++)
+	{
+
+		glVertex2f(vertices[i].x, vertices[i].y);
+	}
+	glEnd();
+
+	glBegin(GL_LINE_LOOP);
+	if(active)
+		glColor4f(color.r, color.g, color.b, 1);
+	else
+		glColor4f(color.r, color.g, color.b, .5f);
+	for (int i = 0; i < vertices.size(); i++)
+	{
+
+		glVertex2f(vertices[i].x, vertices[i].y);
+	}
+	glEnd();
 	glPopMatrix();
 }
 
