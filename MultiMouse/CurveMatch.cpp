@@ -17,23 +17,25 @@ CurveMatch::CurveMatch()
 	//Curve to be matched
 	Color gameCurveColor = Color::getBlue();
 	gameCurveColor.a = .5f;
-	gameCurve = main->shapes->buildBezier(gameCurveColor, 200, 0);
+	gameCurve = main->shapes->buildBezier(gameCurveColor, 50, 0);
 	gameCurve->addControlPoint(main->shapes->buildControlPoint(b2Vec2(5, -3), transparent));
 	for (int i = 0; i < numMice; i++)
 	{
 		gameCurve->addControlPoint(main->shapes->buildControlPoint(generateControlPoint(), transparent));
 	}
 	gameCurve->addControlPoint(main->shapes->buildControlPoint(b2Vec2(-5, 3),transparent));
+	gameCurve->renderPoints = true;
 
 	//Players curve
-	playerCurve = main->shapes->buildBezier(Color::getRed(), 200, 0);
+	playerCurve = main->shapes->buildBezier(Color::getRed(), 50, 0);
 	playerCurve->addControlPoint(main->shapes->buildControlPoint(b2Vec2(5, -3), Color::getRed()));
 	for (int i = 0; i < numMice; i++)
 	{
 		playerCurve->addControlPoint(MouseManager::getInstance()->mice[i]);
 	}
 	playerCurve->addControlPoint(main->shapes->buildControlPoint(b2Vec2(-5, 3), Color::getRed()));
-	
+	playerCurve->renderPoints = true;
+
 	scenes["main"] = main;
 
 	Scene* gameOver = new Scene(standardGravity, "gameOver");

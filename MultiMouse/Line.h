@@ -13,6 +13,7 @@ public:
     std::vector<LinePoint> points;
     int LOD;
     int end;
+    bool renderPoints;
     unsigned int mask;
     Color color;
     void draw() override;

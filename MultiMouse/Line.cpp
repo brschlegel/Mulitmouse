@@ -10,6 +10,7 @@ Line::Line(Color color, int LOD, int mask, std::string name) : GameObject(name)
 	{
 		points.push_back(LinePoint(color));
 	}
+	renderPoints = false;
 }
 
 void Line::draw()
@@ -21,8 +22,22 @@ void Line::draw()
 	{
 		glColor4f(points[i].color.r, points[i].color.g, points[i].color.b, points[i].color.a);
 		glVertex2f(points[i].position.x, points[i].position.y);
+		
 	}
 	glEnd();
+
+	if (renderPoints)
+	{
+		glPointSize(4);
+		glBegin(GL_POINTS);
+		
+		for (int i = 0; i < end; i++)
+		{
+			glVertex3f(points[i].position.x, points[i].position.y, 0);
+		}
+		
+		glEnd();
+	}
 	glPopMatrix();
 	reset();
 }
