@@ -2,7 +2,7 @@
 
 PongLevel::PongLevel()
 {
-	mouseNum = 2;
+	
 	Scene* main = new Scene(standardGravity, "main");
 
 	Scene* instructions = new Scene(standardGravity, "instructions");
@@ -32,14 +32,25 @@ PongLevel::PongLevel()
 			);
 	//moveBalls->start();
 	main->funcTimers.push_back(moveBalls);
-	Box* paddle1 = main->shapes->AddBox(-2, 0, 1, Color::getBlue(), 2, .5);
-	paddle1->addTag(Tag::Unscorable);
-	Box* paddle2 = main->shapes->AddBox(2, 0, 1, Color::getRed(), 2, .5);
-	paddle2->addTag(Tag::Unscorable);
+	//team one
+	auto teams = MouseManager::getInstance()->teams;
+	for (int i = 0; i < teams[0].size(); i++)
+	{
+		Box* paddle = main->shapes->AddBox(-2 + (i), 0, 1, teams[0][0]->color, 2, .5);
+		paddle->addTag(Tag::Unscorable);
+		left = main->shapes->buildGoal(-9, 0, 1, 100, teams[0][0]->color, "left");
+	}
+
+	//team two 
+	for (int i = 0; i < teams[1].size(); i++)
+	{
+		Box* paddle = main->shapes->AddBox(2 + (i), 0, 1, teams[1][0]->color, 2, .5);
+		paddle->addTag(Tag::Unscorable);
+		right = main->shapes->buildGoal(9, 0, 1, 100, teams[1][0]->color, "right");
+	}
 	main->shapes->AddRectBarrier(0, -5, 20, 1);
 	main->shapes->AddRectBarrier(1, 5, 20, 1);
-	left = main->shapes->buildGoal(-9, 0,1,100, Color::getGreen(), "left");
-	right = main->shapes->buildGoal(9, 0,1,100, Color::getGreen(), "right");
+
 
 	main->keyboardFunc = DoNothing;
 	scenes["main"] = main;

@@ -37,7 +37,7 @@ void Goal::onCollision(PolygonObject* other)
 	{
 		onEnter(other);
 		//Delete the object
-		EventStorage::getInstance()->collisionEvents.push_back(other);
+		EventStorage::getInstance()->logCollisionEvent(other);
 	}
 }
 

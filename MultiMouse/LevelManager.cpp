@@ -6,7 +6,7 @@ LevelManager::LevelManager()
 	currentLevel = new LevelSelect();
 	reqs[LevelName::Juggling] = 2;
 	reqs[LevelName::DebugLevel] = 0;
-	reqs[LevelName::Pong] = 2;
+	reqs[LevelName::Pong] = -2;
 	reqs[LevelName::Dodgeball] = -2;
 	reqs[LevelName::Musical] = 0;
 	reqs[LevelName::Maze] = -2;

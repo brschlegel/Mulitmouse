@@ -11,6 +11,7 @@ public:
 	vector<PolygonObject*> collisionEvents;
 	static EventStorage* getInstance();
 	PolygonObject* pollCollisionEvent(int i);
+	void logCollisionEvent(PolygonObject* obj);
 private:
 	static EventStorage* instance;
 };

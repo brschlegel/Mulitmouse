@@ -160,8 +160,8 @@ void ShapeStorage::deleteObject(int index)
 
 void ShapeStorage::deleteObject(PolygonObject* obj)
 {
-	PolygonPhysicsObject* object = dynamic_cast<PolygonPhysicsObject*>(obj);
-	if (object != NULL)
+	PolygonPhysicsObject* object = static_cast<PolygonPhysicsObject*>(obj);
+	if (object != nullptr)
 	{
 
 		if (object->selected != nullptr)
@@ -171,6 +171,7 @@ void ShapeStorage::deleteObject(PolygonObject* obj)
 		world->DestroyBody(object->body);
 	}
 	shapes.erase(std::find(shapes.begin(), shapes.end(), obj));
+	object = nullptr;
 	delete obj;
 }
 

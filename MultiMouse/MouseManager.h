@@ -27,6 +27,7 @@ public:
 	void moveAllMiceOrigin();
 	void resetBounds();
 	void dropAll();
+	void dropObject(PolygonObject* obj);
 	vector<Mouse*> getActiveMice();
 	static MouseManager* instance;
 	static MouseManager* getInstance();

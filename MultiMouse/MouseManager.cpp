@@ -177,8 +177,21 @@ void MouseManager::dropAll()
 {
 	for (int i = 0; i < mice.size(); i++)
 	{
-		
-		mice[i]->releasePhysicsSelect();
+		if (mice[i]->physicsSelect != nullptr)
+		{
+			mice[i]->releasePhysicsSelect();
+		}
+	}
+}
+
+void MouseManager::dropObject(PolygonObject* obj)
+{
+	for (int i = 0; i < mice.size(); i++)
+	{
+		if (mice[i]->physicsSelect == obj)
+		{
+			mice[i]->releasePhysicsSelect();
+		}
 	}
 }
 

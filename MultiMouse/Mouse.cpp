@@ -78,12 +78,12 @@ void Mouse::update()
 
 void Mouse::releasePhysicsSelect()
 {
-	if (physicsSelect != nullptr)
-	{
+	
+	
 		physicsSelect->body->SetType(b2_dynamicBody);
 		physicsSelect->selected = nullptr;
-		physicsSelect = NULL;
-	}
+		physicsSelect = nullptr;
+	
 	
 }
 
