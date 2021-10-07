@@ -173,6 +173,15 @@ void MouseManager::resetBounds()
 	}
 }
 
+void MouseManager::dropAll()
+{
+	for (int i = 0; i < mice.size(); i++)
+	{
+		
+		mice[i]->releasePhysicsSelect();
+	}
+}
+
 vector<Mouse*> MouseManager::getActiveMice()
 {
 	vector<Mouse*> activeMice;

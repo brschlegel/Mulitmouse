@@ -82,6 +82,7 @@ void Scene::unload()
 	shapes->unload();
 	delete shapes;
 	ui.unload();
+	MouseManager::getInstance()->dropAll();
 	for (int i = 0; i < funcTimers.size(); i++)
 	{
 		delete funcTimers[i];

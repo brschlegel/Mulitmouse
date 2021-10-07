@@ -26,6 +26,7 @@ public:
 	int getNumOfActiveMice();
 	void moveAllMiceOrigin();
 	void resetBounds();
+	void dropAll();
 	vector<Mouse*> getActiveMice();
 	static MouseManager* instance;
 	static MouseManager* getInstance();
