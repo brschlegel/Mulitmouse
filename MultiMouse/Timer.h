@@ -9,6 +9,7 @@ public:
     void draw(sf::RenderWindow* window);
     float getNumSeconds();
     void reset();
+    void start();
 private:
     sf::Time currentTime;
     sf::Time maxTime;

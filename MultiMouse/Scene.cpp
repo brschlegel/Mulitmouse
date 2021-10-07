@@ -114,7 +114,13 @@ void Scene::buildGameOverScene(std::string losingMessage)
 
 void Scene::startFuncTimers()
 {
+	//Should functimer and timer both inherit from the same class? yeah probably. Am I gonna do it??? yeah maybe. but not right now
 	for (FuncTimer* t : funcTimers)
+	{
+		t->start();
+	}
+	auto timers = ui.getTimers();
+	for (Timer* t : timers)
 	{
 		t->start();
 	}

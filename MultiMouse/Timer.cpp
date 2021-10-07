@@ -6,7 +6,7 @@ Timer::Timer(float maxTime, int x, int y, int size, Color textColor, sf::Font fo
 	this->maxTime = sf::seconds(maxTime);
 	this->currentTime = this->maxTime;
 
-	clock = new sf::Clock();
+	
 }
 
 void Timer::draw(sf::RenderWindow* window)
@@ -36,6 +36,11 @@ float Timer::getNumSeconds()
 void Timer::reset()
 {
 	clock = new sf::Clock;
+}
+
+void Timer::start()
+{
+	clock = new sf::Clock();
 }
 
 
