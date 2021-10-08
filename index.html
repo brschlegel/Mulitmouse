@@ -53,7 +53,32 @@
   <section id="about">
     <div class="container">
       <div class="row">
-
+        <h1>Mulitmouse</h1>
+    
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img class="d-block w-100" src="playtest1.jpg" alt="First slide">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block h-100" src="playtest2.jpg" alt="Second slide">
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+        
         <h2>What is it?</h2>
         <p>Mulitmouse is a collection of minigames where players can plug multiple mice into their computer and have each mouse control its own pointer (default behavior is to have all the mice influence one pointer). The game is coded in C++, using the <a href = "https://icculus.org/manymouse/">ManyMouse Library</a> for splitting the mouse input, <a href = "https://box2d.org/">Box2D for physics</a>, <a href = "https://www.opengl.org//">OpenGL</a> for primitives, and <a href = "https://www.sfml-dev.org/">SFML</a> for windowing, text and images.</p>
 

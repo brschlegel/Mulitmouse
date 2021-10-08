@@ -21,8 +21,11 @@ section {
 }
 
 #carouselExampleIndicators{
-  margin-bottom: 10%;
+  margin-bottom: 5%;
+  height: 50%;
 }
+
+
 #modul-Container{
   display: none;
   position: fixed;
@@ -65,6 +68,11 @@ section {
   right: 5%;
   top: 40%;
   display: none;
+}
+
+#playtest{
+    width: 60%;
+    padding-top: 10%;
 }
 
 /* #Buttons{
