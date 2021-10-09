@@ -12,7 +12,11 @@ LevelManager::LevelManager()
 	reqs[LevelName::Maze] = -2;
 	reqs[LevelName::Circus] = 0;
 	reqs[LevelName::WackAMole] = 0;
+
 	reqs[LevelName::ClickRace] = 2;
+
+	reqs[LevelName::BrickBreaker] = 0;
+
 }
 
 void LevelManager::changeLevel(LevelName newLevel)
@@ -73,6 +77,9 @@ void LevelManager::changeLevel(LevelName newLevel)
 		break;
 	case LevelName::ClickRace:
 		currentLevel = new ClickRace();
+		break;
+	case LevelName::BrickBreaker:
+		currentLevel = new BrickBreaker();
 		break;
 	}
 	

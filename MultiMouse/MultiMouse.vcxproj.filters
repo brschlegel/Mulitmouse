@@ -237,6 +237,9 @@
     <ClCompile Include="ClickRace.cpp">
       <Filter>Source Files\Levels\LevelClasses</Filter>
     </ClCompile>
+    <ClCompile Include="BrickBreaker.cpp">
+      <Filter>Source Files\Levels\LevelClasses</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Barrier.h">
@@ -412,6 +415,12 @@
     </ClInclude>
     <ClInclude Include="ClickRace.h">
       <Filter>Header Files\Levels\LevelClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="AngryBirds.h">
+      <Filter>Header Files\Levels\LevelClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="BrickBreaker.h">
+      <Filter>Header Files\Levels</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

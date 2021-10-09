@@ -46,6 +46,10 @@ LevelSelect::LevelSelect()
 	activationConditions[ClickRace] = 2;
 	main->ui.buildLabelInTrigger("ClickRace", ClickRace);
 
+	LevelButton* BrickBreaker = main->shapes->buildLevelButton(-3, 2, 1.5f, .5f, Color::getBlue(), LevelName::BrickBreaker);
+	activationConditions[BrickBreaker] = 0;
+	main->ui.buildLabelInTrigger("BrickBreaker", BrickBreaker);
+
 
 
 	main->frameScene();
