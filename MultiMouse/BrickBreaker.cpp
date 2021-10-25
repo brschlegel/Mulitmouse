@@ -26,6 +26,9 @@ BrickBreaker::BrickBreaker()
 	hidden->addTag(Tag::Pong);
 	hidden->body->SetGravityScale(0);
 	brick = main->shapes->AddBox(3,3,0,Color::getBlue(),0.5,0.5);
+	brick2 = main->shapes->AddBox(3, 2, 0, Color::getBlue(), 0.5, 0.5);
+	brick3 = main->shapes->AddBox(2, 3, 0, Color::getBlue(), 0.5, 0.5);
+	brick4 = main->shapes->AddBox(2, 2, 0, Color::getBlue(), 0.5, 0.5);
 	main->frameScene();
 	scenes["main"] = main;
 	currentScene = scenes["instructions"];
@@ -42,7 +45,7 @@ void BrickBreaker::update()
 	Level::update();
 	ball->x = hidden->x;
 	ball->y = hidden->y;
-	if (ball->score>0)
+	if (ball->score>3)
 	{
 		MouseManager::getInstance()->resetBounds();
 		currentScene = scenes["gameOver"];
@@ -52,5 +55,5 @@ void BrickBreaker::update()
 void BrickBreaker::init()
 {
 	
-	//bottomCage->AddMouse();
+	bottomCage->AddMouse(MouseManager::getInstance()->getActiveMice()[0]);
 }

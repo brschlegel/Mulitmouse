@@ -15,6 +15,9 @@ public:
 	MouseCage* bottomCage;
 	Goal* ball;
 	Box* brick;
+	Box* brick2;
+	Box* brick3;
+	Box* brick4;
 	Box* paddle;
 	Box* hidden;
 	PongListener listener;
