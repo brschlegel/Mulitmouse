@@ -32,8 +32,7 @@ void AngryBirds::update() {
 		currentScene = scenes["gameOver"];
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-		MouseManager::getInstance()->resetBounds();
-		currentScene = scenes["gameOver"];
+		ball->body->SetLinearVelocity(b2Vec2(-3,0));
 	}
 }
 
