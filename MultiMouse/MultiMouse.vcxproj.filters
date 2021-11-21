@@ -240,6 +240,9 @@
     <ClCompile Include="BrickBreaker.cpp">
       <Filter>Source Files\Levels\LevelClasses</Filter>
     </ClCompile>
+    <ClCompile Include="AngryBirds.cpp">
+      <Filter>Source Files\Levels\LevelClasses</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Barrier.h">

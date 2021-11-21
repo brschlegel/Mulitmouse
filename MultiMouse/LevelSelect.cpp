@@ -50,6 +50,10 @@ LevelSelect::LevelSelect()
 	activationConditions[BrickBreaker] = 0;
 	main->ui.buildLabelInTrigger("BrickBreaker", BrickBreaker);
 
+	LevelButton* BasketBall = main->shapes->buildLevelButton(0, 2, 1.5f, .5f, Color::getBlue(), LevelName::BasketBall);
+	activationConditions[BasketBall] = 0;
+	main->ui.buildLabelInTrigger("BasketBall", BasketBall);
+
 
 
 	main->frameScene();

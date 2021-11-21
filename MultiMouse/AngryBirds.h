@@ -1,10 +1,15 @@
 #pragma once
 #include<Level.h>
 
-class AngryBird :
+class AngryBirds :
 	public Level
 {
 public:
-	AngryBird();
-	vector<Mouse
+	AngryBirds();
+	//vector<Mouse
+	MouseCage* leftCage;
+	void update();
+	void init();
+	Goal* basket;
+	Box* ball;
 };

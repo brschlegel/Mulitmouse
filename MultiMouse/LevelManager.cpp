@@ -14,7 +14,7 @@ LevelManager::LevelManager()
 	reqs[LevelName::WackAMole] = 0;
 
 	reqs[LevelName::ClickRace] = 2;
-
+	reqs[LevelName::BasketBall] = 0;
 	reqs[LevelName::BrickBreaker] = 0;
 
 }
@@ -80,6 +80,9 @@ void LevelManager::changeLevel(LevelName newLevel)
 		break;
 	case LevelName::BrickBreaker:
 		currentLevel = new BrickBreaker();
+		break;
+	case LevelName::BasketBall:
+		currentLevel = new AngryBirds();
 		break;
 	}
 	

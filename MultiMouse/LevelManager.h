@@ -17,6 +17,7 @@
 #include "WackAMole.h"
 #include "ClickRace.h"
 #include "BrickBreaker.h"
+#include "AngryBirds.h"
 
 
 class LevelManager;
