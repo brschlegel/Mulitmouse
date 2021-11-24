@@ -237,11 +237,11 @@
     <ClCompile Include="ClickRace.cpp">
       <Filter>Source Files\Levels\LevelClasses</Filter>
     </ClCompile>
-    <ClCompile Include="ScoreManager.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="BrickBreaker.cpp">
+      <Filter>Source Files\Levels\LevelClasses</Filter>
     </ClCompile>
-    <ClCompile Include="Leaderboard.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="AngryBirds.cpp">
+      <Filter>Source Files\Levels\LevelClasses</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -419,11 +419,11 @@
     <ClInclude Include="ClickRace.h">
       <Filter>Header Files\Levels\LevelClasses</Filter>
     </ClInclude>
-    <ClInclude Include="ScoreManager.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="AngryBirds.h">
+      <Filter>Header Files\Levels\LevelClasses</Filter>
     </ClInclude>
-    <ClInclude Include="Leaderboard.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="BrickBreaker.h">
+      <Filter>Header Files\Levels</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

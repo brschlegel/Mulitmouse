@@ -13,6 +13,9 @@ LevelManager::LevelManager()
 	reqs[LevelName::Circus] = 0;
 	reqs[LevelName::WackAMole] = 0;
 	reqs[LevelName::ClickRace] = -2;
+	reqs[LevelName::BasketBall] = 0;
+	reqs[LevelName::BrickBreaker] = 0;
+
 }
 
 void LevelManager::changeLevel(LevelName newLevel)
@@ -79,6 +82,12 @@ void LevelManager::changeLevel(LevelName newLevel)
 	case LevelName::LeaderBoard:
 		ScoreManager::getInstance()->setLeaders();
 		currentLevel = new Leaderboard();
+		break;
+	case LevelName::BrickBreaker:
+		currentLevel = new BrickBreaker();
+		break;
+	case LevelName::BasketBall:
+		currentLevel = new AngryBirds();
 		break;
 	}
 	

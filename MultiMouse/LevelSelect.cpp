@@ -46,6 +46,15 @@ LevelSelect::LevelSelect()
 	activationConditions[ClickRace] = 2;
 	main->ui.buildLabelInTrigger("ClickRace", ClickRace);
 
+	LevelButton* BrickBreaker = main->shapes->buildLevelButton(-3, 2, 1.5f, .5f, Color::getBlue(), LevelName::BrickBreaker);
+	activationConditions[BrickBreaker] = 0;
+	main->ui.buildLabelInTrigger("BrickBreaker", BrickBreaker);
+
+	LevelButton* BasketBall = main->shapes->buildLevelButton(0, 2, 1.5f, .5f, Color::getBlue(), LevelName::BasketBall);
+	activationConditions[BasketBall] = 0;
+	main->ui.buildLabelInTrigger("BasketBall", BasketBall);
+
+
 	LevelButton* LeaderBoard = main->shapes->buildLevelButton(0, 0, 1.5f, .5f, Color(255, 189, 9), LevelName::LeaderBoard);
 	activationConditions[LeaderBoard] = 1;
 	main->ui.buildLabelInTrigger("Leaderboard", LeaderBoard);

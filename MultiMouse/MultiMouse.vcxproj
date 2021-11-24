@@ -205,9 +205,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AngryBirds.cpp" />
     <ClCompile Include="Barrier.cpp" />
     <ClCompile Include="BenMath.cpp" />
     <ClCompile Include="Box.cpp" />
+    <ClCompile Include="BrickBreaker.cpp" />
     <ClCompile Include="CircusLevel.cpp" />
     <ClCompile Include="ClickedMouseGoal.cpp" />
     <ClCompile Include="ClickRace.cpp" />
@@ -268,9 +270,11 @@
     <ClCompile Include="WackAMole.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AngryBirds.h" />
     <ClInclude Include="Barrier.h" />
     <ClInclude Include="BenMath.h" />
     <ClInclude Include="Box.h" />
+    <ClInclude Include="BrickBreaker.h" />
     <ClInclude Include="CircusLevel.h" />
     <ClInclude Include="ClickedMouseGoal.h" />
     <ClInclude Include="ClickRace.h" />
