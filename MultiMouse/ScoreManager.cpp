@@ -24,7 +24,7 @@ vector<Mouse*> ScoreManager::setLeaders()
 	float top = mice[0]->score;
 	for (int i = 0; i < mice.size(); i++)
 	{
-		if (mice[i]->score == top)
+		if (mice[i]->score == top && top != 0)
 		{
 			mice[i]->isLeader = true;
 		}
