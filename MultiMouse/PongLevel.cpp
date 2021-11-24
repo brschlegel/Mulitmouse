@@ -70,11 +70,17 @@ void PongLevel::update()
 		{
 			sf::String loser;
 			if (right->score > 0)
-				loser = "right";
+			{
+				loser = "Blue";
+				ScoreManager::getInstance()->incrementScoreTeam(MouseManager::getInstance()->getTeamByColor(left->color));
+			}
 			else
-				loser = "left";
+			{
+				loser = "Red";
+				ScoreManager::getInstance()->incrementScoreTeam(MouseManager::getInstance()->getTeamByColor(right->color));
+			}
 			scenes["gameOver"]->ui.labels.erase(scenes["gameOver"]->ui.labels.begin());
-			scenes["gameOver"]->ui.buildLabel("The player on the " + loser + " is weaker!", 0, 0, 30);
+			scenes["gameOver"]->ui.buildLabel( loser + " team is weaker!", 0, 0, 30);
 		}
 		currentScene = scenes["gameOver"];
 	}

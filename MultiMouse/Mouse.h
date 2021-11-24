@@ -8,6 +8,7 @@
 #include "SFML/OpenGL.hpp"
 #include <string>
 #include "UIData.h"
+
 class PolygonPhysicsObject;
 class Mouse : public PolygonObject
 {
@@ -27,9 +28,13 @@ public:
 	bool active;
 	bool frozen;
 	bool drawn;
+	bool isLeader;
+	float score;
 	float bounds[4];
 	void SetBounds(float top, float bottom, float right, float left);
 	void ResetBounds();
+	bool operator > (const Mouse* other);
+	
 private:
 };
 

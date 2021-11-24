@@ -19,6 +19,7 @@ void LevelManager::changeLevel(LevelName newLevel)
 {
 	currentLevel->unload();
 	MouseManager::getInstance()->unfreezeAllMice();
+	MouseManager::getInstance()->resetAllLeaders();
 
 	if (reqs[newLevel] > 0)
 	{
@@ -36,6 +37,7 @@ void LevelManager::changeLevel(LevelName newLevel)
 			return;
 		}
 	}
+
 	switch (newLevel)
 	{
 	case LevelName::Juggling:
@@ -56,6 +58,7 @@ void LevelManager::changeLevel(LevelName newLevel)
 	case LevelName::LevelSelect:
 		MouseManager::getInstance()->resetMice();
 		MouseManager::getInstance()->clearTeams();
+		ScoreManager::getInstance()->setLeaders();
 		currentLevel = new LevelSelect();
 		break;
 	case LevelName::Maze:
@@ -64,7 +67,6 @@ void LevelManager::changeLevel(LevelName newLevel)
 	case LevelName::Circus:
 		currentLevel = new CircusLevel();
 		break;
-
 	case LevelName::CurveMatch:
 		currentLevel = new CurveMatch();
 		break;
@@ -73,6 +75,10 @@ void LevelManager::changeLevel(LevelName newLevel)
 		break;
 	case LevelName::ClickRace:
 		currentLevel = new ClickRace();
+		break;
+	case LevelName::LeaderBoard:
+		ScoreManager::getInstance()->setLeaders();
+		currentLevel = new Leaderboard();
 		break;
 	}
 	

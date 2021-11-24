@@ -14,5 +14,6 @@ public:
     void onEnter(PolygonObject* object);
     void onStay();
     void onCollision(PolygonObject* other);
+    Delegate<void, PolygonObject*> onColDel;
 };
 

@@ -14,6 +14,19 @@ void MouseManager::setTeam(vector<Mouse*> m, Color color)
 		
 }
 
+vector<Mouse*> MouseManager::getTeamByColor(Color c)
+{
+	for (vector<Mouse*> m : teams)
+	{
+		if (m.size() > 0)
+		{
+			if (m[0]->color == c)
+				return m;
+		}
+	}
+	return teams[0];
+}
+
 void MouseManager::clearTeams()
 {
 	teams.clear();
@@ -38,6 +51,14 @@ void MouseManager::hideAllActiveMice(bool value )
 	for (int i = 0; i < getActiveMice().size(); i++)
 	{
 		getActiveMice()[i]->drawn = value;
+	}
+}
+
+void MouseManager::resetAllLeaders()
+{
+	for (unsigned int i = 0; i < mice.size(); ++i)
+	{
+		mice[i]->isLeader = false;
 	}
 }
 

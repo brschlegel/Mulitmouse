@@ -229,6 +229,7 @@
     <ClCompile Include="KeyboardFunction.cpp" />
     <ClCompile Include="KinematicCollisionFunctions.cpp" />
     <ClCompile Include="Label.cpp" />
+    <ClCompile Include="Leaderboard.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="LevelButton.cpp" />
     <ClCompile Include="LevelSelect.cpp" />
@@ -254,6 +255,7 @@
     <ClCompile Include="PhysicsWorld.cpp" />
     <ClCompile Include="PolygonObject.cpp" />
     <ClCompile Include="PolygonPhysicsObject.cpp" />
+    <ClCompile Include="ScoreManager.cpp" />
     <ClCompile Include="ShapeManager.cpp" />
     <ClCompile Include="ShapeStorage.cpp" />
     <ClCompile Include="Source.cpp" />
@@ -291,6 +293,7 @@
     <ClInclude Include="JugglingLevel.h" />
     <ClInclude Include="KeyboardFunctions.h" />
     <ClInclude Include="Label.h" />
+    <ClInclude Include="Leaderboard.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="LevelButton.h" />
     <ClInclude Include="LevelSelect.h" />
@@ -314,6 +317,7 @@
     <ClInclude Include="PhysicsWorld.h" />
     <ClInclude Include="PolygonObject.h" />
     <ClInclude Include="PolygonPhysicsObject.h" />
+    <ClInclude Include="ScoreManager.h" />
     <ClInclude Include="ShapeManager.h" />
     <ClInclude Include="ShapeStorage.h" />
     <ClInclude Include="Source.h" />

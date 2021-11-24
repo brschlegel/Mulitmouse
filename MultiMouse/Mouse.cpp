@@ -13,7 +13,7 @@ Mouse::Mouse(Color color, int num) : PolygonObject(0, 0,color,6, Layer::Mice,0)
 	setShapeAsBox(.25f, .25f);
 	active = true;
 	frozen = false;
-
+	score = 0;
 	drawn = true;
 	text = sf::Text();
 	text.setString(std::to_string(num));
@@ -79,10 +79,12 @@ void Mouse::update()
 void Mouse::releasePhysicsSelect()
 {
 	
-	
+	if (physicsSelect != NULL)
+	{
 		physicsSelect->body->SetType(b2_dynamicBody);
 		physicsSelect->selected = nullptr;
 		physicsSelect = nullptr;
+	}
 	
 	
 }
@@ -145,6 +147,37 @@ void Mouse::drawGL()
 		glVertex2f(vertices[i].x, vertices[i].y);
 	}
 	glEnd();
+
+	if (isLeader /*&& ScoreManager::getInstance()->drawCrown*/)
+	{
+		glBegin(GL_TRIANGLES);
+		glColor4f(1, 1, 0, 1);
+		std::vector<b2Vec2> crownVerts;
+		float scale = .5f;
+		b2Vec2 crownOffset = b2Vec2(0, .275f);
+		//In a list bc it helps me change things easier
+		//Drawing this as three triangles bc I cannot figure out the correct order for a polygon 
+		//Right
+		crownVerts.push_back(scale * b2Vec2(-.2, .2) + crownOffset);
+		crownVerts.push_back(scale * b2Vec2(-.2, -.2) + crownOffset);
+		crownVerts.push_back(scale * b2Vec2(0, -.2) + crownOffset);
+		//Middle
+		crownVerts.push_back(scale * b2Vec2(0, .2) + crownOffset);
+		crownVerts.push_back(scale * b2Vec2(-.2, -.2) + crownOffset);
+		crownVerts.push_back(scale * b2Vec2(.2, -.2) + crownOffset);
+		//Left
+		crownVerts.push_back(scale * b2Vec2(.2, .2) + crownOffset);
+		crownVerts.push_back(scale * b2Vec2(.2, -.2) + crownOffset);
+		crownVerts.push_back(scale * b2Vec2(0, -.2) + crownOffset);
+
+
+		for (int i = 0; i < crownVerts.size(); i++)
+		{
+			glVertex2f(crownVerts[i].x, crownVerts[i].y);
+		}
+		glEnd();
+	}
+	
 	glPopMatrix();
 }
 
@@ -160,4 +193,9 @@ void Mouse::ResetBounds()
 {
 	std::copy(std::begin(maxBounds), std::end(maxBounds), std::begin(bounds));
 
+}
+
+bool Mouse::operator>(const Mouse* other)
+{
+	return score > other->score;
 }

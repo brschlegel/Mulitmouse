@@ -160,7 +160,7 @@ void ShapeStorage::deleteObject(int index)
 
 void ShapeStorage::deleteObject(PolygonObject* obj)
 {
-	PolygonPhysicsObject* object = static_cast<PolygonPhysicsObject*>(obj);
+	PolygonPhysicsObject* object = dynamic_cast<PolygonPhysicsObject*>(obj);
 	if (object != nullptr)
 	{
 

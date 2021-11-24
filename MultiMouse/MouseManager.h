@@ -15,10 +15,11 @@ public:
 	vector<Mouse*> mice;
 	vector<vector<Mouse*>> teams;
 	void setTeam(vector<Mouse*> m, Color color);
+	vector<Mouse*> getTeamByColor(Color c);
 	void clearTeams();
 	Mouse* buildMouse(int deviceNum);
 	void hideAllActiveMice(bool value = false);
-
+	void resetAllLeaders();
 	void update();
 	void draw(sf::RenderWindow* window);
 	void resetMice(bool cond = true);

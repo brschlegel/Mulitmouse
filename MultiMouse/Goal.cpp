@@ -20,6 +20,7 @@ Goal::Goal(float x, float y, Color color, float width, float height, int mask, s
 void Goal::onEnter(PolygonObject* object)
 {
 	score++;
+	onColDel.ExecuteIfBound(object);
 }
 
 

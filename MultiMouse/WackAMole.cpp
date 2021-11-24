@@ -2,6 +2,7 @@
 
 int score = 0;
 ClickedMouseGoal* mole;
+Mouse* winner;
 WackAMole::WackAMole()
 {
 	Scene* instructions = new Scene(standardGravity, "Instructions");
@@ -13,7 +14,11 @@ WackAMole::WackAMole()
 	FuncTimer* spawnBoxTimer = new FuncTimer(5, -3, 10, "SpawnBox");
 	spawnBoxTimer->del.BindLambda([main]() {
 		mole = main->shapes->buildClickedMouseGoal(-(rand() % 1600 - 800) / 100.0f, (rand() % 1000 - 500) / 100.0f, 2, 2, Color::getGreen());
-		
+		mole->onClickDel.BindLambda([](Mouse* m)
+			{
+				ScoreManager::getInstance()->incrementScore(m);
+				winner = m;
+			});
 	});
 	main->funcTimers.push_back(spawnBoxTimer);
 	FuncTimer* deleteBoxTimer = new FuncTimer(5,-1, 10 , "DeleteBox");
@@ -39,6 +44,8 @@ void WackAMole::update()
 	{
 		if (mole != nullptr &&  mole->numClicks > 0) {
 			currentScene = scenes["gameOver"];
+			scenes["gameOver"]->ui.labels.erase(scenes["gameOver"]->ui.labels.begin());
+			scenes["gameOver"]->ui.buildLabel("Player #" + winner->text.getString() + " wins!", 0, 0, 30);
 		}
 		
 	}

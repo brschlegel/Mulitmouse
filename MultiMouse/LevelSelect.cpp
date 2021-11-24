@@ -3,11 +3,11 @@
 LevelSelect::LevelSelect()
 {
 	Scene* main = new Scene(standardGravity, "main");
-	LevelButton* dodgeball = main->shapes->buildLevelButton(-3, 4, 1.5f, .5f, Color::getRed(), LevelName::Dodgeball);
+	LevelButton* dodgeball = main->shapes->buildLevelButton(-3, 4, 1.5f, .5f, Color::getBlue(), LevelName::Dodgeball);
 	activationConditions[dodgeball] = 2;
 	main->ui.buildLabelInTrigger("Dodgeball", dodgeball);
 
-	LevelButton* debug = main->shapes->buildLevelButton(-6, 4, 1.5f, .5f, Color::getBlue(), LevelName::DebugLevel);
+	LevelButton* debug = main->shapes->buildLevelButton(-6, 4, 1.5f, .5f, Color::getRed(), LevelName::DebugLevel);
 	activationConditions[debug] = 1;
 	main->ui.buildLabelInTrigger("Playbox", debug);
 
@@ -15,7 +15,7 @@ LevelSelect::LevelSelect()
 	activationConditions[juggling] = 2;
 	main->ui.buildLabelInTrigger("Juggling", juggling);
 
-	LevelButton* pong = main->shapes->buildLevelButton(3, 4, 1.5f, .5f, Color::getGreen(), LevelName::Pong);
+	LevelButton* pong = main->shapes->buildLevelButton(3, 4, 1.5f, .5f, Color::getBlue(), LevelName::Pong);
 	activationConditions[pong] = 2;
 	main->ui.buildLabelInTrigger("Pong", pong);
 	
@@ -23,7 +23,7 @@ LevelSelect::LevelSelect()
 	activationConditions[musical] = 0;
 	Label* musicalLabel = main->ui.buildLabelInTrigger("Non-Musical Chairs", musical, 14);
 
-	LevelButton* maze = main->shapes->buildLevelButton(-6, 3, 1.5f, .5f, Color::getRed(), LevelName::Maze);
+	LevelButton* maze = main->shapes->buildLevelButton(-6, 3, 1.5f, .5f, Color::getBlue(), LevelName::Maze);
 	activationConditions[maze] = 4;
 	main->ui.buildLabelInTrigger("Maze", maze);
 
@@ -32,7 +32,7 @@ LevelSelect::LevelSelect()
 	main->ui.buildLabelInTrigger("Circus", circus);
 
 
-	LevelButton* curveMatch = main->shapes->buildLevelButton(0, 3, 1.5f, .5f, Color::getBlue(), LevelName::CurveMatch);
+	LevelButton* curveMatch = main->shapes->buildLevelButton(0, 3, 1.5f, .5f, Color::getGreen(), LevelName::CurveMatch);
 	activationConditions[curveMatch] = 0;
 	main->ui.buildLabelInTrigger("Curve Match", curveMatch);
 
@@ -46,7 +46,9 @@ LevelSelect::LevelSelect()
 	activationConditions[ClickRace] = 2;
 	main->ui.buildLabelInTrigger("ClickRace", ClickRace);
 
-
+	LevelButton* LeaderBoard = main->shapes->buildLevelButton(0, 0, 1.5f, .5f, Color(255, 189, 9), LevelName::LeaderBoard);
+	activationConditions[LeaderBoard] = 1;
+	main->ui.buildLabelInTrigger("Leaderboard", LeaderBoard);
 
 	main->frameScene();
 	scenes["gameOver"] = main;

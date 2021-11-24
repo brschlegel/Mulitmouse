@@ -8,6 +8,7 @@
 #include "SFML/Window.hpp"
 #include "SFML/OpenGL.hpp"
 #include "FuncTimer.h"
+#include "ScoreManager.h"
 
 
 

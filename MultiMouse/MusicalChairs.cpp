@@ -55,13 +55,12 @@ bool MusicalChairs::checkForNewRound()
 		if (!chairs[i]->checkFull())
 			return false;
 	}
-	cout << "Round Start" << endl;
+	
 	return true;
 }
 
 void MusicalChairs::startRound()
 {
-	cout << "Round " << roundNum << endl;
 	
 	//Deactivate dead mice if not first round
 	if (roundNum > 0)
@@ -71,7 +70,6 @@ void MusicalChairs::startRound()
 		{
 			for (int j = 0; j < chairs[i]->mice.size(); j++)
 			{
-				cout << "reset a mouse active" << endl;
 				chairs[i]->mice[j]->active = true;
 			}
 			scenes["main"]->shapes->deleteObject(chairs[i]);
@@ -122,6 +120,15 @@ void MusicalChairs::update()
 		if (MouseManager::getInstance()->getNumOfActiveMice() <= 1)
 		{
 			currentScene = scenes["gameOver"];
+			scenes["gameOver"]->ui.labels.erase(scenes["gameOver"]->ui.labels.begin());
+			if (MouseManager::getInstance()->getNumOfActiveMice() == 1)
+			{
+				scenes["gameOver"]->ui.buildLabel("Player #" + MouseManager::getInstance()->getActiveMice()[0]->text.getString() + " wins!", 0, 0, 30);
+				ScoreManager::getInstance()->incrementScore(MouseManager::getInstance()->getActiveMice()[0]);
+			}
+			else
+				scenes["gameOver"]->ui.buildLabel("No one wins!", 0, 0, 30);
+			
 			MouseManager::getInstance()->resetMice(true);
 		}
 

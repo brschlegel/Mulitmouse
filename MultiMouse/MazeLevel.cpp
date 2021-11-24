@@ -55,19 +55,21 @@ MazeLevel::MazeLevel()
 void MazeLevel::update()
 {
 	Level::update();
-	if (left->score > 0)
+	if (left->score > 0 && currentScene == scenes["main"])
 	{
 		MouseManager::getInstance()->resetBounds();
 		currentScene = scenes["gameOver"];
 		currentScene->ui.labels.erase(currentScene->ui.labels.begin());
-		currentScene->ui.buildLabel("Left team wins!", 0, 0, 30);
+		currentScene->ui.buildLabel("Red team wins!", 0, 0, 30);
+		ScoreManager::getInstance()->incrementScoreTeam(MouseManager::getInstance()->teams[0]);
 	}
-	else if (right->score > 0)
+	else if (right->score > 0 && currentScene == scenes["main"])
 	{
 		MouseManager::getInstance()->resetBounds();
 		currentScene = scenes["gameOver"];
 		currentScene->ui.labels.erase(currentScene->ui.labels.begin());
-		currentScene->ui.buildLabel("Right team wins!", 0, 0, 30);
+		currentScene->ui.buildLabel("Blue team wins!", 0, 0, 30);
+		ScoreManager::getInstance()->incrementScoreTeam(MouseManager::getInstance()->teams[1]);
 	}
 }
 

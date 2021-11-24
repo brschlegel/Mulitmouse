@@ -22,6 +22,7 @@ void Box::onCollision(PolygonObject* other)
 			body->SetLinearVelocity(b2Vec2_zero);
 			selected = m;
 			m->physicsSelect = this;
+			onSelectDel.ExecuteIfBound(m);
 		}
 	}
 }

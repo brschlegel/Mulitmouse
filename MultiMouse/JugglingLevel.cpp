@@ -10,6 +10,9 @@ JugglingLevel::JugglingLevel()
 	Scene* main = new Scene( standardGravity, "main");
 	//main->world.AddBox(0, 2, 1, Color::getRed(), .5, .5);
 	bottomGoal = main->shapes->buildGoal(0, -5,100,1, Color::getBlue(), "Bottom");
+
+
+
 	main->keyboardFunc = DoNothing;
 	FuncTimer* spawnBoxTimer = new FuncTimer(5,-3, 10, "SpawnBox");
 	spawnBoxTimer->del.BindLambda([main, this]()
@@ -32,6 +35,8 @@ JugglingLevel::JugglingLevel()
 				}
 			}
 		});
+
+
 
 	main->shapes->AddRectBarrier(0, 7, 100, 1);
 	main->shapes->AddRectBarrier(9, 0, 1, 10);

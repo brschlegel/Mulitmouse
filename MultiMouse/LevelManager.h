@@ -16,6 +16,7 @@
 #include "CurveMatch.h"
 #include "WackAMole.h"
 #include "ClickRace.h"
+#include "Leaderboard.h"
 
 
 class LevelManager;

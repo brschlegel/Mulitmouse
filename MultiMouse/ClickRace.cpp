@@ -8,6 +8,10 @@ ClickRace::ClickRace()
 
 	Scene* main = new Scene(standardGravity, "main");
 	goal = main->shapes->buildGoal(0,5,2,2,Color::getGreen());
+	goal->onColDel.BindLambda([](PolygonObject* box)
+		{
+			ScoreManager::getInstance()->incrementScoreTeam(MouseManager::getInstance()->getTeamByColor(box->color));
+		});
 	clickButton = main->shapes->buildClickedMouseGoal(-5,0,1,1,Color::getBlue());
 	clickButton2 = main->shapes->buildClickedMouseGoal(5, 0, 1, 1, Color::getRed());
 	runner = main->shapes->AddBox(-0.5, 0, 1, Color::getBlue(), 1,1);
@@ -32,6 +36,7 @@ void ClickRace::update()
 		if (goal->score > 0)
 		{
 			currentScene = scenes["gameOver"];
+
 			return;
 		}
 		if (clickButton->numClicks > 0) {

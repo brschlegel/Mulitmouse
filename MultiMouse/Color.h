@@ -19,5 +19,10 @@ public:
 		// logic here
 		return this->r < rhs.r;// for example
 	}
+
+	bool operator==(const Color& rhs)
+	{
+		return this->r == rhs.r && this->g == rhs.g && this->b == rhs.b && this->a == rhs.a;
+	}
 };
 
