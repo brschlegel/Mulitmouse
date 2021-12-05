@@ -42,13 +42,16 @@ void CircusLevel::update()
 		goal->mice.clear();
 	}
 
-	if (finish->mice.size() > 0)
+	if (finish->mice.size() > 0 && currentScene == scenes["main"])
 	{
 		currentScene = scenes["gameOver"];
 		for (Mouse* m : finish->mice)
 		{
 			m->frozen = false;
-			
+			ScoreManager::getInstance()->incrementScore(m);
 		}
+		scenes["gameOver"]->ui.labels.erase(scenes["gameOver"]->ui.labels.begin());
+		scenes["gameOver"]->ui.buildLabel("Player #" + finish->mice[0]->text.getString() + " wins!", 0, 0, 30);
+
 	}
 }

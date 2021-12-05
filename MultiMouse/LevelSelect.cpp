@@ -7,9 +7,9 @@ LevelSelect::LevelSelect()
 	activationConditions[dodgeball] = 2;
 	main->ui.buildLabelInTrigger("Dodgeball", dodgeball);
 
-	LevelButton* debug = main->shapes->buildLevelButton(-6, 4, 1.5f, .5f, Color::getRed(), LevelName::DebugLevel);
+	/*LevelButton* debug = main->shapes->buildLevelButton(-6, 4, 1.5f, .5f, Color::getRed(), LevelName::DebugLevel);
 	activationConditions[debug] = 1;
-	main->ui.buildLabelInTrigger("Playbox", debug);
+	main->ui.buildLabelInTrigger("Playbox", debug);*/
 
 	LevelButton* juggling = main->shapes->buildLevelButton(0, 4, 1.5f, .5f, Color::getGreen(), LevelName::Juggling);
 	activationConditions[juggling] = 2;
@@ -46,11 +46,11 @@ LevelSelect::LevelSelect()
 	activationConditions[ClickRace] = 2;
 	main->ui.buildLabelInTrigger("ClickRace", ClickRace);
 
-	LevelButton* BrickBreaker = main->shapes->buildLevelButton(-3, 2, 1.5f, .5f, Color::getBlue(), LevelName::BrickBreaker);
-	activationConditions[BrickBreaker] = 0;
-	main->ui.buildLabelInTrigger("BrickBreaker", BrickBreaker);
+	//LevelButton* BrickBreaker = main->shapes->buildLevelButton(-3, 2, 1.5f, .5f, Color::getBlue(), LevelName::BrickBreaker);
+	//activationConditions[BrickBreaker] = 0;
+	//main->ui.buildLabelInTrigger("BrickBreaker", BrickBreaker);
 
-	LevelButton* BasketBall = main->shapes->buildLevelButton(0, 2, 1.5f, .5f, Color::getBlue(), LevelName::BasketBall);
+	LevelButton* BasketBall = main->shapes->buildLevelButton(-6, 4, 1.5f, .5f, Color::getBlue(), LevelName::BasketBall);
 	activationConditions[BasketBall] = 0;
 	main->ui.buildLabelInTrigger("BasketBall", BasketBall);
 
