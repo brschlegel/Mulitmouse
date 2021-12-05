@@ -3,7 +3,7 @@
 
 AngryBirds::AngryBirds() {
 	Scene* instructions = new Scene(standardGravity, "instructions");
-	instructions->buildInstructionScene("BasketBall", "Put the Ball in the basket", "BasketBall");
+	instructions->buildInstructionScene("BasketBall", "Put the Ball in the basket. Hold A to bring it back", "BasketBall");
 	scenes["instructions"] = instructions;
 
 	Scene* main = new Scene(standardGravity, "main");
