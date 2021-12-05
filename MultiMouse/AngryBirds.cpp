@@ -37,5 +37,7 @@ void AngryBirds::update() {
 }
 
 void AngryBirds::init() {
-	leftCage->AddMouse(MouseManager::getInstance()->getActiveMice()[0]);
+	for (int i = 0; i < MouseManager::getInstance()->getActiveMice().size(); i++) {
+		leftCage->AddMouse(MouseManager::getInstance()->getActiveMice()[i]);
+	}
 }
