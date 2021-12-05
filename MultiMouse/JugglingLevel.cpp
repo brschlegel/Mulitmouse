@@ -60,6 +60,18 @@ void JugglingLevel::update()
 		{
 			currentScene = scenes["gameOver"];
 			currentScene->getLabelByName("losing")->SetString("Congrats, you juggled " + to_string(count - 1) + " boxes!");
+			//highScore Stuff
+			float highscore = ScoreManager::getInstance()->getHighScore("Juggling");
+			if (count - 1 > highscore)
+			{
+				ScoreManager::getInstance()->setHighScore("Juggling", count - 1);
+				currentScene->buildHighScoreMessage(count - 1, true);
+			}
+			else
+			{
+				currentScene->buildHighScoreMessage(highscore, false);
+			}
+			
 		}
 	}
 

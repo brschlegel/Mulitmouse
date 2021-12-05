@@ -112,6 +112,17 @@ void Scene::buildGameOverScene(std::string losingMessage)
 
 }
 
+void Scene::buildHighScoreMessage(float highscore, bool isNewScore)
+{
+	highscore = round(highscore);
+	ui.buildLabel("HighScore: " + to_string(highscore), 0, 1, 40, "MainFont", Color(0, 0, 0, 1), "highscore");
+	if (isNewScore)
+	{
+		ui.buildLabel("NEW HIGHSCORE", 0, 1.5f, 40, "MainFont", Color::getRed(), "congrats");
+	}
+}
+
+
 void Scene::startFuncTimers()
 {
 	//Should functimer and timer both inherit from the same class? yeah probably. Am I gonna do it??? yeah maybe. but not right now

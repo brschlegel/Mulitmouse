@@ -3,6 +3,8 @@
 #include <map>
 #include <vector>
 #include "MouseManager.h"
+#include <fstream>
+#include <sstream>
 using namespace std;
 class ScoreManager;
 class ScoreManager{
@@ -17,5 +19,7 @@ public:
 	void incrementScoreTeam(vector<Mouse*> mice, int amount = 1);
 	bool compareMice(const Mouse* a, const Mouse* b);
 	bool drawCrown = false;
+	float getHighScore(string name);
+	void setHighScore(string name, float value);
 };
 

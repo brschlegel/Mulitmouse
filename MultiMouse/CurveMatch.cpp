@@ -72,6 +72,18 @@ void CurveMatch::update()
 		{
 			scenes["gameOver"]->ui.buildLabel("Score: " + to_string(score), 0, -1, 24);
 			currentScene = scenes["gameOver"];
+			//Handle highscore
+			float highscore = round(ScoreManager::getInstance()->getHighScore("CurveMatch"));
+			if (score > highscore)
+			{
+				//ayyy you made a high score congrats
+				ScoreManager::getInstance()->setHighScore("CurveMatch", score);
+				currentScene->buildHighScoreMessage(score, true);
+			}
+			else
+			{
+				currentScene->buildHighScoreMessage(highscore, false);
+			}
 		}
 	}
 

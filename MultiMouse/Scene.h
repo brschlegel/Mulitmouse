@@ -15,6 +15,7 @@
 #include "Delegate.h"
 #include "Structure.h"
 #include "MouseGoal.h"
+#include "ScoreManager.h"
 
 class CollisionManager;
 class FuncTimer;
@@ -41,6 +42,7 @@ public:
 	MouseAssignmentButton* readyUpButton;
 	void buildInstructionScene(std::string levelName, std::string instructionText, std::string imageName);
 	void buildGameOverScene(std::string losingMessage);
+	void buildHighScoreMessage(float highscore, bool isNewScore);
 	Delegate<void> initDel;
 
 	void startFuncTimers();

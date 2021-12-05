@@ -5,7 +5,7 @@ ScoreManager* ScoreManager::instance;
 
 ScoreManager::ScoreManager()
 {
-	
+
 }
 
 ScoreManager* ScoreManager::getInstance()
@@ -55,5 +55,32 @@ void ScoreManager::incrementScoreTeam(vector<Mouse*> mice, int amount)
 bool ScoreManager::compareMice(const Mouse* a, const Mouse* b)
 {
 	return a->score > b->score;
+}
+
+float ScoreManager::getHighScore(string name)
+{
+	ifstream f("Highscores/" + name + ".txt");
+	//create file if it doesn't exist
+	if (!f.is_open())
+	{
+		ofstream file("Highscores / " + name + ".txt");
+		file.close();
+		return 0;
+	}
+	//yeah its ugly
+	ifstream file("Highscores/" + name + ".txt");
+	string line;
+
+	getline(file, line);
+	file.close();
+	return stof(line);
+}
+
+void ScoreManager::setHighScore(string name, float value)
+{
+	//overwrite file
+	ofstream file("Highscores/" + name + ".txt", std::ios::trunc);
+	file << to_string(value);
+	file.close();
 }
 

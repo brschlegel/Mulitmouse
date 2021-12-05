@@ -50,6 +50,7 @@ void init(void)
 	// initialize the size of the window
 	levelManager = LevelManager::getInstance();
 	UIData::getInstance();
+	ScoreManager::getInstance();
 
 }
 
