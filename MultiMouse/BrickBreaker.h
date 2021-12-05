@@ -19,6 +19,7 @@ public:
 	Box* brick3;
 	Box* brick4;
 	Box* paddle;
+	Box* paddle2;
 	Box* hidden;
 	PongListener listener;
 };

@@ -20,6 +20,10 @@ BrickBreaker::BrickBreaker()
 	paddle->addTag(Tag::Unscorable);
 	paddle->body->SetType(b2_staticBody);
 	paddle->body->SetGravityScale(0);
+	paddle = main->shapes->AddBox(-5, -4, 0, Color::getRed(), 0.5, 2);
+	paddle->addTag(Tag::Unscorable);
+	paddle->body->SetType(b2_staticBody);
+	paddle->body->SetGravityScale(0);
 	hidden = main->shapes->AddBox(0,-3,1,Color::getGreen(),0.2,0.2);
 	hidden->addTag(Tag::Unscorable);
 	hidden->body->SetType(b2_dynamicBody);
@@ -54,6 +58,8 @@ void BrickBreaker::update()
 
 void BrickBreaker::init()
 {
+	for (int i = 0; i < MouseManager::getInstance()->getActiveMice().size(); i++) {
+		bottomCage->AddMouse(MouseManager::getInstance()->getActiveMice()[i]);
+	}
 	
-	bottomCage->AddMouse(MouseManager::getInstance()->getActiveMice()[0]);
 }
