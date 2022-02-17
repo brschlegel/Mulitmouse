@@ -1,6 +1,6 @@
 #pragma once
 
-
+//https://simoncoenen.com/blog/programming/CPP_Delegates
 /*
 DOCUMENTATION
 // CONFIG

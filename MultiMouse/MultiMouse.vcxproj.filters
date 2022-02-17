@@ -147,9 +147,6 @@
     <ClCompile Include="KeyboardFunction.cpp">
       <Filter>Source Files\Levels</Filter>
     </ClCompile>
-    <ClCompile Include="FuncTimerFunctions.cpp">
-      <Filter>Source Files\Levels</Filter>
-    </ClCompile>
     <ClCompile Include="KinematicCollisionFunctions.cpp">
       <Filter>Source Files\Collisions</Filter>
     </ClCompile>
@@ -243,6 +240,12 @@
     <ClCompile Include="AngryBirds.cpp">
       <Filter>Source Files\Levels\LevelClasses</Filter>
     </ClCompile>
+    <ClCompile Include="Leaderboard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ScoreManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Barrier.h">
@@ -319,9 +322,6 @@
     </ClInclude>
     <ClInclude Include="JugglingLevel.h">
       <Filter>Header Files\Levels\LevelClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="FuncTimerFunctions.h">
-      <Filter>Header Files\Levels</Filter>
     </ClInclude>
     <ClInclude Include="PongLevel.h">
       <Filter>Header Files\Levels\LevelClasses</Filter>
@@ -424,6 +424,12 @@
     </ClInclude>
     <ClInclude Include="BrickBreaker.h">
       <Filter>Header Files\Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="Leaderboard.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ScoreManager.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

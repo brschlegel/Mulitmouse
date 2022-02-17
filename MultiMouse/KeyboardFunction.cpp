@@ -1,5 +1,5 @@
 #include "KeyboardFunctions.h"
-
+//Hold Over from when I wasn't using delegates
 void DebugLevelKeyboard(Scene* scene)
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {

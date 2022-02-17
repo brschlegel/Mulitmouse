@@ -1,6 +1,6 @@
 #include "MazeLevel.h"
 
-vector<string> levels = { "First", "Righty" };
+vector<string> levels = { "First", "Righty", "Text", "Basic", "Kan", "Switch"};
 
 MazeLevel::MazeLevel()
 {
@@ -19,8 +19,8 @@ MazeLevel::MazeLevel()
 	
 	//Select Random Level
 
-	int levelID = rand() % levels.size();
-	//int levelID = 1;
+	//int levelID = rand() % levels.size();
+	int levelID = 5;
 	Structure s = Structure("Mazes/" + levels[levelID], .5f);
 	s.buildStructure(main->shapes, b2Vec2(4.5,-.5));
 	s.buildStructure(main->shapes, b2Vec2(-4.5, -.5));

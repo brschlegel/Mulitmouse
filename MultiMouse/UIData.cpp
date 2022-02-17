@@ -33,7 +33,7 @@ UIData::UIData()
     fonts["MainFont"] = font;
     
 
-    std::vector<sf::String> files{"default", "DebugLevel", "Dodgeball","Juggling", "Pong", "Maze","NonMusicalChairs", "Circus", "CurveMatch"};
+    std::vector<sf::String> files{"default", "DebugLevel", "Dodgeball","Juggling", "Pong", "Maze","NonMusicalChairs", "Circus", "CurveMatch", "ClickingRace", "Basketball", "WackAMole"};
     for (int i = 0; i < files.size(); i++)
     {
         sf::Image image;

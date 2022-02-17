@@ -1,5 +1,6 @@
 #include "CircusLevel.h"
 
+vector<string> circusLevels = { "First", "Cross", "Drift", "Fork", "Mid", "Pain"};
 CircusLevel::CircusLevel()
 {
 	Scene* instructions = new Scene(standardGravity, "Instructions");
@@ -8,8 +9,9 @@ CircusLevel::CircusLevel()
 
 	Scene* main = new Scene(standardGravity, "main");
 	startingPosition = b2Vec2(0, -4.75f);
-	
-	Structure s = Structure("CircusMazes/First", .5f);
+	int levelID = rand() % circusLevels.size();
+	//int levelID = 1;
+	Structure s = Structure("CircusMazes/" + circusLevels[levelID], .5f);
 	s.buildStructure(main->shapes, b2Vec2(0, 0));
 	//Adding all the goals to the list
 	for (PolygonObject* obj : s.objects)

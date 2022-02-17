@@ -6,7 +6,7 @@
 #include "MouseCage.h"
 #include "LevelButton.h"
 #include "MouseAssignmentButton.h"
-
+//DEPRECIATED
 
 class LevelManager;
 class CollisionManager

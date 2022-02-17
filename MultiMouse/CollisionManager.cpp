@@ -1,5 +1,6 @@
 #include "CollisionManager.h"
 
+//DEPRECIATED
 CollisionManager::CollisionManager(PhysicsWorld* world)
 {
 	this->world = world;
