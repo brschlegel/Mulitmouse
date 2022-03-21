@@ -4,7 +4,7 @@
 #include "UIManager.h"
 #include "FuncTimer.h"
 #include "KeyboardFunctions.h"
-#include "FuncTimerFunctions.h"
+
 #include <string>
 #define SFML_STATIC
 #include <iostream>
